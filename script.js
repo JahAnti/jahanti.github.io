@@ -49,3 +49,32 @@
     window.addEventListener('hashchange',mark); mark();
   }
 })();
+
+
+// Top players: use the first-ranked entry from each game's standings.
+// These cards deliberately remain empty until actual results are provided.
+(() => {
+  const all = window.JAHANTI_LEADERBOARDS || {};
+  document.querySelectorAll('[data-top-game]').forEach(card => {
+    const key = card.dataset.topGame;
+    const rows = Array.isArray(all[key]) ? all[key] : [];
+    const valid = rows.filter(r => r && typeof r.name === 'string' && r.name.trim());
+    if (!valid.length) return;
+    const numeric = (r, field) => Number.isFinite(Number(r[field])) ? Number(r[field]) : 0;
+    const ranking = [...valid].sort((a,b) => {
+      if (key === 'fc') return numeric(b,'points')-numeric(a,'points') || numeric(b,'goalDifference')-numeric(a,'goalDifference') || numeric(b,'goalsFor')-numeric(a,'goalsFor');
+      if (key === 'domino') return numeric(b,'wins')-numeric(a,'wins') || numeric(a,'losses')-numeric(b,'losses');
+      return numeric(b,'wins')-numeric(a,'wins') || numeric(b,'kills')-numeric(a,'kills') || numeric(b,'assists')-numeric(a,'assists');
+    });
+    const leader = ranking[0];
+    const result = card.querySelector('.top-player-result');
+    if (!result) return;
+    result.replaceChildren();
+    const name = document.createElement('p'); name.className = 'top-name'; name.textContent = leader.name;
+    const stats = document.createElement('span'); stats.className = 'top-stat';
+    if (key === 'fc') stats.textContent = `${numeric(leader,'points')} pts`;
+    else if (key === 'domino') stats.textContent = `${numeric(leader,'wins')} wins · ${numeric(leader,'losses')} losses`;
+    else stats.textContent = `${numeric(leader,'wins')} wins · ${numeric(leader,'kills')} kills · ${numeric(leader,'assists')} assists`;
+    result.append(name,stats);
+  });
+})();

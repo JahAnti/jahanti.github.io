@@ -117,36 +117,30 @@ img, svg, video { max-width: 100%; }
   .hero h1 { font-size: clamp(38px, 10.6vw, 49px); }
 }
 
-/* JAHANTI V6 — HOMEPAGE FIX */
 
-/* Hide the large homepage logo on ALL screens */
-body[data-page="home"] .hero-feature {
-    display: none !important;
-}
-
-/* Remove the two-column layout */
-body[data-page="home"] .hero-grid {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 0 !important;
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-
-/* Allow the text to use the available width */
-body[data-page="home"] .hero-copy {
-    width: 100%;
-    max-width: none;
-}
-
-body[data-page="home"] .hero .lead {
-    max-width: 850px;
-}
-
-/* Smaller spacing on mobile */
-@media (max-width: 768px) {
-    body[data-page="home"] .hero-grid {
-        padding-top: 28px;
-        padding-bottom: 35px;
-    }
-}
+/* JahAnti v7: homepage/navigation refresh — responsive on every screen */
+.nav-shell{gap:20px}
+.nav-socials{display:flex;gap:8px;align-items:center;padding-left:16px;border-left:1px solid #45443e}
+.social-label{font-size:9px;font-weight:800;color:#b5a16d;letter-spacing:1.25px;margin-right:2px}
+.social-icon{display:grid;place-items:center;min-width:37px;height:37px;padding:0 6px;border:1px solid #6b5b33;border-radius:9px;color:#ead4a0;font-size:10px;font-weight:800;letter-spacing:.25px;cursor:default}
+.game-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.game-card,.game-card:nth-child(4),.game-card:nth-child(5){grid-column:auto;min-height:290px;padding:19px 15px}
+.game-bottom h3{font-size:clamp(23px,2.3vw,30px);overflow-wrap:break-word}
+.game-bottom p{font-size:10px;line-height:1.5}
+.game-number{font-size:9px;letter-spacing:1.1px}
+.game-arrow{flex-basis:28px;height:28px;font-size:16px}
+.top-players-section{background:#fff}
+.top-player-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.top-player-card{min-width:0;min-height:245px;border:1px solid #e1dcd1;border-top:4px solid #c39a42;border-radius:12px;padding:18px 15px;display:flex;flex-direction:column;background:linear-gradient(160deg,#fff 70%,#f9f6ed);box-shadow:0 8px 22px #00000008}
+.top-player-card:nth-child(1){border-top-color:#2d7a53}.top-player-card:nth-child(2){border-top-color:#6653c7}.top-player-card:nth-child(3){border-top-color:#697854}.top-player-card:nth-child(4){border-top-color:#d36e35}.top-player-card:nth-child(5){border-top-color:#b99345}
+.top-player-heading{display:flex;justify-content:space-between;align-items:center;color:#8b7653;font-size:19px}
+.top-player-tag{font-size:9px;letter-spacing:1px;font-weight:800}
+.top-player-card h3{font:900 26px/.98 'Barlow Condensed',Impact,sans-serif;letter-spacing:.3px;margin:12px 0 18px}
+.top-player-result{flex:1}.top-empty{font-weight:800;font-size:13px;margin:0 0 3px}.top-player-result small{font-size:11px;color:#77726b;line-height:1.5;display:block}
+.top-player-result .top-name{font:900 27px/1 'Barlow Condensed',Impact,sans-serif;margin:0 0 6px;overflow-wrap:anywhere}
+.top-player-result .top-stat{font-size:12px;color:#776a50}
+.top-player-card>a{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:12px;border-top:1px solid #e8e3d8;font-size:11px;font-weight:800}
+@media(max-width:1200px){.game-grid,.top-player-grid{gap:10px}.game-card,.game-card:nth-child(4),.game-card:nth-child(5){padding:17px 13px}.top-player-card{padding:16px 12px}}
+@media(max-width:1000px){.game-grid,.top-player-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.game-card,.game-card:nth-child(4),.game-card:nth-child(5){min-height:245px}.nav-socials{gap:5px;padding-left:10px}.main-nav{gap:14px}}
+@media(max-width:800px){.game-grid,.top-player-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.main-nav{align-items:stretch}.nav-socials{margin-top:14px;padding:15px 0 0;border-left:0;border-top:1px solid #45443e;justify-content:flex-start;gap:10px}.social-icon{min-width:44px;height:44px}}
+@media(max-width:600px){.game-grid,.top-player-grid{grid-template-columns:1fr;gap:14px}.game-card,.game-card:nth-child(4),.game-card:nth-child(5){min-height:205px;padding:20px}.game-bottom h3{font-size:32px}.top-player-card{min-height:180px;padding:20px}.top-player-card h3{font-size:30px;margin-bottom:12px}.ticker-inner{justify-content:space-around}.ticker-inner i{font-size:12px}}
