@@ -61,3 +61,21 @@ img[src*="jahanti-logo"] {
 header img[src*="jahanti-logo"] {
   border-radius: 10px;
 }
+
+/* JAHANTI — LOGO CORNER FIX */
+
+/* Logo in the navigation bar */
+header img,
+.site-header img,
+.brand img {
+    border-radius: 18px !important;
+    overflow: hidden;
+}
+
+/* Large homepage logo */
+.hero-feature--artwork,
+.hero-feature--artwork img,
+.hero-artwork {
+    border-radius: 24px !important;
+    overflow: hidden;
+}
