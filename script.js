@@ -76,5 +76,9 @@
     else if (key === 'domino') stats.textContent = `${numeric(leader,'wins')} wins · ${numeric(leader,'losses')} losses`;
     else stats.textContent = `${numeric(leader,'wins')} wins · ${numeric(leader,'kills')} kills · ${numeric(leader,'assists')} assists`;
     result.append(name,stats);
+    if (leader.playerId && Array.isArray(window.JAHANTI_PLAYERS)) {
+      const p = window.JAHANTI_PLAYERS.find(item => item.id === leader.playerId && item.slug);
+      if (p) { const a = card.querySelector('a'); if (a) { a.href = `player.html?p=${encodeURIComponent(p.slug)}`; a.textContent = 'View Player Profile ↗'; } }
+    }
   });
 })();

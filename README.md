@@ -1,23 +1,22 @@
-# JahAnti v7 — Homepage and navigation
+# JahAnti v8 — Homepage preview
 
-This version keeps the existing JahAnti v6 design and updates the homepage:
+## What’s included
+- Updated navigation: Home, Games, Leaderboards, Community, TikTok and Instagram (working external links); Facebook is a non-clickable placeholder pending its URL.
+- Hero: a single **Check Our Leaderboards** button, no large homepage logo.
+- Section 01: Top Players; Section 02: Five Games. One Crew. Five cards in one row on large desktops and stacked on phones.
+- Section 03: Meet Our Players — continuous scrolling gallery (pauses on hover/focus or pause button), swipeable on mobile, featuring games, bios, and achievements.
+- `community.html`: searchable directory with game filters. `player.html`: player profile details. Both use the same `players-data.js` file as the homepage gallery.
+- Sample profile cards are clearly labeled **SAMPLE PROFILE**, not real registered players. Leaderboards remain empty until real results arrive.
 
-- Navigation: Home, Games, Leaderboards, and three **non-clickable placeholders** for Instagram, Discord and YouTube. Provide your real social URLs before enabling links.
-- Motto strip: COMPETE / CONNECT / REPRESENT (Repeat removed).
-- Section 01: FIVE GAMES. ONE CREW. Five game cards in **one row on wide desktop screens**, three per row on medium screens, two per row on tablets, and one per row on mobile.
-- Section 02: TOP PLAYERS. Five cards, one per game, with an honest empty state until you record results. Rankings automatically select a leader if rows are supplied in `leaderboards-data.js`.
-- Existing community/about/game pages remain in place and use the same navigation.
+## Uploading to GitHub Pages
+1. BACK UP your current `JahAnti/jahanti.github.io` repository (`Code → Download ZIP`).
+2. Extract `JahAnti-v8-Preview.zip` and upload the *contents* (not the outer folder or zip) directly to the repo root.
+3. Replace existing files with matching names. Confirm `index.html`, `styles.css`, `script.js`, `game.html`, `community.html`, `player.html`, `players.js`, `players-data.js`, `leaderboards-data.js` and `assets/jahanti-logo.png` are in the correct places.
+4. Commit, verify the Pages deployment under Actions, then hard-refresh the site.
+5. Remove any old duplicate version folders later, once the new site is verified.
 
-## Upload
+## Using real players later
+Change `players-data.js` to list real, approved public profiles, each with a permanent private-purpose `id` and stable public-facing `slug`. IDs are never shown on the visible site; because GitHub Pages serves public JavaScript, **IDs are not private secrets**. Actual Google Sheets integration is not implemented in this preview.
 
-Extract the ZIP and upload `index.html`, `game.html`, `styles.css`, `script.js`, `leaderboards-data.js`, `README.md`, and the `assets` folder **to the root of the GitHub Pages repository** `JahAnti/jahanti.github.io`.
-
-Do not upload the outer `JahAnti-v7-Homepage` folder: GitHub Pages serves files in the repository root.
-
-After committing to `main`, check `https://jahanti.github.io/`. Use Ctrl+F5 if cached.
-
-## Connecting real data later
-
-`leaderboards-data.js` intentionally includes empty arrays. For Fortnite, Call of Duty and REDSEC, rows can contain `name`, `wins`, `kills`, `assists`; Domino uses `name`, `wins`, `losses`; FIFA uses `name`, `points`, `goalDifference`, `goalsFor`. The code does not invent player names or scores.
-
-Do not publish private data. When you share the real social URLs, replace the social placeholders with accessible links.
+## Leaderboards
+`leaderboards-data.js` remains empty. Once results are added, Top Players will display them, and if a row provides a matching `playerId`, its card can link directly to that player's profile.
