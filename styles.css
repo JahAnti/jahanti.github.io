@@ -13,3 +13,30 @@
 .hero-feature--artwork{display:block;min-height:0;padding:0;border:0;border-radius:16px;aspect-ratio:1080 / 755;background:#080808;overflow:hidden;box-shadow:0 22px 45px #32230b24}
 .hero-feature--artwork::before,.hero-feature--artwork::after{content:none}
 .hero-feature--artwork .hero-artwork{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+
+/* JahAnti — seamless homepage logo */
+
+.hero-feature.hero-feature--artwork {
+  background: #090909;
+  min-height: 0;
+  height: auto;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  display: block;
+  overflow: hidden;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+}
+
+.hero-feature--artwork::before,
+.hero-feature--artwork::after {
+  display: none;
+}
+
+.hero-feature--artwork .hero-artwork {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: normal;
+}
