@@ -1,3 +1,5 @@
+**Logo update:** This package includes the cropped image supplied by the community owner, saved as `assets/jahanti-logo.png`. Both header and homepage now reference it. Upload the `assets` directory as well as the website files. The filename and path are case-sensitive.
+
 # JahAnti v4 — Brand & Homepage Redesign
 
 **Website:** https://jahanti.github.io/
