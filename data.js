@@ -1,28 +1,39 @@
-/* DEMO DATA — replace all names, games, and scores with your real community data.
-   Later, we can replace this file with a Google Sheets connection.
-   Each result entry: player (matching an id), game (matching an id), wins, losses, points.
+/* JAHANTI DATA — edit here until Google Sheets is connected.
+   All records start empty. Use consistent player IDs in every section.
+   Each shooter row is a player's TOTAL for that game. Do not mix match-level and total rows.
+   Wins are credited according to your community rules. Do not duplicate rows for one player/game.
 */
 window.JAHANTI_DATA = {
   games: [
-    { id: 'fc', name: 'Football / FC', icon: '⚽', subtitle: 'Head-to-head glory', color: '#24d5f0' },
-    { id: 'racing', name: 'Racing', icon: '🏎️', subtitle: 'Fastest takes the crown', color: '#ff63ad' },
-    { id: 'shooter', name: 'Shooter', icon: '🎯', subtitle: 'Precision and rivalry', color: '#a568ff' }
+    {id:'fc', name:'EA Sports FC / FIFA', icon:'⚽', subtitle:'Standings and tournament bracket', color:'#24d5f0'},
+    {id:'fortnite', name:'Fortnite', icon:'🪂', subtitle:'Wins, kills and assists', color:'#a568ff'},
+    {id:'cod', name:'Call of Duty', icon:'🎯', subtitle:'Wins, kills and assists', color:'#ff9d57'},
+    {id:'redsec', name:'Battlefield REDSEC', icon:'🪖', subtitle:'Wins, kills and assists', color:'#ff647c'},
+    {id:'domino', name:'Trupial Domino', icon:'🁫', subtitle:'Wins and losses', color:'#f5cd65'}
   ],
   players: [
-    { id: 'p1', name: 'Player One' },
-    { id: 'p2', name: 'Player Two' },
-    { id: 'p3', name: 'Player Three' },
-    { id: 'p4', name: 'Player Four' }
+    // {id:'player1', name:'Gamer tag'},
+    // {id:'player2', name:'Another gamer'}
   ],
-  results: [
-    { player: 'p1', game: 'fc', wins: 8, losses: 2, points: 24 },
-    { player: 'p2', game: 'fc', wins: 6, losses: 4, points: 18 },
-    { player: 'p3', game: 'fc', wins: 4, losses: 6, points: 12 },
-    { player: 'p4', game: 'fc', wins: 3, losses: 7, points: 9 },
-    { player: 'p2', game: 'racing', wins: 7, losses: 2, points: 21 },
-    { player: 'p4', game: 'racing', wins: 5, losses: 4, points: 15 },
-    { player: 'p1', game: 'shooter', wins: 4, losses: 3, points: 12 },
-    { player: 'p3', game: 'shooter', wins: 6, losses: 2, points: 18 }
+  shooters: [
+    // {player:'player1', game:'fortnite', wins:4, kills:62, assists:18},
+    // {player:'player1', game:'cod', wins:3, kills:75, assists:20},
+    // {player:'player2', game:'redsec', wins:2, kills:34, assists:9}
   ],
-  tournaments: []
+  domino: [
+    // {player:'player1', wins:6, losses:2}
+  ],
+  fifa: {
+    // Standings are calculated from these completed league/group matches.
+    // Do not enter knockout matches here. Draws are allowed in standings.
+    leagueMatches: [
+      // {home:'player1', away:'player2', homeGoals:2, awayGoals:1}
+    ],
+    // Bracket games are displayed by round and in entered order.
+    // Score can be null until played. Set winner player ID for a tied score settled by penalties.
+    // Rounds can be 'Quarterfinals', 'Semifinals', 'Final' or your own names.
+    bracket: [
+      // {round:'Semifinals', home:'player1', away:'player2', homeGoals:null, awayGoals:null, winner:null}
+    ]
+  }
 };

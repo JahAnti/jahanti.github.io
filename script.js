@@ -1,68 +1,20 @@
+'use strict';
 const data = window.JAHANTI_DATA;
-const $ = selector => document.querySelector(selector);
-const findName = id => data.players.find(p => p.id === id)?.name ?? 'Unknown player';
-
-function renderGames() {
-  const grid = $('#game-grid');
-  data.games.forEach(game => {
-    const card = document.createElement('article');
-    card.className = 'game-card';
-    card.style.setProperty('--glow', game.color || '#a568ff');
-    const icon = document.createElement('span'); icon.className = 'icon'; icon.textContent = game.icon;
-    const title = document.createElement('h3'); title.textContent = game.name;
-    const subtitle = document.createElement('small'); subtitle.textContent = game.subtitle;
-    card.append(icon, title, subtitle); grid.appendChild(card);
-  });
-}
-
-function renderLeaderboard(gameId) {
-  const body = $('#leaderboard-body');
-  body.replaceChildren();
-  const standings = data.results.filter(item => gameId === 'all' || item.game === gameId)
-    .reduce((map, item) => {
-      const row = map.get(item.player) || { player: item.player, wins: 0, losses: 0, points: 0 };
-      row.wins += Number(item.wins) || 0;
-      row.losses += Number(item.losses) || 0;
-      row.points += Number(item.points) || 0;
-      map.set(item.player, row);
-      return map;
-    }, new Map());
-  const sorted = [...standings.values()].sort((a, b) => b.points - a.points || b.wins - a.wins || findName(a.player).localeCompare(findName(b.player)));
-  if (!sorted.length) {
-    const row = document.createElement('tr'); const cell = document.createElement('td');
-    cell.colSpan = 5; cell.textContent = 'No results for this game yet.'; row.appendChild(cell); body.appendChild(row); return;
-  }
-  sorted.forEach((entry, index) => {
-    const tr = document.createElement('tr');
-    const addCell = (text, cls) => { const td = document.createElement('td'); td.textContent = String(text); if (cls) td.className = cls; tr.appendChild(td); };
-    addCell(String(index + 1).padStart(2, '0'));
-    addCell(findName(entry.player), 'player-cell');
-    addCell(entry.wins); addCell(entry.losses); addCell(entry.points, 'points');
-    body.appendChild(tr);
-  });
-}
-function initialize() {
-  renderGames();
-  const filter = $('#game-filter');
-  [{ id: 'all', name: 'All games' }, ...data.games].forEach(game => {
-    const option = document.createElement('option'); option.value = game.id; option.textContent = game.name; filter.appendChild(option);
-  });
-  filter.addEventListener('change', () => renderLeaderboard(filter.value));
-  renderLeaderboard('all');
-  $('#total-players').textContent = data.players.length;
-  $('#total-games').textContent = data.games.length;
-  $('#total-matches').textContent = data.results.length; // Number of leaderboard result records, not distinct matches.
-  $('#total-tournaments').textContent = data.tournaments.length;
-  $('#year').textContent = new Date().getFullYear();
-  const playerList = $('#player-list');
-  data.players.forEach((player, index) => {
-    const row = document.createElement('div'); row.className = 'player-row';
-    const name = document.createElement('strong'); name.textContent = player.name;
-    const status = document.createElement('span'); status.textContent = `CREW MEMBER ${String(index + 1).padStart(2, '0')}`;
-    row.append(name, status); playerList.appendChild(row);
-  });
-  const toggle = $('.menu-toggle'); const nav = $('#navigation');
-  toggle.addEventListener('click', () => { const open = nav.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
-  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));
-}
-initialize();
+const $ = s => document.querySelector(s);
+const nameOf = id => data.players.find(p=>p.id===id)?.name || id || 'TBD';
+const toNum = value => Math.max(0, Number(value)||0);
+const td = (tr,value,cls='') => { const c=document.createElement('td');c.textContent=String(value);if(cls)c.className=cls;tr.appendChild(c); };
+const empty = (tbody,span,message) => {const row=document.createElement('tr');const cell=document.createElement('td');cell.colSpan=span;cell.textContent=message;cell.className='empty-state';row.append(cell);tbody.append(row);};
+const renderTable = (body,rows,fields,message) => {body.replaceChildren();if(!rows.length){empty(body,fields.length,message);return;}rows.forEach((r,i)=>{const tr=document.createElement('tr');fields.forEach(f=>td(tr,typeof f==='function'?f(r,i):r[f],f==='name'?'player-cell':''));body.append(tr);});};
+function renderGames(){const grid=$('#game-grid');data.games.forEach(g=>{const card=document.createElement('article');card.className='game-card';card.style.setProperty('--glow',g.color);const icon=document.createElement('span');icon.className='icon';icon.textContent=g.icon;const h=document.createElement('h3');h.textContent=g.name;const sub=document.createElement('small');sub.textContent=g.subtitle;card.append(icon,h,sub);grid.append(card);});}
+function shooterRows(game){const result=new Map();for(const entry of data.shooters){if(game!=='all'&&entry.game!==game)continue;if(!['fortnite','cod','redsec'].includes(entry.game))continue;const r=result.get(entry.player)||{player:entry.player,name:nameOf(entry.player),wins:0,kills:0,assists:0};r.wins+=toNum(entry.wins);r.kills+=toNum(entry.kills);r.assists+=toNum(entry.assists);result.set(entry.player,r);}return [...result.values()].sort((a,b)=>b.wins-a.wins||b.kills-a.kills||b.assists-a.assists||a.name.localeCompare(b.name));}
+function renderShooters(){const game=$('#shooter-filter').value;const rows=shooterRows(game);$('#shooter-heading').textContent=game==='all'?'ALL SHOOTERS — COMBINED':data.games.find(g=>g.id===game)?.name.toUpperCase()||'SHOOTERS';renderTable($('#shooter-body'),rows,[(r,i)=>String(i+1).padStart(2,'0'),'name','wins','kills','assists'],'No shooter results yet. Add results to data.js.');}
+function renderDomino(){const rows=data.domino.map(r=>({name:nameOf(r.player),wins:toNum(r.wins),losses:toNum(r.losses)})).sort((a,b)=>b.wins-a.wins||a.losses-b.losses||a.name.localeCompare(b.name));renderTable($('#domino-body'),rows,[(r,i)=>String(i+1).padStart(2,'0'),'name','wins','losses',r=>{const n=r.wins+r.losses;return n?(100*r.wins/n).toFixed(1)+'%':'—';}], 'No domino results yet. Add wins and losses to data.js.');}
+function fifaStandings(){const records=new Map();function get(id){if(!records.has(id))records.set(id,{id,name:nameOf(id),played:0,wins:0,draws:0,losses:0,gf:0,ga:0,gd:0,points:0});return records.get(id);}
+ for(const m of data.fifa.leagueMatches){if(!m.home||!m.away||m.home===m.away||m.homeGoals==null||m.awayGoals==null)continue;const a=get(m.home),b=get(m.away),hg=toNum(m.homeGoals),ag=toNum(m.awayGoals);a.played++;b.played++;a.gf+=hg;a.ga+=ag;b.gf+=ag;b.ga+=hg;if(hg>ag){a.wins++;b.losses++;a.points+=3;}else if(hg<ag){b.wins++;a.losses++;b.points+=3;}else{a.draws++;b.draws++;a.points++;b.points++;}}
+ return [...records.values()].map(r=>({...r,gd:r.gf-r.ga})).sort((a,b)=>b.points-a.points||b.gd-a.gd||b.gf-a.gf||a.name.localeCompare(b.name));}
+function renderFifa(){renderTable($('#fifa-body'),fifaStandings(),[(r,i)=>String(i+1).padStart(2,'0'),'name','played','wins','draws','losses','gf','ga',r=>r.gd>0?'+'+r.gd:r.gd,'points'],'No FIFA league/group results yet. Add completed matches to data.js.');
+ const root=$('#bracket-root');root.replaceChildren();const games=data.fifa.bracket;if(!games.length){const p=document.createElement('p');p.className='muted';p.textContent='No bracket set up yet. Add round fixtures to data.js to display them here.';root.append(p);return;}const groups=new Map();for(const m of games){const round=m.round||'Round';if(!groups.has(round))groups.set(round,[]);groups.get(round).push(m);}for(const [round,matches] of groups){const col=document.createElement('div');col.className='bracket-round';const h=document.createElement('h3');h.textContent=round;col.append(h);for(const m of matches){const match=document.createElement('div');match.className='bracket-match';for(const [side,goals] of [['home','homeGoals'],['away','awayGoals']]){const line=document.createElement('div');line.className='bracket-team'+(m.winner&&m.winner===m[side]?' winner':'');const n=document.createElement('span');n.textContent=nameOf(m[side]);const score=document.createElement('strong');score.textContent=m[goals]==null?'–':String(m[goals]);line.append(n,score);match.append(line);}col.append(match);}root.append(col);}}
+function renderPlayers(){const root=$('#player-list');if(!data.players.length){const p=document.createElement('p');p.className='muted';p.textContent='Add your real JahAnti players to data.js.';root.append(p);}data.players.forEach((p,i)=>{const row=document.createElement('div');row.className='player-row';const name=document.createElement('strong');name.textContent=p.name;const label=document.createElement('span');label.textContent='CREW MEMBER '+String(i+1).padStart(2,'0');row.append(name,label);root.append(row);});}
+function init(){renderGames();const select=$('#shooter-filter');for(const g of data.games.filter(g=>['fortnite','cod','redsec'].includes(g.id))){const o=document.createElement('option');o.value=g.id;o.textContent=g.name;select.append(o);}select.addEventListener('change',renderShooters);renderShooters();renderDomino();renderFifa();renderPlayers();$('#total-players').textContent=data.players.length;$('#total-games').textContent=data.games.length;$('#total-matches').textContent=data.fifa.leagueMatches.length+data.fifa.bracket.length;$('#total-tournaments').textContent=new Set(data.fifa.bracket.map(m=>m.round)).size?1:0;$('#year').textContent=new Date().getFullYear();const toggle=$('.menu-toggle'),nav=$('#navigation');toggle.addEventListener('click',()=>{const expanded=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(expanded));});nav.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}));}
+init();

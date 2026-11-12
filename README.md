@@ -1,29 +1,33 @@
-# JahAnti — Gaming Community Hub (starter)
+# JahAnti — Gaming Community Hub (v3)
 
-A free static website using HTML, CSS, and JavaScript. Designed for GitHub Pages.
+Live website: https://jahanti.github.io
+Repository: https://github.com/JahAnti/jahanti.github.io
 
-## Publish on GitHub Pages
+## Included
+- Separate Fortnite, Call of Duty, Battlefield REDSEC shooter leaderboards
+- Combined shooter leaderboard aggregating wins, kills and assists across the 3 games
+- Trupial Domino wins/losses leaderboard with calculated win percentage
+- FIFA league/group standings calculated from match scores (3 points/win, 1/draw)
+- FIFA knockout bracket displaying rounds, fixtures, scores and manually identified winners
+- Community member list, homepage, and game cards
 
-1. Sign into GitHub as **Royalregi007**.
-2. Create a new **public** repository named `jahanti` (you can create it empty).
-3. Open that repository → **Add file** → **Upload files**.
-4. Upload the **contents** of this folder directly to the repository root (not a folder containing them). Commit changes to `main`.
-5. Open **Settings** → **Pages** → **Build and deployment** → Source: **Deploy from a branch** → Branch: `main` → Folder: `/(root)` → **Save**.
-6. Your site should appear at `https://royalregi007.github.io/jahanti/` after deployment. The repository owner must match the account. It may take several minutes.
+## Edit `data.js` to add real data
 
-## Update the website
+1. Add a record for each member under `players`, each with a unique ID and gamertag.
+2. Add ONE TOTAL record per player per shooter game under `shooters`, with `player`, `game`, `wins`, `kills`, `assists`. Valid shooter game IDs are `fortnite`, `cod`, `redsec`.
+3. Add domino totals under `domino` with `player`, `wins`, `losses`.
+4. Add completed FIFA group/league games under `fifa.leagueMatches`, with `home`, `away`, `homeGoals`, `awayGoals`. FIFA standings calculate automatically.
+5. Enter FIFA bracket rounds/games under `fifa.bracket`: `round`, `home`, `away`, `homeGoals`, `awayGoals`, `winner`. Scores may be `null` for unplayed fixtures. If tied and settled with penalties, set `winner` to the winning player ID. Advancing teams are currently entered manually.
 
-- `index.html` — layout and text
-- `styles.css` — colors, typography, mobile layout
-- `data.js` — game names, players, sample standings, tournaments (edit this first)
-- `script.js` — sorting, leaderboard logic, rendering and menu
+No fictional player scores are included. There is no spreadsheet sync or score-submission system yet.
 
-**All names, scores, and games are fictional placeholders.** Replace them with your own; do not publish private information.
+## Publish an update
 
-## Data limitations in this prototype
+Extract the ZIP, then upload its **five files**, not the ZIP itself, directly to your public `JahAnti/jahanti.github.io` GitHub repository using **Add file → Upload files**. GitHub will replace same-named files after committing. GitHub Pages will update at https://jahanti.github.io.
 
-This is a *working visual prototype*, not yet a full tracking system. The player records and points are manually entered aggregate values. Total matches is a rough example metric computed from wins; for reliable match history, tournaments, and automated per-game standings we will later introduce a real match log and proper scoring rules. Cross-game points are added together only for demo purposes and may not be meaningful until a community-wide scoring model is defined.
+## Ranking rules
+- Shooters: highest wins, then kills, then assists (no normalized cross-game scoring).
+- Domino: highest wins, then fewest losses.
+- FIFA: points, goal difference, goals scored.
 
-## Later: Google Sheets
-
-We can connect a read-only public/published spreadsheet to the website so you update scores in Sheets instead of editing `data.js`. Never publish private contact information or secret keys.
+These initial rankings can be customized later.
