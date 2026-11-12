@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d18">
+  <meta name="description" content="JahAnti — our home for gaming leaderboards, tournaments, and community records.">
+  <title>JahAnti | Gaming Community</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="#home" class="brand"><span class="brand-mark">J<span>A</span></span><span>JAH<span class="accent">ANTI</span><small>THE GAMING COMMUNITY</small></span></a>
+    <button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false">☰ <span class="sr-only">Toggle menu</span></button>
+    <nav id="navigation" aria-label="Main navigation"><a href="#home">Home</a><a href="#games">Games</a><a href="#leaderboard">Leaderboards</a><a href="#tournaments">Tournaments</a><a href="#players">Players</a></nav>
+  </header>
+  <main>
+    <section class="hero wrap" id="home">
+      <div class="hero-copy"><div class="eyebrow"><span class="live-dot"></span> YOUR CREW. YOUR COMPETITION.</div><h1>PLAY HARD.<br><span>CLAIM THE TOP.</span></h1><p>Welcome to <strong>JahAnti</strong>, the home of our gaming rivalries. Track the scores, chase the crown, and write your name into community history.</p><div class="actions"><a class="button primary" href="#leaderboard">View leaderboards <span aria-hidden="true">↗</span></a><a class="button secondary" href="#games">Explore games</a></div></div>
+      <div class="hero-card"><span class="card-overline">COMMUNITY HQ</span><div class="hero-emblem">JA</div><div class="hero-card-bottom"><strong>JAHANTI</strong><span>EST. BY THE CREW</span></div></div>
+    </section>
+    <section class="stats wrap" aria-label="Community statistics"><div><span id="total-players">0</span><small>PLAYERS</small></div><div><span id="total-games">0</span><small>GAMES</small></div><div><span id="total-matches">0</span><small>RESULT RECORDS</small></div><div><span id="total-tournaments">0</span><small>TOURNAMENTS</small></div></section>
+    <section class="section wrap" id="games"><div class="section-head"><div><p class="kicker">THE ARENA</p><h2>Our <span>games</span></h2></div><p>Every title, one community. Choose your battleground.</p></div><div class="game-grid" id="game-grid"></div></section>
+    <section class="section wrap" id="leaderboard"><div class="section-head"><div><p class="kicker">THE RANKINGS</p><h2>Top <span>players</span></h2></div><p>Sample statistics for the starter website. Replace them with real results.</p></div><div class="panel"><div class="panel-bar"><span class="panel-heading">LEADERBOARD</span><label for="game-filter">GAME <select id="game-filter"></select></label></div><div class="table-scroll"><table><thead><tr><th>RANK</th><th>PLAYER</th><th>WINS</th><th>LOSSES</th><th>POINTS</th></tr></thead><tbody id="leaderboard-body"></tbody></table></div><p class="panel-note">Demo data only — edit <code>data.js</code> to add your crew's real results.</p></div></section>
+    <section class="section wrap two-up" id="tournaments"><div><p class="kicker">NEXT UP</p><h2>Tournaments <span>& events</span></h2><p class="muted">Organize competitions and share results with your crew.</p><div class="event-panel"><span class="event-label">COMING SOON</span><h3>First JahAnti Tournament</h3><p>Your tournament announcements will go here once dates and formats are decided.</p><span class="event-icon" aria-hidden="true">✦</span></div></div><div id="players"><p class="kicker">THE COMMUNITY</p><h2>Meet the <span>crew</span></h2><p class="muted">A home for everyone competing for the top spot.</p><div class="player-panel" id="player-list"></div></div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><div><strong>JAH<span class="accent">ANTI</span></strong><small>Built for the crew. Fueled by competition.</small></div><span>© <span id="year"></span> JahAnti Gaming Community</span></div></footer>
+</body>
+</html>
