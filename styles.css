@@ -116,3 +116,37 @@ img, svg, video { max-width: 100%; }
 @media (max-width: 380px) {
   .hero h1 { font-size: clamp(38px, 10.6vw, 49px); }
 }
+
+/* JAHANTI V6 — HOMEPAGE FIX */
+
+/* Hide the large homepage logo on ALL screens */
+body[data-page="home"] .hero-feature {
+    display: none !important;
+}
+
+/* Remove the two-column layout */
+body[data-page="home"] .hero-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0 !important;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* Allow the text to use the available width */
+body[data-page="home"] .hero-copy {
+    width: 100%;
+    max-width: none;
+}
+
+body[data-page="home"] .hero .lead {
+    max-width: 850px;
+}
+
+/* Smaller spacing on mobile */
+@media (max-width: 768px) {
+    body[data-page="home"] .hero-grid {
+        padding-top: 28px;
+        padding-bottom: 35px;
+    }
+}
