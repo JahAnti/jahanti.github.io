@@ -14,68 +14,85 @@
 .hero-feature--artwork::before,.hero-feature--artwork::after{content:none}
 .hero-feature--artwork .hero-artwork{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
 
-/* JahAnti — seamless homepage logo */
 
-.hero-feature.hero-feature--artwork {
-  background: #090909;
-  min-height: 0;
-  height: auto;
-  padding: 0;
-  border: none;
-  border-radius: 12px;
-  display: block;
-  overflow: hidden;
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+/* ===========================================================
+   JAHANTI MOBILE-FIRST ENHANCEMENTS — v5
+   Keep this responsive layer when making future site changes.
+   =========================================================== */
+html { scroll-padding-top: 95px; }
+body { min-width: 320px; }
+img, svg, video { max-width: 100%; }
+:where(.hero-grid,.community-grid,.highlight-grid,.about-inner,.nav-shell,.arena-panel-grid) > * { min-width: 0; }
+:where(.btn,.nav-toggle,.main-nav a,.game-card,.footer-links a) { -webkit-tap-highlight-color: transparent; }
+:where(a, button):focus-visible { outline: 3px solid #bf942c; outline-offset: 4px; }
+.brand-logo { border-radius: 12px; object-fit: cover; overflow: hidden; }
+.brand { min-width: 0; }
+.brand > span { min-width: 0; }
+.hero-feature--artwork { width: 100%; }
+.hero-feature--artwork .hero-artwork { width: 100%; height: 100%; object-fit: cover; }
+.game-card { touch-action: manipulation; }
+
+@media (max-width: 900px) {
+  .nav-shell { gap: 12px; }
+  .header-tag { display: none; }
 }
-
-.hero-feature--artwork::before,
-.hero-feature--artwork::after {
-  display: none;
+@media (max-width: 800px) {
+  .site-header { position: sticky; top: 0; }
+  .nav-shell { min-height: 70px; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; min-width: 46px; min-height: 46px; cursor: pointer; }
+  .main-nav { top: 100%; max-height: calc(100dvh - 70px); overflow-y: auto; box-shadow: 0 14px 22px #0003; }
+  .main-nav a { display: flex; align-items: center; min-height: 48px; padding: 13px 6px; }
+  .hero-grid { gap: 28px; }
+  .hero-feature--artwork { aspect-ratio: 1080 / 755; }
+  .section { scroll-margin-top: 80px; }
+  .game-hero-content { margin-top: 55px; }
+  .game-hero-symbol { pointer-events: none; }
 }
-
-.hero-feature--artwork .hero-artwork {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  mix-blend-mode: normal;
+@media (max-width: 600px) {
+  .container { width: calc(100% - 32px); }
+  .brand-logo { width: 56px; height: 44px; border-radius: 10px; }
+  .brand { gap: 8px; }
+  .brand strong { font-size: 20px; letter-spacing: 1px; }
+  .brand small { font-size: 6.5px; letter-spacing: 1px; line-height: 1.35; }
+  .nav-shell { min-height: 68px; }
+  .main-nav { padding: 10px 16px 22px; }
+  .hero-grid { padding-top: 37px; padding-bottom: 45px; }
+  .hero h1 { font-size: clamp(47px, 12.2vw, 67px); letter-spacing: -0.8px; line-height: .99; overflow-wrap: normal; }
+  .micro-title { letter-spacing: 2px; }
+  .hero .lead { font-size: 15px; line-height: 1.65; }
+  .hero-actions { gap: 10px; }
+  .hero-actions .btn { flex: 1 1 auto; min-width: 148px; }
+  .hero-feature--artwork { border-radius: 18px; }
+  .section { padding: 58px 0; }
+  .section-heading h2,.community-grid h2 { font-size: clamp(40px, 10vw, 58px); }
+  .game-grid { gap: 14px; }
+  .game-card, .game-card:nth-child(4), .game-card:nth-child(5) { min-height: 215px; }
+  .game-bottom h3 { font-size: clamp(26px, 8vw, 35px); }
+  .highlight-stack { gap: 14px; }
+  .highlight-card { padding: 22px; }
+  .highlight-dark { min-height: 320px; }
+  .community-grid { gap: 28px; }
+  .community-visual { height: 250px; }
+  .about-band { padding: 52px 0; }
+  .footer-top { padding: 36px 0 22px; }
+  .footer-links { row-gap: 14px; }
+  .game-hero { min-height: 0; padding: 34px 0 56px; }
+  .game-hero-content { margin-top: 52px; }
+  .game-hero h1 { font-size: clamp(46px, 12vw, 72px); overflow-wrap: anywhere; }
+  .game-hero p { font-size: 15px; }
+  .game-hero-symbol { font-size: 130px; right: -10px; top: 27%; }
+  .arena-panel { padding: 23px; min-height: 0; }
+  .arena-note { padding: 22px; }
 }
-
-/* JahAnti — Rounded logo corners */
-
-/* All official JahAnti logo images */
-img[src*="jahanti-logo"] {
-  border-radius: 14px;
-  display: block;
+@media (max-width: 380px) {
+  .brand-logo { width: 46px; height: 39px; }
+  .brand strong { font-size: 18px; }
+  .brand small { font-size: 5.7px; }
+  .hero h1 { font-size: clamp(43px, 12vw, 52px); }
+  .eyebrow { font-size: 9px; letter-spacing: 1.6px; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; }
+  .game-card { padding: 20px; }
 }
-
-/* Large homepage logo */
-.hero-feature--artwork,
-.hero-feature--artwork .hero-artwork {
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-/* Small navigation logo */
-.site-header img[src*="jahanti-logo"],
-header img[src*="jahanti-logo"] {
-  border-radius: 10px;
-}
-
-/* JAHANTI — LOGO CORNER FIX */
-
-/* Logo in the navigation bar */
-header img,
-.site-header img,
-.brand img {
-    border-radius: 18px !important;
-    overflow: hidden;
-}
-
-/* Large homepage logo */
-.hero-feature--artwork,
-.hero-feature--artwork img,
-.hero-artwork {
-    border-radius: 24px !important;
-    overflow: hidden;
-}
+@media (hover: none) { .game-card:hover, .btn:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

@@ -7,6 +7,21 @@
     toggle.setAttribute('aria-expanded', String(isOpen));
     toggle.textContent = isOpen ? '✕' : '☰';
   });
+  // Support keyboard dismissal and close a mobile menu after resizing.
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && nav?.classList.contains('open')) {
+      nav.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      if (toggle) { toggle.textContent = '☰'; toggle.focus(); }
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 800 && nav?.classList.contains('open')) {
+      nav.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      if (toggle) toggle.textContent = '☰';
+    }
+  });
   nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
     nav.classList.remove('open');
     toggle?.setAttribute('aria-expanded', 'false');
