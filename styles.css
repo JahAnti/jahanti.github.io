@@ -40,3 +40,24 @@
   object-fit: contain;
   mix-blend-mode: normal;
 }
+
+/* JahAnti — Rounded logo corners */
+
+/* All official JahAnti logo images */
+img[src*="jahanti-logo"] {
+  border-radius: 14px;
+  display: block;
+}
+
+/* Large homepage logo */
+.hero-feature--artwork,
+.hero-feature--artwork .hero-artwork {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Small navigation logo */
+.site-header img[src*="jahanti-logo"],
+header img[src*="jahanti-logo"] {
+  border-radius: 10px;
+}
