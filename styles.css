@@ -8,3 +8,8 @@
 .hero-logo-wrap img{mix-blend-mode:normal;width:min(100%,420px);height:auto;object-fit:contain}
 .footer-brand img{mix-blend-mode:normal;width:155px;height:auto;object-fit:contain}
 @media(max-width:650px){.brand-logo{width:55px;height:42px}}
+
+/* Seamless official artwork: show the original design as the complete hero panel. */
+.hero-feature--artwork{display:block;min-height:0;padding:0;border:0;border-radius:16px;aspect-ratio:1080 / 755;background:#080808;overflow:hidden;box-shadow:0 22px 45px #32230b24}
+.hero-feature--artwork::before,.hero-feature--artwork::after{content:none}
+.hero-feature--artwork .hero-artwork{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
