@@ -1,33 +1,41 @@
-# JahAnti — Gaming Community Hub (v3)
+# JahAnti v4 — Brand & Homepage Redesign
 
-Live website: https://jahanti.github.io
-Repository: https://github.com/JahAnti/jahanti.github.io
+**Website:** https://jahanti.github.io/
+**Repository:** https://github.com/JahAnti/jahanti.github.io
 
-## Included
-- Separate Fortnite, Call of Duty, Battlefield REDSEC shooter leaderboards
-- Combined shooter leaderboard aggregating wins, kills and assists across the 3 games
-- Trupial Domino wins/losses leaderboard with calculated win percentage
-- FIFA league/group standings calculated from match scores (3 points/win, 1/draw)
-- FIFA knockout bracket displaying rounds, fixtures, scores and manually identified winners
-- Community member list, homepage, and game cards
+A lightweight, free GitHub Pages website for JahAnti Gaming Community Antiano.
 
-## Edit `data.js` to add real data
+## What's new
+- Your real gold-and-black JahAnti logo is used in the homepage and footer.
+- Brighter cream/light-sand homepage, dark charcoal header and gold accents.
+- Consistent main navigation: Home, Games, Tournaments, Community, About.
+- All five game cards lead to functioning game-specific pages (no fake scores).
+- Individual game pages have distinct accent themes, while keeping the JahAnti navigation and layout.
+- Mobile-friendly navigation.
+- Leaderboards and statistics are intentionally not shown yet.
 
-1. Add a record for each member under `players`, each with a unique ID and gamertag.
-2. Add ONE TOTAL record per player per shooter game under `shooters`, with `player`, `game`, `wins`, `kills`, `assists`. Valid shooter game IDs are `fortnite`, `cod`, `redsec`.
-3. Add domino totals under `domino` with `player`, `wins`, `losses`.
-4. Add completed FIFA group/league games under `fifa.leagueMatches`, with `home`, `away`, `homeGoals`, `awayGoals`. FIFA standings calculate automatically.
-5. Enter FIFA bracket rounds/games under `fifa.bracket`: `round`, `home`, `away`, `homeGoals`, `awayGoals`, `winner`. Scores may be `null` for unplayed fixtures. If tied and settled with penalties, set `winner` to the winning player ID. Advancing teams are currently entered manually.
+## Update your GitHub site
+1. Extract the ZIP on your computer.
+2. Open https://github.com/JahAnti/jahanti.github.io
+3. Click **Add file → Upload files**.
+4. Upload **index.html**, **game.html**, **styles.css**, **script.js**, **README.md**, and the **assets** folder containing **jahanti-logo.png**. (Upload the contents of the ZIP, not the ZIP itself.)
+5. If GitHub asks whether to replace existing files, confirm and commit to `main`.
+6. The old `data.js` file can stay in the repo unused. You can delete it later. This version doesn't load it.
+7. Visit https://jahanti.github.io/ and hard-refresh if the previous styles remain cached.
 
-No fictional player scores are included. There is no spreadsheet sync or score-submission system yet.
+## Files
+- `index.html`: community homepage and navigation
+- `game.html`: reusable game page; e.g. `game.html?game=fc`
+- `styles.css`: site colors, layout and individual game themes
+- `script.js`: responsive navigation and content for each game page
+- `assets/jahanti-logo.png`: user-provided JahAnti logo
 
-## Publish an update
+## Game page URLs
+- EA Sports FC: `/game.html?game=fc`
+- Fortnite: `/game.html?game=fortnite`
+- Call of Duty: `/game.html?game=cod`
+- Battlefield REDSEC: `/game.html?game=redsec`
+- Trupial Domino: `/game.html?game=domino`
 
-Extract the ZIP, then upload its **five files**, not the ZIP itself, directly to your public `JahAnti/jahanti.github.io` GitHub repository using **Add file → Upload files**. GitHub will replace same-named files after committing. GitHub Pages will update at https://jahanti.github.io.
-
-## Ranking rules
-- Shooters: highest wins, then kills, then assists (no normalized cross-game scoring).
-- Domino: highest wins, then fewest losses.
-- FIFA: points, goal difference, goals scored.
-
-These initial rankings can be customized later.
+## Important
+This is a visual redesign, not a scoring system. Existing leaderboard UI from v3 is intentionally absent from v4, but your existing `data.js` can be retained for later development. Website remains static and needs no paid hosting service. Google Fonts are loaded from an external service; a system-font fallback is provided.
