@@ -1190,3 +1190,24 @@ body[data-game="shooters"] .arena-hero{background-image:url("assets/game-heroes/
 @media(max-width:1000px){.rankings-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rankings-section-head{gap:20px}}
 @media(max-width:680px){.rankings-intro{padding:56px 0 43px}.rankings-intro h1{font-size:clamp(56px,14vw,83px)}.rankings-section,.rank-detail-section{padding:45px 0 66px}.rankings-section-head{display:block}.rankings-section-head>p{margin-top:15px}.rankings-section-head h2{font-size:48px}.rankings-card-grid{grid-template-columns:1fr}.rank-card-header{min-height:104px}.rank-card-header h3{font-size:29px}.arena-hero{min-height:390px;background-position:center}.arena-hero-inner{width:calc(100% - 32px);padding-top:22px;padding-bottom:46px}.arena-hero-copy{margin-top:75px}.arena-hero h1{font-size:clamp(58px,14vw,88px);overflow-wrap:anywhere}.arena-hero p{font-size:14px}.ranking-controls{padding:19px 15px}.rank-control-top h3{font-size:25px}.period-tabs button{padding:12px 7px;font-size:11px}.period-navigation{gap:8px}.period-navigation>strong{flex:1;min-width:130px}.period-picker{width:100%;justify-content:center;margin:3px 0 0}.rankings-table th,.rankings-table td{padding:12px 9px;font-size:11px}.rankings-table .hide-mobile{display:none}.rankings-table .player-cell .rank-mini-player{font-size:11px}.rankings-table .rank-avatar{width:26px;height:26px}.rankings-table{min-width:0}}
 @media(max-width:360px){.rankings-table th,.rankings-table td{padding:11px 6px}.rankings-table .rank-mini-player{gap:5px}.arena-hero h1{font-size:53px}}
+
+/* JahAnti v11 — shared real-avatar / placeholder image styling. */
+img.player-avatar,img.profile-avatar,img.rank-avatar,img.top-player-avatar{display:block;object-fit:cover;object-position:center;overflow:hidden}
+img.player-avatar{width:74px;height:74px;flex:none;border-radius:50%;border:2px solid #c09b57;background:#191919}
+img.profile-avatar{width:120px;height:120px;flex:none;border-radius:16px;border:2px solid #c09b57;background:#191919}
+img.rank-avatar{width:29px;height:29px;border-radius:50%;border:1px solid #c09b57;background:#191919}
+.top-player-identity{display:flex;align-items:center;gap:9px;min-width:0}
+.top-player-identity .top-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.top-player-avatar{width:37px;height:37px;border-radius:50%;border:2px solid #b99656;flex:none;background:#191919}
+.achievement-art{display:block;width:100%;height:100%;object-fit:contain}
+.profile-handles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.profile-handle{background:#f8f4eb;border:1px solid #ece0c8;border-radius:9px;padding:12px;display:flex;flex-direction:column;gap:4px;font-size:12px;overflow-wrap:anywhere}
+.profile-handle strong{font-size:11px;text-transform:uppercase;color:#916b2d}
+.profile-statistics{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.profile-stat-link{display:flex;flex-direction:column;gap:7px;background:#f9f5ec;border:1px solid #e9dfcd;padding:15px;border-radius:9px;text-decoration:none;color:#24211e;font-size:12px}
+.profile-stat-link strong{font-size:15px}
+.profile-stat-link span{color:#85692c}
+.profile-stat-link:hover{border-color:#bd9653;background:#fcf5e5}
+.achievement-badge{display:inline-flex;align-items:center;gap:6px}
+.achievement-badge .achievement-icon{display:inline-grid;flex:none;width:28px;height:28px;font-size:16px}
+@media(max-width:680px){.profile-statistics{grid-template-columns:1fr}.top-player-avatar{width:32px;height:32px}}

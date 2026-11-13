@@ -70,12 +70,10 @@
   function el(tag, cls, label) { const n=document.createElement(tag);if(cls)n.className=cls;if(label!==undefined)n.textContent=String(label);return n; }
   function playerFor(r) { return (publicData?.players||[]).find(p=>p.id===r.playerId || p.name===r.name); }
   function avatarFor(r) {
-    const p=playerFor(r), initials=(p?.avatar || (r.name||'?').split(/\s+/).map(x=>x[0]).join('').slice(0,2)).toUpperCase();
-    const fallback=()=>el('span','rank-avatar',initials);
-    if(!p?.avatarUrl || !/^assets\/players\/[a-z0-9_.-]+\.(webp|png|jpe?g)$/i.test(p.avatarUrl))return fallback();
-    const img=el('img','rank-avatar');img.src=p.avatarUrl;img.alt='';img.loading='lazy';
-    img.addEventListener('error',()=>img.replaceWith(fallback()),{once:true});return img;
+    const p=playerFor(r) || {name:r.name||'JahAnti player'};
+    return window.JAHANTI_AVATAR?.create(p,'rank-avatar') || el('span','rank-avatar',(r.name||'JA').slice(0,2).toUpperCase());
   }
+
   function nameFor(r) {
     const item=el('span','rank-mini-player');item.append(avatarFor(r));
     const p=playerFor(r),text=el('span','name',r.name||'JahAnti Player');

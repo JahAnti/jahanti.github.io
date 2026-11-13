@@ -72,10 +72,14 @@
     result.replaceChildren();
     const name = document.createElement('p'); name.className = 'top-name'; name.textContent = leader.name;
     const stats = document.createElement('span'); stats.className = 'top-stat';
-    if (key === 'fc') stats.textContent = `${numeric(leader,'points')} pts`;
+    if (key === 'fc') stats.textContent = `${numeric(leader,'wins')} wins · ${numeric(leader,'goalDifference')} GD`;
     else if (key === 'domino') stats.textContent = `${numeric(leader,'wins')} wins · ${numeric(leader,'losses')} losses`;
     else stats.textContent = `${numeric(leader,'wins')} wins · ${numeric(leader,'kills')} kills · ${numeric(leader,'assists')} assists`;
-    result.append(name,stats);
+    const player = (window.JAHANTI_PLAYERS||[]).find(item => item.id===leader.playerId);
+    if (player && window.JAHANTI_AVATAR) {
+      const identity=document.createElement('div');identity.className='top-player-identity';
+      identity.append(window.JAHANTI_AVATAR.create(player,'top-player-avatar'),name);result.append(identity,stats);
+    } else result.append(name,stats);
     if (leader.playerId && Array.isArray(window.JAHANTI_PLAYERS)) {
       const p = window.JAHANTI_PLAYERS.find(item => item.id === leader.playerId && item.slug);
       if (p) { const a = card.querySelector('a'); if (a) { a.href = `player.html?p=${encodeURIComponent(p.slug)}`; a.textContent = 'View Player Profile ↗'; } }
