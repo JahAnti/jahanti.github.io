@@ -45,7 +45,7 @@
     set('game-tag',g.tag); set('game-title',g.title); set('game-description',g.desc); set('game-symbol',g.symbol); set('overview-text',g.overview); set('competition-text',g.competition);
   } else {
     const links = Array.from(nav?.querySelectorAll('a[data-nav]') || []);
-    const mark = () => { const hash = (location.hash || '#home').slice(1); links.forEach(l => l.classList.toggle('active', l.dataset.nav === hash)); };
+    const mark = () => { const hash = (location.hash || '#home').slice(1); const page = document.body.dataset.page; links.forEach(l => l.classList.toggle('active', l.dataset.nav === (page === 'rankings-overview' || page === 'ranking-game' ? 'leaderboards' : hash))); };
     window.addEventListener('hashchange',mark); mark();
   }
 })();

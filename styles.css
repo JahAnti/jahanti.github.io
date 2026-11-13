@@ -1100,3 +1100,93 @@ a:focus-visible, button:focus-visible, .player-gallery-viewport:focus-visible { 
   .section-heading h2 { margin-top: 8px; }
   .footer-back-top { align-self:flex-start; }
 }
+
+
+/* JahAnti v10: overview leaderboards and illustrated game arenas. V9 homepage styles preserved. */
+body[data-page="rankings-overview"],body[data-page="ranking-game"]{background:#f8f6f1}
+.rankings-intro{background:#191919;color:white;padding:90px 0 62px;position:relative;overflow:hidden}
+.rankings-intro:after{content:"";position:absolute;right:-120px;top:-140px;width:500px;height:500px;border:1px solid #c8a76533;transform:rotate(35deg);pointer-events:none}
+.rankings-intro .eyebrow{color:#dcba71}
+.rankings-intro h1{font:900 clamp(65px,8.5vw,132px)/.96 "Barlow Condensed",Impact,sans-serif;letter-spacing:-1.3px;margin:18px 0 16px}
+.rankings-intro h1 em{color:#d5ad5d;font-style:normal}
+.rankings-intro p{color:#d1cec6;max-width:560px;font-size:16px;margin:0}
+.rankings-intro-meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;font-size:10px;font-weight:800;color:#f1d594;letter-spacing:1.7px}
+.rankings-intro-meta span{border:1px solid #a5854a99;padding:8px 12px;border-radius:2px}
+.rankings-section,.rank-detail-section{background:#faf9f5;padding:64px 0 92px}
+.rankings-section-head{display:flex;gap:45px;align-items:end;justify-content:space-between;margin-bottom:28px}
+.rankings-section-head h2{font-size:clamp(40px,5.5vw,72px);margin:13px 0 0;text-transform:uppercase}
+.rankings-section-head h2 em{color:#bb9146;font-style:normal}
+.rankings-section-head>p{font-size:14px;line-height:1.75;max-width:390px;color:#77716b;margin:0}
+.rankings-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.rank-card{display:flex;flex-direction:column;min-width:0;border:1px solid #e3dcd0;background:white;box-shadow:0 8px 30px #0000000a;border-radius:8px;overflow:hidden}
+.rank-card-header{padding:23px 22px 19px;background:#201f1d;color:#fff;min-height:132px}
+.rank-card-header .rank-icon{display:inline-flex;color:#d6b471;font-size:24px;line-height:1}
+.rank-card-header small{float:right;font-size:10px;color:#e4d0a1;letter-spacing:1.3px}
+.rank-card-header h3{font:900 32px/1 "Barlow Condensed",Impact,sans-serif;letter-spacing:.4px;margin:14px 0 5px}
+.rank-card-header p{color:#c5bfb5;font-size:11px;margin:0}
+.rank-card-body{padding:18px 19px 12px;flex:1}
+.rank-card-columns,.rank-card-row{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:10px;min-width:0}
+.rank-card-columns{font-size:10px;color:#847d73;text-transform:uppercase;letter-spacing:.8px;padding:0 0 10px;border-bottom:1px solid #ebe5dd}
+.rank-card-row{min-height:49px;border-bottom:1px solid #f1ede7;font-size:12px}
+.rank-card-row:last-child{border:0}
+.rank-number{font-weight:800;color:#746f67}.rank-card-row:first-of-type .rank-number{color:#b48a3c}
+.rank-mini-player{display:flex;gap:8px;align-items:center;min-width:0;font-weight:700}
+.rank-mini-player .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank-avatar{flex:none;width:29px;height:29px;border-radius:50%;background:#eee5d3;color:#5e4b2f;display:grid;place-items:center;font-size:10px;font-weight:800;object-fit:cover}
+.rank-mini-stats{color:#4b4842;font-weight:700;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;font-size:11px}
+.rank-card-empty{font-size:13px;color:#7c746b;text-align:center;padding:54px 10px}
+.rank-card-footer{display:flex;align-items:center;justify-content:space-between;padding:15px 21px;border-top:1px solid #ece6dd;font-size:12px;font-weight:800;color:#956d29;gap:8px}
+.rank-card-footer:hover{background:#f7f2e9}
+.mode-selector{display:flex;gap:4px;padding:3px;background:#e8e1d5;border-radius:6px}
+.mode-selector[hidden]{display:none}
+.mode-button{cursor:pointer;font-size:11px;font-weight:800;border:0;background:none;color:#666055;padding:7px 12px;border-radius:4px}
+.mode-button.is-selected{background:#252320;color:white}
+.rank-card-header .mode-selector{float:right;background:#39342e;margin-top:4px}.rank-card-header .mode-button{color:#ded5c7}.rank-card-header .mode-button.is-selected{background:#d2af6a;color:#181818}
+.rankings-fineprint{font-size:12px;color:#827c73;margin:22px 0 0}
+.arena-hero{position:relative;min-height:450px;color:white;isolation:isolate;background:#191c24 center/cover no-repeat;display:flex;align-items:stretch}
+.arena-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,13,17,.77) 0%,rgba(13,16,20,.51) 54%,rgba(10,12,15,.32) 100%),linear-gradient(0deg,#1516189e,transparent 45%)}
+body[data-game="fortnite"] .arena-hero{background-image:url("assets/game-heroes/fortnite.webp")}
+body[data-game="cod"] .arena-hero{background-image:url("assets/game-heroes/cod.webp")}
+body[data-game="redsec"] .arena-hero{background-image:url("assets/game-heroes/redsec.webp")}
+body[data-game="domino"] .arena-hero{background-image:url("assets/game-heroes/domino.webp")}
+body[data-game="fc"] .arena-hero{background-image:url("assets/game-heroes/fc.webp")}
+body[data-game="shooters"] .arena-hero{background-image:url("assets/game-heroes/shooters.webp")}
+.arena-hero-inner{display:flex;flex-direction:column;justify-content:space-between;padding-top:35px;padding-bottom:72px;width:min(var(--max),calc(100% - 64px))}
+.arena-back{color:#f3e7d4;font-size:11px;letter-spacing:1.7px;font-weight:800;align-self:flex-start}
+.arena-back:hover{color:#fff}
+.arena-hero-copy{max-width:770px;margin-top:100px}
+.arena-kicker{color:#e7c781;font-size:11px;font-weight:800;letter-spacing:2px}
+.arena-hero h1{font:900 clamp(70px,9vw,126px)/.92 "Barlow Condensed",Impact,sans-serif;text-transform:uppercase;letter-spacing:-1px;text-shadow:0 3px 22px #0007;margin:15px 0 18px}
+.arena-hero p{color:#f2eee7;font-size:17px;line-height:1.65;max-width:590px;margin:0}
+.ranking-controls{background:white;border:1px solid #e4ddd2;border-radius:8px;padding:24px 26px;margin-bottom:18px}
+.rank-control-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.rank-control-top h3{margin:0;font:800 30px "Barlow Condensed",sans-serif}
+.period-tabs{display:flex;gap:6px;background:#f0ece5;border-radius:7px;padding:5px;max-width:470px}
+.period-tabs button{flex:1;min-width:0;border:0;padding:12px 13px;background:transparent;border-radius:5px;font-size:12px;font-weight:800;cursor:pointer;color:#6a645a}
+.period-tabs button.is-selected{background:#222322;color:#fff;box-shadow:0 2px 7px #0002}
+.period-navigation{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:18px}
+.period-navigation[hidden]{display:none}
+.period-navigation>button{background:#fff;border:1px solid #d9d2c6;border-radius:5px;padding:8px 13px;min-width:44px;min-height:42px;cursor:pointer;font-size:18px}
+.period-navigation>strong{min-width:175px;text-align:center;font-size:13px}
+.period-picker{margin-left:auto;display:flex;gap:8px;align-items:center;font-size:11px;color:#77716b}
+.period-picker input{padding:8px;border:1px solid #d9d2c6;border-radius:5px;background:#fff;font:inherit;max-width:155px}
+.ranking-range{color:#847b6f;font-size:12px;margin:16px 0 0}
+.rank-table-wrap{overflow-x:auto;background:white;border:1px solid #e3ddd3;border-radius:8px;box-shadow:0 8px 25px #00000006}
+.rankings-table{width:100%;border-collapse:collapse;text-align:left}
+.rankings-table thead{background:#1e1e1f;color:#f6f2e8;font-size:11px;letter-spacing:.7px;text-transform:uppercase}
+.rankings-table th{padding:18px 18px;font-weight:800}
+.rankings-table td{padding:15px 18px;border-bottom:1px solid #f0ebe3;font-size:13px;font-variant-numeric:tabular-nums}
+.rankings-table tbody tr:last-child td{border-bottom:0}
+.rankings-table tbody tr:hover{background:#fcfaf5}
+.rankings-table .numeric{text-align:right;white-space:nowrap}
+.rankings-table .first-rank{color:#ae853b;font-weight:900}
+.rankings-table .player-cell a,.rank-card-row a{color:#222}
+.rankings-table .player-cell a:hover,.rank-card-row a:hover{text-decoration:underline}
+.rankings-table .player-cell .rank-mini-player{font-size:13px}
+.rankings-table .empty-row{padding:46px 18px;text-align:center;color:#827c72}
+.ranking-under{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;font-size:12px;color:#756f65;margin-top:18px}
+.ranking-under a{color:#8b672f;font-weight:800}
+:where(.rank-card-footer,.period-tabs button,.mode-button,.period-navigation>button,.arena-back):focus-visible{outline:3px solid #c99c30;outline-offset:3px}
+@media(max-width:1000px){.rankings-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rankings-section-head{gap:20px}}
+@media(max-width:680px){.rankings-intro{padding:56px 0 43px}.rankings-intro h1{font-size:clamp(56px,14vw,83px)}.rankings-section,.rank-detail-section{padding:45px 0 66px}.rankings-section-head{display:block}.rankings-section-head>p{margin-top:15px}.rankings-section-head h2{font-size:48px}.rankings-card-grid{grid-template-columns:1fr}.rank-card-header{min-height:104px}.rank-card-header h3{font-size:29px}.arena-hero{min-height:390px;background-position:center}.arena-hero-inner{width:calc(100% - 32px);padding-top:22px;padding-bottom:46px}.arena-hero-copy{margin-top:75px}.arena-hero h1{font-size:clamp(58px,14vw,88px);overflow-wrap:anywhere}.arena-hero p{font-size:14px}.ranking-controls{padding:19px 15px}.rank-control-top h3{font-size:25px}.period-tabs button{padding:12px 7px;font-size:11px}.period-navigation{gap:8px}.period-navigation>strong{flex:1;min-width:130px}.period-picker{width:100%;justify-content:center;margin:3px 0 0}.rankings-table th,.rankings-table td{padding:12px 9px;font-size:11px}.rankings-table .hide-mobile{display:none}.rankings-table .player-cell .rank-mini-player{font-size:11px}.rankings-table .rank-avatar{width:26px;height:26px}.rankings-table{min-width:0}}
+@media(max-width:360px){.rankings-table th,.rankings-table td{padding:11px 6px}.rankings-table .rank-mini-player{gap:5px}.arena-hero h1{font-size:53px}}

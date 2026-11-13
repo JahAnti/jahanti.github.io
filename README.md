@@ -1,22 +1,31 @@
-# JahAnti v8 — Homepage preview
+# JahAnti v9 — Homepage polish
 
-## What’s included
-- Updated navigation: Home, Games, Leaderboards, Community, TikTok and Instagram (working external links); Facebook is a non-clickable placeholder pending its URL.
-- Hero: a single **Check Our Leaderboards** button, no large homepage logo.
-- Section 01: Top Players; Section 02: Five Games. One Crew. Five cards in one row on large desktops and stacked on phones.
-- Section 03: Meet Our Players — continuous scrolling gallery (pauses on hover/focus or pause button), swipeable on mobile, featuring games, bios, and achievements.
-- `community.html`: searchable directory with game filters. `player.html`: player profile details. Both use the same `players-data.js` file as the homepage gallery.
-- Sample profile cards are clearly labeled **SAMPLE PROFILE**, not real registered players. Leaderboards remain empty until real results arrive.
+This is a **complete replacement package** for the existing GitHub Pages site at https://jahanti.github.io/.
 
-## Uploading to GitHub Pages
-1. BACK UP your current `JahAnti/jahanti.github.io` repository (`Code → Download ZIP`).
-2. Extract `JahAnti-v8-Preview.zip` and upload the *contents* (not the outer folder or zip) directly to the repo root.
-3. Replace existing files with matching names. Confirm `index.html`, `styles.css`, `script.js`, `game.html`, `community.html`, `player.html`, `players.js`, `players-data.js`, `leaderboards-data.js` and `assets/jahanti-logo.png` are in the correct places.
-4. Commit, verify the Pages deployment under Actions, then hard-refresh the site.
-5. Remove any old duplicate version folders later, once the new site is verified.
+## Changes since v8
+- Tighter homepage sections and more consistent vertical spacing across desktop, tablet, and mobile.
+- Alternating backgrounds: warm cream hero → white Top Players → warm-grey Games → white Meet Our Players → existing About and dark footer.
+- More intentional empty leaderboard states without fictional winners.
+- Official inline SVG social icons for TikTok and Instagram. Facebook remains visibly disabled until its real link is supplied.
+- Back to top in the footer on all pages.
+- Reformatted stylesheet while preserving the previous rules and behavior. V9 refinements are grouped at the end.
+- Retains player gallery, sample profiles, player directory, current navigation and all five themed game pages.
 
-## Using real players later
-Change `players-data.js` to list real, approved public profiles, each with a permanent private-purpose `id` and stable public-facing `slug`. IDs are never shown on the visible site; because GitHub Pages serves public JavaScript, **IDs are not private secrets**. Actual Google Sheets integration is not implemented in this preview.
+## Installation (GitHub Pages)
+1. **Back up** the current repository via Code → Download ZIP.
+2. Extract this ZIP locally. Open the folder `JahAnti-v9-Final-Homepage`.
+3. Upload **its contents**, not the containing folder or ZIP, into the root of `JahAnti/jahanti.github.io` on branch `main`.
+4. Replace files of the same name and commit changes.
+5. Confirm Actions/Pages deployed successfully; reload https://jahanti.github.io/.
+6. Only after verifying the site, delete old extra version folders from GitHub if desired. Preserve `assets/`.
 
-## Leaderboards
-`leaderboards-data.js` remains empty. Once results are added, Top Players will display them, and if a row provides a matching `playerId`, its card can link directly to that player's profile.
+## Data and privacy
+- The player cards are **explicit sample/demo profiles**; not registered community members.
+- `leaderboards-data.js` has no real results.
+- Player IDs are internal join keys and not visibly shown, but public source data can be inspected by visitors.
+- Google Sheets integration, automatic real-data results, and real achievement awarding are **not yet implemented**.
+
+## Responsive behavior
+- 5-column games and Top Players at large desktop widths, 3 or 2 columns for tablets, 1 column for narrow phones.
+- Player gallery auto-scrolls and pauses on hover; mobile swipes; reduced-motion preference respected.
+- Keyboard focus outlines and labeled social links.
