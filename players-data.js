@@ -22,6 +22,14 @@ window.JAHANTI_PLAYERS = [
     },
     "achievements": [
       {
+        "id": "ACH-002",
+        "name": "First Victory",
+        "description": "Win your first confirmed Fortnite match.",
+        "icon": "🏅",
+        "iconUrl": "",
+        "earnedAt": "2026-11-14T20:07:42.186Z"
+      },
+      {
         "id": "ACH-001",
         "name": "Founding Member",
         "description": "One of the original JahAnti community members.",
@@ -32,6 +40,14 @@ window.JAHANTI_PLAYERS = [
     ],
     "allAchievements": [
       {
+        "id": "ACH-002",
+        "name": "First Victory",
+        "description": "Win your first confirmed Fortnite match.",
+        "icon": "🏅",
+        "iconUrl": "",
+        "earnedAt": "2026-11-14T20:07:42.186Z"
+      },
+      {
         "id": "ACH-001",
         "name": "Founding Member",
         "description": "One of the original JahAnti community members.",
@@ -41,6 +57,14 @@ window.JAHANTI_PLAYERS = [
       }
     ],
     "featuredAchievements": [
+      {
+        "id": "ACH-002",
+        "name": "First Victory",
+        "description": "Win your first confirmed Fortnite match.",
+        "icon": "🏅",
+        "iconUrl": "",
+        "earnedAt": "2026-11-14T20:07:42.186Z"
+      },
       {
         "id": "ACH-001",
         "name": "Founding Member",
