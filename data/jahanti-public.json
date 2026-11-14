@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T19:11:54.415Z",
+  "generatedAt": "2026-11-14T20:11:08.455Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active members with Public Profile = Yes appear. Rankings use confirmed results and reconciled baselines.",
   "players": [
@@ -27,6 +27,14 @@
       "showInGallery": true,
       "achievements": [
         {
+          "id": "ACH-002",
+          "name": "First Victory",
+          "description": "Win your first confirmed Fortnite match.",
+          "icon": "🏅",
+          "iconUrl": "",
+          "earnedAt": "2026-11-14T20:07:42.186Z"
+        },
+        {
           "id": "ACH-001",
           "name": "Founding Member",
           "description": "One of the original JahAnti community members.",
@@ -36,6 +44,14 @@
         }
       ],
       "featuredAchievements": [
+        {
+          "id": "ACH-002",
+          "name": "First Victory",
+          "description": "Win your first confirmed Fortnite match.",
+          "icon": "🏅",
+          "iconUrl": "",
+          "earnedAt": "2026-11-14T20:07:42.186Z"
+        },
         {
           "id": "ACH-001",
           "name": "Founding Member",
