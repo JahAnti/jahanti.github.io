@@ -11,7 +11,7 @@ window.JAHANTI_PLAYERS = [
       "domino",
       "fc"
     ],
-    "bio": "",
+    "bio": "JahAnti Member",
     "socials": {},
     "handles": {
       "fortnite": "",
