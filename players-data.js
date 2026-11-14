@@ -20,9 +20,36 @@ window.JAHANTI_PLAYERS = [
       "fc": "",
       "domino": ""
     },
-    "achievements": [],
-    "allAchievements": [],
-    "featuredAchievements": [],
+    "achievements": [
+      {
+        "id": "ACH-001",
+        "name": "Founding Member",
+        "description": "",
+        "icon": "One of the original JahAnti community members.",
+        "iconUrl": "",
+        "earnedAt": "2026-11-14T18:36:39.794Z"
+      }
+    ],
+    "allAchievements": [
+      {
+        "id": "ACH-001",
+        "name": "Founding Member",
+        "description": "",
+        "icon": "One of the original JahAnti community members.",
+        "iconUrl": "",
+        "earnedAt": "2026-11-14T18:36:39.794Z"
+      }
+    ],
+    "featuredAchievements": [
+      {
+        "id": "ACH-001",
+        "name": "Founding Member",
+        "description": "",
+        "icon": "One of the original JahAnti community members.",
+        "iconUrl": "",
+        "earnedAt": "2026-11-14T18:36:39.794Z"
+      }
+    ],
     "showInGallery": true
   }
 ];
