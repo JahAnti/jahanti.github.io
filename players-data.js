@@ -24,8 +24,8 @@ window.JAHANTI_PLAYERS = [
       {
         "id": "ACH-001",
         "name": "Founding Member",
-        "description": "",
-        "icon": "One of the original JahAnti community members.",
+        "description": "One of the original JahAnti community members.",
+        "icon": "🏅",
         "iconUrl": "",
         "earnedAt": "2026-11-14T18:36:39.794Z"
       }
@@ -34,8 +34,8 @@ window.JAHANTI_PLAYERS = [
       {
         "id": "ACH-001",
         "name": "Founding Member",
-        "description": "",
-        "icon": "One of the original JahAnti community members.",
+        "description": "One of the original JahAnti community members.",
+        "icon": "🏅",
         "iconUrl": "",
         "earnedAt": "2026-11-14T18:36:39.794Z"
       }
@@ -44,8 +44,8 @@ window.JAHANTI_PLAYERS = [
       {
         "id": "ACH-001",
         "name": "Founding Member",
-        "description": "",
-        "icon": "One of the original JahAnti community members.",
+        "description": "One of the original JahAnti community members.",
+        "icon": "🏅",
         "iconUrl": "",
         "earnedAt": "2026-11-14T18:36:39.794Z"
       }
