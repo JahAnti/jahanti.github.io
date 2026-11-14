@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T17:26:06.241Z",
+  "generatedAt": "2026-11-14T18:40:53.624Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active members with Public Profile = Yes appear. Rankings use confirmed results and reconciled baselines.",
   "players": [
@@ -25,8 +25,26 @@
       ],
       "socials": {},
       "showInGallery": true,
-      "achievements": [],
-      "featuredAchievements": []
+      "achievements": [
+        {
+          "id": "ACH-001",
+          "name": "Founding Member",
+          "description": "",
+          "icon": "One of the original JahAnti community members.",
+          "iconUrl": "",
+          "earnedAt": "2026-11-14T18:36:39.794Z"
+        }
+      ],
+      "featuredAchievements": [
+        {
+          "id": "ACH-001",
+          "name": "Founding Member",
+          "description": "",
+          "icon": "One of the original JahAnti community members.",
+          "iconUrl": "",
+          "earnedAt": "2026-11-14T18:36:39.794Z"
+        }
+      ]
     }
   ],
   "leaderboards": {
