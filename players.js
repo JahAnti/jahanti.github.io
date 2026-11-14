@@ -1,6 +1,7 @@
 /* JahAnti v11 player directory, home gallery and profiles. Public records only. */
-(() => {
+(async () => {
   'use strict';
+  if (window.JAHANTI_PUBLIC_READY) await window.JAHANTI_PUBLIC_READY;
   const players = Array.isArray(window.JAHANTI_PLAYERS) ? window.JAHANTI_PLAYERS : [];
   const names = { fc:'EA Sports FC', fortnite:'Fortnite', cod:'Call of Duty', redsec:'Battlefield REDSEC', domino:'Trupial Domino' };
   const icon = { fc:'⚽', fortnite:'✦', cod:'⌖', redsec:'✕', domino:'⚄' };
@@ -109,7 +110,7 @@
       ['combinedShooters','Combined Shooters','shooters'],['domino1v1','Domino 1v1','domino&mode=1v1'],
       ['domino2v2','Domino 2v2','domino&mode=2v2'],['fifaFriendlies','EA Sports FC · Friendlies','fc']
     ];
-    fetch('./data/jahanti-public.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Not yet published');return r.json()})
+    Promise.resolve(window.JAHANTI_PUBLIC_DATA)
       .then(data=>{
         stats.replaceChildren();let found=0;
         for(const [key,label,game] of categories) {

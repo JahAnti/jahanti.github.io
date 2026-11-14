@@ -53,7 +53,8 @@
 
 // Top players: use the first-ranked entry from each game's standings.
 // These cards deliberately remain empty until actual results are provided.
-(() => {
+(async () => {
+  if (window.JAHANTI_PUBLIC_READY) await window.JAHANTI_PUBLIC_READY;
   const all = window.JAHANTI_LEADERBOARDS || {};
   document.querySelectorAll('[data-top-game]').forEach(card => {
     const key = card.dataset.topGame;

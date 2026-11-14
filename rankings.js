@@ -37,13 +37,12 @@
     return {players:(window.JAHANTI_PLAYERS||[]).filter(p=>!p.demo),leaderboards:{allTime,monthly:{},weekly:{}}};
   }
   async function load() {
-    try {
-      const response=await fetch('./data/jahanti-public.json',{cache:'no-store'});
-      if(!response.ok)throw new Error('No published public data file');
-      const data=await response.json();
-      if(!data || !data.leaderboards || !data.leaderboards.allTime || !Array.isArray(data.players))throw new Error('Invalid data');
-      return data;
-    } catch (_) { return fromLegacy(); }
+    // public-data.js uses a cache-busting URL and resolves before rendering.
+    if (window.JAHANTI_PUBLIC_READY) {
+      const data = await window.JAHANTI_PUBLIC_READY;
+      return data || { players: [], leaderboards: { allTime: {}, monthly: {}, weekly: {} } };
+    }
+    return fromLegacy();
   }
   function rowsFor(key) {
     const lbs=publicData?.leaderboards || {};
