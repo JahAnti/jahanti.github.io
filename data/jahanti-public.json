@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-14T18:40:53.624Z",
+  "generatedAt": "2026-11-14T19:11:54.415Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active members with Public Profile = Yes appear. Rankings use confirmed results and reconciled baselines.",
   "players": [
@@ -29,8 +29,8 @@
         {
           "id": "ACH-001",
           "name": "Founding Member",
-          "description": "",
-          "icon": "One of the original JahAnti community members.",
+          "description": "One of the original JahAnti community members.",
+          "icon": "🏅",
           "iconUrl": "",
           "earnedAt": "2026-11-14T18:36:39.794Z"
         }
@@ -39,8 +39,8 @@
         {
           "id": "ACH-001",
           "name": "Founding Member",
-          "description": "",
-          "icon": "One of the original JahAnti community members.",
+          "description": "One of the original JahAnti community members.",
+          "icon": "🏅",
           "iconUrl": "",
           "earnedAt": "2026-11-14T18:36:39.794Z"
         }
