@@ -2,47 +2,47 @@
 window.JAHANTI_LEADERBOARDS = {
   "fc": [
     {
-      "playerId": "P002",
-      "name": "JahAnti Tester 2",
+      "playerId": "P009",
+      "name": "JahAnti Tester 9",
       "rank": 1,
       "wins": 1,
       "losses": 0,
       "kills": 0,
       "assists": 0,
       "matches": 1,
-      "goalsFor": 3,
-      "goalsAgainst": 1,
-      "goalDifference": 2,
+      "goalsFor": 4,
+      "goalsAgainst": 3,
+      "goalDifference": 1,
       "draws": 0,
       "lastFive": [
         {
           "result": "W",
-          "opponent": "JahAnti Tester 1",
-          "score": "3–1",
-          "date": "2026-11-13"
+          "opponent": "JahAnti Tester 3",
+          "score": "4–3",
+          "date": "2026-11-23"
         }
       ],
       "points": 1
     },
     {
-      "playerId": "P001",
-      "name": "JahAnti Tester 1",
+      "playerId": "P003",
+      "name": "JahAnti Tester 3",
       "rank": 2,
       "wins": 0,
       "losses": 1,
       "kills": 0,
       "assists": 0,
       "matches": 1,
-      "goalsFor": 1,
-      "goalsAgainst": 3,
-      "goalDifference": -2,
+      "goalsFor": 3,
+      "goalsAgainst": 4,
+      "goalDifference": -1,
       "draws": 0,
       "lastFive": [
         {
           "result": "L",
-          "opponent": "JahAnti Tester 2",
-          "score": "1–3",
-          "date": "2026-11-13"
+          "opponent": "JahAnti Tester 9",
+          "score": "3–4",
+          "date": "2026-11-23"
         }
       ],
       "points": 0
