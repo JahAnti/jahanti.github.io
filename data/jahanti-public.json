@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T21:45:15.812Z",
+  "generatedAt": "2026-11-15T22:09:35.955Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active members with Public Profile = Yes appear. Rankings use confirmed results and reconciled baselines.",
   "players": [
     {
       "id": "P001",
       "slug": "p001",
-      "name": "JahAnti Tester",
+      "name": "JahAnti Tester 1",
       "avatar": "JA",
       "avatarUrl": "assets/players/p001.webp",
       "bio": "I am a Tester Account",
@@ -49,8 +49,8 @@
     {
       "id": "P002",
       "slug": "p002",
-      "name": "RoyalRegi007",
-      "avatar": "RO",
+      "name": "JahAnti Tester 2",
+      "avatar": "JA",
       "avatarUrl": "assets/players/p002.webp",
       "bio": "JahAnti Member",
       "handles": {
@@ -113,7 +113,7 @@
       "fortnite": [
         {
           "playerId": "P002",
-          "name": "RoyalRegi007",
+          "name": "JahAnti Tester 2",
           "rank": 1,
           "wins": 1,
           "losses": 0,
@@ -127,7 +127,7 @@
         },
         {
           "playerId": "P001",
-          "name": "JahAnti Tester",
+          "name": "JahAnti Tester 1",
           "rank": 2,
           "wins": 1,
           "losses": 0,
@@ -145,7 +145,7 @@
       "combinedShooters": [
         {
           "playerId": "P002",
-          "name": "RoyalRegi007",
+          "name": "JahAnti Tester 2",
           "rank": 1,
           "wins": 1,
           "losses": 0,
@@ -159,7 +159,7 @@
         },
         {
           "playerId": "P001",
-          "name": "JahAnti Tester",
+          "name": "JahAnti Tester 1",
           "rank": 2,
           "wins": 1,
           "losses": 0,
@@ -175,7 +175,7 @@
       "domino1v1": [
         {
           "playerId": "P001",
-          "name": "JahAnti Tester",
+          "name": "JahAnti Tester 1",
           "rank": 1,
           "wins": 1,
           "losses": 0,
@@ -189,7 +189,7 @@
         },
         {
           "playerId": "P002",
-          "name": "RoyalRegi007",
+          "name": "JahAnti Tester 2",
           "rank": 2,
           "wins": 0,
           "losses": 1,
@@ -206,7 +206,7 @@
       "fifaFriendlies": [
         {
           "playerId": "P002",
-          "name": "RoyalRegi007",
+          "name": "JahAnti Tester 2",
           "rank": 1,
           "wins": 1,
           "losses": 0,
@@ -220,7 +220,7 @@
         },
         {
           "playerId": "P001",
-          "name": "JahAnti Tester",
+          "name": "JahAnti Tester 1",
           "rank": 2,
           "wins": 0,
           "losses": 1,
@@ -240,7 +240,7 @@
         "fortnite": [
           {
             "playerId": "P002",
-            "name": "RoyalRegi007",
+            "name": "JahAnti Tester 2",
             "rank": 1,
             "wins": 1,
             "losses": 0,
@@ -254,7 +254,7 @@
           },
           {
             "playerId": "P001",
-            "name": "JahAnti Tester",
+            "name": "JahAnti Tester 1",
             "rank": 2,
             "wins": 1,
             "losses": 0,
@@ -272,7 +272,7 @@
         "combinedShooters": [
           {
             "playerId": "P002",
-            "name": "RoyalRegi007",
+            "name": "JahAnti Tester 2",
             "rank": 1,
             "wins": 1,
             "losses": 0,
@@ -286,7 +286,7 @@
           },
           {
             "playerId": "P001",
-            "name": "JahAnti Tester",
+            "name": "JahAnti Tester 1",
             "rank": 2,
             "wins": 1,
             "losses": 0,
@@ -302,7 +302,7 @@
         "domino1v1": [
           {
             "playerId": "P001",
-            "name": "JahAnti Tester",
+            "name": "JahAnti Tester 1",
             "rank": 1,
             "wins": 1,
             "losses": 0,
@@ -316,7 +316,7 @@
           },
           {
             "playerId": "P002",
-            "name": "RoyalRegi007",
+            "name": "JahAnti Tester 2",
             "rank": 2,
             "wins": 0,
             "losses": 1,
@@ -333,7 +333,7 @@
         "fifaFriendlies": [
           {
             "playerId": "P002",
-            "name": "RoyalRegi007",
+            "name": "JahAnti Tester 2",
             "rank": 1,
             "wins": 1,
             "losses": 0,
@@ -347,7 +347,7 @@
           },
           {
             "playerId": "P001",
-            "name": "JahAnti Tester",
+            "name": "JahAnti Tester 1",
             "rank": 2,
             "wins": 0,
             "losses": 1,
@@ -368,7 +368,7 @@
         "fortnite": [
           {
             "playerId": "P002",
-            "name": "RoyalRegi007",
+            "name": "JahAnti Tester 2",
             "rank": 1,
             "wins": 1,
             "losses": 0,
@@ -382,7 +382,7 @@
           },
           {
             "playerId": "P001",
-            "name": "JahAnti Tester",
+            "name": "JahAnti Tester 1",
             "rank": 2,
             "wins": 1,
             "losses": 0,
@@ -400,7 +400,7 @@
         "combinedShooters": [
           {
             "playerId": "P002",
-            "name": "RoyalRegi007",
+            "name": "JahAnti Tester 2",
             "rank": 1,
             "wins": 1,
             "losses": 0,
@@ -414,7 +414,7 @@
           },
           {
             "playerId": "P001",
-            "name": "JahAnti Tester",
+            "name": "JahAnti Tester 1",
             "rank": 2,
             "wins": 1,
             "losses": 0,
@@ -430,7 +430,7 @@
         "domino1v1": [
           {
             "playerId": "P001",
-            "name": "JahAnti Tester",
+            "name": "JahAnti Tester 1",
             "rank": 1,
             "wins": 1,
             "losses": 0,
@@ -444,7 +444,7 @@
           },
           {
             "playerId": "P002",
-            "name": "RoyalRegi007",
+            "name": "JahAnti Tester 2",
             "rank": 2,
             "wins": 0,
             "losses": 1,
@@ -461,7 +461,7 @@
         "fifaFriendlies": [
           {
             "playerId": "P002",
-            "name": "RoyalRegi007",
+            "name": "JahAnti Tester 2",
             "rank": 1,
             "wins": 1,
             "losses": 0,
@@ -475,7 +475,7 @@
           },
           {
             "playerId": "P001",
-            "name": "JahAnti Tester",
+            "name": "JahAnti Tester 1",
             "rank": 2,
             "wins": 0,
             "losses": 1,
