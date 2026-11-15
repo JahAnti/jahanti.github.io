@@ -223,12 +223,24 @@
         const item=el('div','rank-detail-top-three rank-tier-'+r.rank);
         item.append(el('span','rank-number',r.rank),nameFor(r));
         if(hasForm(key)){
-          const formBox=el('span','ja-form-podium');
-          const summary=key.startsWith('fifa')
-            ? num(r,'wins')+' W  ·  '+num(r,'goalsFor')+' GF  ·  '+num(r,'goalsAgainst')+' GA  ·  '+num(r,'goalDifference')+' GD'
-            : num(r,'wins')+' W  ·  '+num(r,'losses')+' L';
-          formBox.append(el('span','ja-form-podium-stats',summary));
-          formBox.append(formForRow(key,r,true));item.append(formBox);
+          // Keep the statistics prominent and the recent-form circles after them,
+          // on ONE line. The strip scrolls horizontally on smaller screens.
+          const strip=el('div','ja-form-podium');
+          strip.setAttribute('aria-label','Player statistics and last five matches');
+          const metrics=el('div','ja-form-podium-stats');
+          const columns=key.startsWith('fifa')
+            ? [['wins','W'],['draws','D'],['losses','L'],['goalsFor','GF'],['goalsAgainst','GA'],['goalDifference','GD']]
+            : [['wins','W'],['losses','L'],['matches','P']];
+          columns.forEach(([field,label])=>{
+            const stat=el('span','ja-podium-stat');
+            const raw=Number(r[field])||0;
+            const value=field==='goalDifference'&&raw>0?'+'+raw:String(raw);
+            stat.append(el('strong','ja-podium-stat-value',value),el('small','ja-podium-stat-label',label));
+            metrics.append(stat);
+          });
+          const recent=el('div','ja-podium-recent');
+          recent.append(el('span','ja-podium-recent-label','LAST 5'),formForRow(key,r,true));
+          strip.append(metrics,recent);item.append(strip);
         }else item.append(el('span','rank-mini-stats',detailedStats(key,r)));
         podium.append(item);
       }else{

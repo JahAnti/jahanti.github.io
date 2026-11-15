@@ -27,3 +27,74 @@ body[data-game="domino"] .rankings-table{min-width:690px}
 .ja-form-dialog-body .ja-form-detail-note{font-size:12px;color:#7e5f28;background:#f6e9d0;border-radius:6px;padding:9px}
 @media(max-width:720px){.rank-detail-top-three .ja-form-podium{align-items:flex-start}.ja-form-pip{width:23px;height:23px;min-width:23px}.ja-t-table.ja-t-form-table{min-width:700px}}
 @media(prefers-reduced-motion:reduce){.ja-form-pip{transition:none}}
+
+
+/* v1.1.1 — top-three stats are the primary information, followed by Last 5
+   IN THE SAME HORIZONTAL STRIP. Never wrap form under the statistics. */
+.rank-detail-top-three .ja-form-podium{
+  display:flex;flex-direction:row;align-items:center;justify-content:flex-end;
+  flex-wrap:nowrap;gap:15px;width:100%;max-width:100%;min-width:0;
+  overflow-x:auto;overflow-y:hidden;padding:5px 3px;scrollbar-width:thin;
+}
+.rank-detail-top-three .ja-form-podium-stats{
+  display:inline-flex;align-items:center;gap:3px;flex-shrink:0;
+  text-align:center;white-space:nowrap;
+}
+.ja-podium-stat{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-width:46px;padding:3px 6px;border-radius:6px;
+}
+.ja-podium-stat-value{font-size:20px;line-height:1.12;font-weight:900;font-variant-numeric:tabular-nums;color:#242321}
+.ja-podium-stat-label{font-size:10px;line-height:1.25;letter-spacing:.04em;font-weight:800;color:#796a53}
+.ja-podium-recent{display:inline-flex;align-items:center;gap:7px;flex-shrink:0;padding-left:13px;border-left:1px solid #bba77f;white-space:nowrap}
+.ja-podium-recent-label{font-size:10px;letter-spacing:.025em;font-weight:800;color:#685c46}
+.ja-podium-recent .ja-form{flex-shrink:0;justify-content:flex-start}
+body[data-game="fc"] .rank-detail-top-three{grid-template-columns:34px minmax(135px,1fr) minmax(0,57%)}
+body[data-game="domino"] .rank-detail-top-three{grid-template-columns:34px minmax(135px,1fr) minmax(0,50%)}
+body[data-game="fc"] .rank-detail-top-three .ja-form-podium,
+body[data-game="domino"] .rank-detail-top-three .ja-form-podium{overscroll-behavior-x:contain}
+
+/* Recent results: five latest games maximum, visible without an auto-ticker. */
+.ja-t-results{max-height:none;overflow:visible}
+.ja-t-result-line:last-child{border-bottom:0}
+
+/* Five-row vertical upcoming-fixture ticker. Its height NEVER expands to all
+   remaining matches, including on mobile or when there are many fixtures. */
+.ja-t-fixtures-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 9px}
+.ja-t-fixtures-head h4{font-size:15px;font-weight:800;margin:0}
+.ja-t-fixtures-controls{display:flex;align-items:center;gap:12px;margin-left:auto}
+.ja-t-fixtures-summary{font-size:11px;color:#7c6b56;font-weight:700;font-variant-numeric:tabular-nums}
+.ja-t-fixtures-toggle{font:inherit;font-size:11px;font-weight:700;background:#f9f4ea;color:#634d27;border:1px solid #d9c9a9;border-radius:7px;padding:7px 9px;cursor:pointer}
+.ja-t-fixtures-toggle:hover{background:#eddfc5}
+.ja-t-fixtures-toggle:focus-visible{outline:3px solid #a78038;outline-offset:2px}
+.ja-t-available-list{
+  display:flex;flex-direction:column;gap:8px;
+  max-height:calc(5 * 58px + 4 * 8px);overflow-y:auto;
+  overscroll-behavior-y:contain;scroll-snap-type:y proximity;scrollbar-width:thin;
+  padding-right:3px;
+}
+.ja-t-upcoming-fixture{
+  box-sizing:border-box;display:flex;align-items:center;gap:14px;flex:0 0 58px;
+  height:58px;padding:9px 13px;background:#f6f1e7;border:1px solid #eee3d0;
+  border-radius:8px;scroll-snap-align:start;min-width:0;
+}
+.ja-t-fixture-group{font-size:11px;font-weight:800;color:#9a7130;flex:0 0 90px;white-space:nowrap}
+.ja-t-fixture-players{font-size:13px;font-weight:650;color:#292622;min-width:0;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.35}
+@media(max-width:850px){
+  body[data-game="fc"] .rank-detail-top-three{grid-template-columns:26px minmax(110px,1fr) minmax(0,57%);gap:9px}
+  body[data-game="domino"] .rank-detail-top-three{grid-template-columns:26px minmax(110px,1fr) minmax(0,50%);gap:9px}
+  .ja-podium-stat{min-width:40px;padding:3px 4px}.ja-podium-stat-value{font-size:18px}
+  .rank-detail-top-three .ja-form-podium{gap:10px}
+}
+@media(max-width:560px){
+  body[data-game="fc"] .rank-detail-top-three,
+  body[data-game="domino"] .rank-detail-top-three{grid-template-columns:22px minmax(90px,1fr) minmax(0,47%);gap:7px}
+  .ja-podium-stat-value{font-size:17px}
+  .ja-t-upcoming-fixture{gap:10px;padding:9px 10px}
+  .ja-t-fixture-group{flex-basis:68px;font-size:10px}
+  .ja-t-fixture-players{font-size:12px}
+  .ja-t-fixtures-controls{gap:7px}
+}
+@media(prefers-reduced-motion:reduce){
+  .ja-t-available-list{scroll-behavior:auto;scroll-snap-type:none}
+}

@@ -63,8 +63,7 @@ function standings(t){
      tr.append(td);body.append(tr);
    });
    table.append(body);scroll.append(table);panel.append(scroll);
-   const note=h('p','ja-t-form-help','Last 5 league fixtures · gold outline = administrative 3–0 result · tap a circle for details');
-   panel.append(note);wrapper.append(panel);
+   wrapper.append(panel);
  });
  return wrapper;
 }
@@ -81,24 +80,74 @@ function results(t){
  });
  items.sort((a,b)=>b.when.localeCompare(a.when)||b.order-a.order||b.index-a.index);
  const holder=h('div','ja-t-results');if(!items.length){holder.append(h('p','ja-t-note','No results yet.'));return holder;}
- items.forEach(({f,game,index,award})=>{
+ items.slice(0,5).forEach(({f,game,index,award})=>{
    const line=h('div','ja-t-result-line');let label=f.phase==='League'?'League · Group '+f.group:(f.bracket||'Knockout')+' · '+f.round;
    if(award)label+=' · Awarded';else if(f.format?.startsWith('Best of')||f.format==='Two legs')label+=' · Game '+index;
    const lbl=h('small','',label),middle=h('span','',name(f.a)+' vs '+name(f.b));
    const score=h('strong','',award?(f.result?.aGoals??(f.winner?.playerId===f.a?.playerId?3:0))+'–'+(f.result?.bGoals??0):game.aGoals+'–'+game.bGoals);
    line.append(lbl,middle,score);holder.append(line);
  });
- if(items.length>5)enableTicker(holder);return holder;
+ // Latest Results is intentionally limited to five actual games/administrative awards.
+ return holder;
 }
-function enableTicker(el){const pref=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;if(pref)return;
- let paused=false;el.addEventListener('mouseenter',()=>paused=true);el.addEventListener('mouseleave',()=>paused=false);
- el.addEventListener('touchstart',()=>paused=true,{passive:true});el.addEventListener('touchend',()=>paused=false,{passive:true});
- window.setInterval(()=>{if(paused||!el.isConnected||document.hidden)return;const rows=[...el.children];if(rows.length<6)return;
- const next=rows.find(x=>x.offsetTop>el.scrollTop+4)||rows[0];if(next===rows[0])el.scrollTo({top:0,behavior:'smooth'});else el.scrollTo({top:next.offsetTop-rows[0].offsetTop,behavior:'smooth'});
- },4500);
+/** Vertical, five-visible-fixture ticker. All remaining fixtures are in the DOM
+ * and can be explored manually. Pauses for hover, keyboard interaction, touch,
+ * reduced-motion preference, and background tabs. Stops itself when removed. */
+function fixtureTicker(list, rows, summary, button){
+ if(rows.length<=5)return;
+ const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+ let paused=!!reduced, hovering=false, touching=false, focusing=false;
+ const step=()=>rows.length>1?rows[1].offsetTop-rows[0].offsetTop:rows[0].offsetHeight;
+ const index=()=>Math.min(rows.length-5,Math.max(0,Math.round(list.scrollTop/Math.max(1,step()))));
+ const update=()=>{const first=index()+1;summary.textContent=first+'–'+Math.min(first+4,rows.length)+' of '+rows.length+' matches';};
+ const toggle=()=>{
+   paused=!paused;button.textContent=paused?'Resume scroll':'Pause scroll';
+   button.setAttribute('aria-pressed',String(paused));
+ };
+ button.addEventListener('click',toggle);
+ list.addEventListener('scroll',update,{passive:true});
+ list.addEventListener('mouseenter',()=>hovering=true);
+ list.addEventListener('mouseleave',()=>hovering=false);
+ list.addEventListener('focusin',()=>focusing=true);
+ list.addEventListener('focusout',()=>focusing=list.contains(document.activeElement));
+ list.addEventListener('touchstart',()=>touching=true,{passive:true});
+ list.addEventListener('touchend',()=>touching=false,{passive:true});
+ list.addEventListener('touchcancel',()=>touching=false,{passive:true});
+ if(reduced){button.textContent='Resume scroll';button.setAttribute('aria-pressed','true');}
+ const timer=window.setInterval(()=>{
+   if(!list.isConnected){window.clearInterval(timer);return;}
+   if(paused||hovering||touching||focusing||document.hidden)return;
+   const next=index()>=rows.length-5?0:index()+1;
+   list.scrollTo({top:next===0?0:rows[next].offsetTop-rows[0].offsetTop,behavior:'smooth'});
+ },4300);
+ update();
 }
-function available(t){const fs=(t.fixtures||[]).filter(f=>f.phase==='League'&&f.status==='Ready');if(!fs.length)return null;
- const wrap=h('div','ja-t-available');wrap.append(h('h4','','Available League Fixtures'));const list=h('div','ja-t-available-list');fs.slice(0,12).forEach(f=>list.append(h('div','','Group '+f.group+'  ·  '+name(f.a)+' vs '+name(f.b))));wrap.append(list);if(fs.length>12)wrap.append(h('small','ja-t-note','+'+(fs.length-12)+' more fixtures'));return wrap;}
+function available(t){
+ // No scheduled clock times are inferred: 'upcoming' means unplayed fixtures.
+ const fs=(t.fixtures||[]).filter(f=>f.phase==='League'&&['Ready','Waiting'].includes(f.status));
+ if(!fs.length)return null;
+ const wrap=h('section','ja-t-available');
+ const header=h('div','ja-t-fixtures-head');header.append(h('h4','','Upcoming Matches'));
+ const controls=h('div','ja-t-fixtures-controls');
+ const summary=h('span','ja-t-fixtures-summary','');
+ const pause=h('button','ja-t-fixtures-toggle','Pause scroll');pause.type='button';
+ pause.setAttribute('aria-pressed','false');
+ controls.append(summary);if(fs.length>5)controls.append(pause);
+ header.append(controls);wrap.append(header);
+ const list=h('div','ja-t-available-list');list.setAttribute('role','region');
+ list.setAttribute('aria-label','Upcoming league matches, scroll for more');list.tabIndex=0;
+ const rows=fs.map(f=>{
+   const item=h('div','ja-t-upcoming-fixture');
+   const group=h('span','ja-t-fixture-group','Group '+(f.group||'—'));
+   const matchup=h('span','ja-t-fixture-players',name(f.a)+' vs '+name(f.b));
+   matchup.title=matchup.textContent;
+   item.append(group,matchup);list.append(item);return item;
+ });
+ wrap.append(list);
+ if(fs.length>5)fixtureTicker(list,rows,summary,pause);
+ else summary.textContent=fs.length+' upcoming '+(fs.length===1?'match':'matches');
+ return wrap;
+}
 function featured(t){const out=h('article','ja-t-featured'),top=tournamentTop(t);out.append(top);
  const tabs=h('div','ja-t-tabs'),body=h('div','ja-t-contents'),options=[];
  if(t.groups?.length)options.push(['standings','Standings']);if((t.fixtures||[]).some(f=>f.phase==='Knockout')||t.format?.includes('Elimination')||t.format?.includes('Gauntlet'))options.push(['bracket','Bracket']);
