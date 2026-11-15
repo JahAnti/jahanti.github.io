@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T22:50:59.871Z",
+  "generatedAt": "2026-11-15T22:54:07.305Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active public members appear. Rankings include confirmed games and eligible baselines; Last 5 shows only actually played confirmed games. Private opponents are anonymized.",
   "players": [
@@ -106,6 +106,170 @@
           "earnedAt": "2026-11-14T18:36:39.794Z"
         }
       ]
+    },
+    {
+      "id": "P003",
+      "slug": "p003",
+      "name": "JahAnti Tester 3",
+      "avatar": "JA",
+      "avatarUrl": "assets/players/p003.webp",
+      "bio": "",
+      "handles": {
+        "fortnite": "",
+        "cod": "",
+        "redsec": "",
+        "fc": "",
+        "domino": ""
+      },
+      "games": [
+        "fc"
+      ],
+      "socials": {},
+      "showInGallery": true,
+      "achievements": [],
+      "featuredAchievements": []
+    },
+    {
+      "id": "P004",
+      "slug": "p004",
+      "name": "JahAnti Tester 4",
+      "avatar": "JA",
+      "avatarUrl": "assets/players/p004.webp",
+      "bio": "",
+      "handles": {
+        "fortnite": "",
+        "cod": "",
+        "redsec": "",
+        "fc": "",
+        "domino": ""
+      },
+      "games": [],
+      "socials": {},
+      "showInGallery": true,
+      "achievements": [],
+      "featuredAchievements": []
+    },
+    {
+      "id": "P005",
+      "slug": "p005",
+      "name": "JahAnti Tester 5",
+      "avatar": "JA",
+      "avatarUrl": "assets/players/p005.webp",
+      "bio": "",
+      "handles": {
+        "fortnite": "",
+        "cod": "",
+        "redsec": "",
+        "fc": "",
+        "domino": ""
+      },
+      "games": [],
+      "socials": {},
+      "showInGallery": true,
+      "achievements": [],
+      "featuredAchievements": []
+    },
+    {
+      "id": "P006",
+      "slug": "p006",
+      "name": "JahAnti Tester 6",
+      "avatar": "JA",
+      "avatarUrl": "assets/players/p006.webp",
+      "bio": "",
+      "handles": {
+        "fortnite": "",
+        "cod": "",
+        "redsec": "",
+        "fc": "",
+        "domino": ""
+      },
+      "games": [],
+      "socials": {},
+      "showInGallery": true,
+      "achievements": [],
+      "featuredAchievements": []
+    },
+    {
+      "id": "P007",
+      "slug": "p007",
+      "name": "JahAnti Tester 7",
+      "avatar": "JA",
+      "avatarUrl": "assets/players/p007.webp",
+      "bio": "",
+      "handles": {
+        "fortnite": "",
+        "cod": "",
+        "redsec": "",
+        "fc": "",
+        "domino": ""
+      },
+      "games": [],
+      "socials": {},
+      "showInGallery": true,
+      "achievements": [],
+      "featuredAchievements": []
+    },
+    {
+      "id": "P008",
+      "slug": "p008",
+      "name": "JahAnti Tester 8",
+      "avatar": "JA",
+      "avatarUrl": "assets/players/p008.webp",
+      "bio": "",
+      "handles": {
+        "fortnite": "",
+        "cod": "",
+        "redsec": "",
+        "fc": "",
+        "domino": ""
+      },
+      "games": [],
+      "socials": {},
+      "showInGallery": true,
+      "achievements": [],
+      "featuredAchievements": []
+    },
+    {
+      "id": "P009",
+      "slug": "p009",
+      "name": "JahAnti Tester 9",
+      "avatar": "JA",
+      "avatarUrl": "assets/players/p009.webp",
+      "bio": "",
+      "handles": {
+        "fortnite": "",
+        "cod": "",
+        "redsec": "",
+        "fc": "",
+        "domino": ""
+      },
+      "games": [
+        "fc"
+      ],
+      "socials": {},
+      "showInGallery": true,
+      "achievements": [],
+      "featuredAchievements": []
+    },
+    {
+      "id": "P010",
+      "slug": "p010",
+      "name": "JahAnti Tester 10",
+      "avatar": "JA",
+      "avatarUrl": "assets/players/p010.webp",
+      "bio": "",
+      "handles": {
+        "fortnite": "",
+        "cod": "",
+        "redsec": "",
+        "fc": "",
+        "domino": ""
+      },
+      "games": [],
+      "socials": {},
+      "showInGallery": true,
+      "achievements": [],
+      "featuredAchievements": []
     }
   ],
   "leaderboards": {
@@ -263,7 +427,52 @@
           ]
         }
       ],
-      "fifaOfficial": []
+      "fifaOfficial": [
+        {
+          "playerId": "P009",
+          "name": "JahAnti Tester 9",
+          "rank": 1,
+          "wins": 1,
+          "losses": 0,
+          "kills": 0,
+          "assists": 0,
+          "matches": 1,
+          "goalsFor": 4,
+          "goalsAgainst": 3,
+          "goalDifference": 1,
+          "draws": 0,
+          "lastFive": [
+            {
+              "result": "W",
+              "opponent": "JahAnti Tester 3",
+              "score": "4–3",
+              "date": "2026-11-23"
+            }
+          ]
+        },
+        {
+          "playerId": "P003",
+          "name": "JahAnti Tester 3",
+          "rank": 2,
+          "wins": 0,
+          "losses": 1,
+          "kills": 0,
+          "assists": 0,
+          "matches": 1,
+          "goalsFor": 3,
+          "goalsAgainst": 4,
+          "goalDifference": -1,
+          "draws": 0,
+          "lastFive": [
+            {
+              "result": "L",
+              "opponent": "JahAnti Tester 9",
+              "score": "3–4",
+              "date": "2026-11-23"
+            }
+          ]
+        }
+      ]
     },
     "monthly": {
       "2026-11": {
@@ -420,7 +629,52 @@
             ]
           }
         ],
-        "fifaOfficial": []
+        "fifaOfficial": [
+          {
+            "playerId": "P009",
+            "name": "JahAnti Tester 9",
+            "rank": 1,
+            "wins": 1,
+            "losses": 0,
+            "kills": 0,
+            "assists": 0,
+            "matches": 1,
+            "goalsFor": 4,
+            "goalsAgainst": 3,
+            "goalDifference": 1,
+            "draws": 0,
+            "lastFive": [
+              {
+                "result": "W",
+                "opponent": "JahAnti Tester 3",
+                "score": "4–3",
+                "date": "2026-11-23"
+              }
+            ]
+          },
+          {
+            "playerId": "P003",
+            "name": "JahAnti Tester 3",
+            "rank": 2,
+            "wins": 0,
+            "losses": 1,
+            "kills": 0,
+            "assists": 0,
+            "matches": 1,
+            "goalsFor": 3,
+            "goalsAgainst": 4,
+            "goalDifference": -1,
+            "draws": 0,
+            "lastFive": [
+              {
+                "result": "L",
+                "opponent": "JahAnti Tester 9",
+                "score": "3–4",
+                "date": "2026-11-23"
+              }
+            ]
+          }
+        ]
       }
     },
     "weekly": {
@@ -588,7 +842,52 @@
         "domino1v1": [],
         "domino2v2": [],
         "fifaFriendlies": [],
-        "fifaOfficial": []
+        "fifaOfficial": [
+          {
+            "playerId": "P009",
+            "name": "JahAnti Tester 9",
+            "rank": 1,
+            "wins": 1,
+            "losses": 0,
+            "kills": 0,
+            "assists": 0,
+            "matches": 1,
+            "goalsFor": 4,
+            "goalsAgainst": 3,
+            "goalDifference": 1,
+            "draws": 0,
+            "lastFive": [
+              {
+                "result": "W",
+                "opponent": "JahAnti Tester 3",
+                "score": "4–3",
+                "date": "2026-11-23"
+              }
+            ]
+          },
+          {
+            "playerId": "P003",
+            "name": "JahAnti Tester 3",
+            "rank": 2,
+            "wins": 0,
+            "losses": 1,
+            "kills": 0,
+            "assists": 0,
+            "matches": 1,
+            "goalsFor": 3,
+            "goalsAgainst": 4,
+            "goalDifference": -1,
+            "draws": 0,
+            "lastFive": [
+              {
+                "result": "L",
+                "opponent": "JahAnti Tester 9",
+                "score": "3–4",
+                "date": "2026-11-23"
+              }
+            ]
+          }
+        ]
       }
     }
   },
@@ -609,8 +908,8 @@
           "group": "A",
           "rows": [
             {
-              "name": "Private participant 9",
-              "playerId": null,
+              "name": "JahAnti Tester 9",
+              "playerId": "P009",
               "position": 1,
               "played": 1,
               "wins": 1,
@@ -635,8 +934,8 @@
               "points": 0
             },
             {
-              "name": "Private participant 5",
-              "playerId": null,
+              "name": "JahAnti Tester 5",
+              "playerId": "P005",
               "position": 3,
               "played": 0,
               "wins": 0,
@@ -648,8 +947,8 @@
               "points": 0
             },
             {
-              "name": "Private participant 6",
-              "playerId": null,
+              "name": "JahAnti Tester 6",
+              "playerId": "P006",
               "position": 4,
               "played": 0,
               "wins": 0,
@@ -661,8 +960,8 @@
               "points": 0
             },
             {
-              "name": "Private participant 3",
-              "playerId": null,
+              "name": "JahAnti Tester 3",
+              "playerId": "P003",
               "position": 5,
               "played": 1,
               "wins": 0,
@@ -692,8 +991,8 @@
               "points": 0
             },
             {
-              "name": "Private participant 4",
-              "playerId": null,
+              "name": "JahAnti Tester 4",
+              "playerId": "P004",
               "position": 2,
               "played": 0,
               "wins": 0,
@@ -705,8 +1004,8 @@
               "points": 0
             },
             {
-              "name": "Private participant 7",
-              "playerId": null,
+              "name": "JahAnti Tester 7",
+              "playerId": "P007",
               "position": 3,
               "played": 0,
               "wins": 0,
@@ -718,8 +1017,8 @@
               "points": 0
             },
             {
-              "name": "Private participant 8",
-              "playerId": null,
+              "name": "JahAnti Tester 8",
+              "playerId": "P008",
               "position": 4,
               "played": 0,
               "wins": 0,
@@ -731,8 +1030,8 @@
               "points": 0
             },
             {
-              "name": "Private participant 10",
-              "playerId": null,
+              "name": "JahAnti Tester 10",
+              "playerId": "P010",
               "position": 5,
               "played": 0,
               "wins": 0,
@@ -756,16 +1055,16 @@
           "format": "Single match",
           "status": "Complete",
           "a": {
-            "name": "Private participant 9",
-            "playerId": null
+            "name": "JahAnti Tester 9",
+            "playerId": "P009"
           },
           "b": {
-            "name": "Private participant 3",
-            "playerId": null
+            "name": "JahAnti Tester 3",
+            "playerId": "P003"
           },
           "winner": {
-            "name": "Private participant 9",
-            "playerId": null
+            "name": "JahAnti Tester 9",
+            "playerId": "P009"
           },
           "admin": false,
           "games": [
@@ -790,12 +1089,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 3",
-            "playerId": null
+            "name": "JahAnti Tester 3",
+            "playerId": "P003"
           },
           "b": {
-            "name": "Private participant 9",
-            "playerId": null
+            "name": "JahAnti Tester 9",
+            "playerId": "P009"
           },
           "winner": null,
           "admin": false,
@@ -811,12 +1110,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 9",
-            "playerId": null
+            "name": "JahAnti Tester 9",
+            "playerId": "P009"
           },
           "b": {
-            "name": "Private participant 5",
-            "playerId": null
+            "name": "JahAnti Tester 5",
+            "playerId": "P005"
           },
           "winner": null,
           "admin": false,
@@ -832,12 +1131,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 5",
-            "playerId": null
+            "name": "JahAnti Tester 5",
+            "playerId": "P005"
           },
           "b": {
-            "name": "Private participant 9",
-            "playerId": null
+            "name": "JahAnti Tester 9",
+            "playerId": "P009"
           },
           "winner": null,
           "admin": false,
@@ -853,8 +1152,8 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 9",
-            "playerId": null
+            "name": "JahAnti Tester 9",
+            "playerId": "P009"
           },
           "b": {
             "name": "JahAnti Tester 2",
@@ -878,8 +1177,8 @@
             "playerId": "P002"
           },
           "b": {
-            "name": "Private participant 9",
-            "playerId": null
+            "name": "JahAnti Tester 9",
+            "playerId": "P009"
           },
           "winner": null,
           "admin": false,
@@ -895,12 +1194,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 9",
-            "playerId": null
+            "name": "JahAnti Tester 9",
+            "playerId": "P009"
           },
           "b": {
-            "name": "Private participant 6",
-            "playerId": null
+            "name": "JahAnti Tester 6",
+            "playerId": "P006"
           },
           "winner": null,
           "admin": false,
@@ -916,12 +1215,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 6",
-            "playerId": null
+            "name": "JahAnti Tester 6",
+            "playerId": "P006"
           },
           "b": {
-            "name": "Private participant 9",
-            "playerId": null
+            "name": "JahAnti Tester 9",
+            "playerId": "P009"
           },
           "winner": null,
           "admin": false,
@@ -937,12 +1236,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 3",
-            "playerId": null
+            "name": "JahAnti Tester 3",
+            "playerId": "P003"
           },
           "b": {
-            "name": "Private participant 5",
-            "playerId": null
+            "name": "JahAnti Tester 5",
+            "playerId": "P005"
           },
           "winner": null,
           "admin": false,
@@ -958,12 +1257,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 5",
-            "playerId": null
+            "name": "JahAnti Tester 5",
+            "playerId": "P005"
           },
           "b": {
-            "name": "Private participant 3",
-            "playerId": null
+            "name": "JahAnti Tester 3",
+            "playerId": "P003"
           },
           "winner": null,
           "admin": false,
@@ -979,8 +1278,8 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 3",
-            "playerId": null
+            "name": "JahAnti Tester 3",
+            "playerId": "P003"
           },
           "b": {
             "name": "JahAnti Tester 2",
@@ -1004,8 +1303,8 @@
             "playerId": "P002"
           },
           "b": {
-            "name": "Private participant 3",
-            "playerId": null
+            "name": "JahAnti Tester 3",
+            "playerId": "P003"
           },
           "winner": null,
           "admin": false,
@@ -1021,12 +1320,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 3",
-            "playerId": null
+            "name": "JahAnti Tester 3",
+            "playerId": "P003"
           },
           "b": {
-            "name": "Private participant 6",
-            "playerId": null
+            "name": "JahAnti Tester 6",
+            "playerId": "P006"
           },
           "winner": null,
           "admin": false,
@@ -1042,12 +1341,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 6",
-            "playerId": null
+            "name": "JahAnti Tester 6",
+            "playerId": "P006"
           },
           "b": {
-            "name": "Private participant 3",
-            "playerId": null
+            "name": "JahAnti Tester 3",
+            "playerId": "P003"
           },
           "winner": null,
           "admin": false,
@@ -1063,8 +1362,8 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 5",
-            "playerId": null
+            "name": "JahAnti Tester 5",
+            "playerId": "P005"
           },
           "b": {
             "name": "JahAnti Tester 2",
@@ -1088,8 +1387,8 @@
             "playerId": "P002"
           },
           "b": {
-            "name": "Private participant 5",
-            "playerId": null
+            "name": "JahAnti Tester 5",
+            "playerId": "P005"
           },
           "winner": null,
           "admin": false,
@@ -1105,12 +1404,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 5",
-            "playerId": null
+            "name": "JahAnti Tester 5",
+            "playerId": "P005"
           },
           "b": {
-            "name": "Private participant 6",
-            "playerId": null
+            "name": "JahAnti Tester 6",
+            "playerId": "P006"
           },
           "winner": null,
           "admin": false,
@@ -1126,12 +1425,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 6",
-            "playerId": null
+            "name": "JahAnti Tester 6",
+            "playerId": "P006"
           },
           "b": {
-            "name": "Private participant 5",
-            "playerId": null
+            "name": "JahAnti Tester 5",
+            "playerId": "P005"
           },
           "winner": null,
           "admin": false,
@@ -1151,8 +1450,8 @@
             "playerId": "P002"
           },
           "b": {
-            "name": "Private participant 6",
-            "playerId": null
+            "name": "JahAnti Tester 6",
+            "playerId": "P006"
           },
           "winner": null,
           "admin": false,
@@ -1168,8 +1467,8 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 6",
-            "playerId": null
+            "name": "JahAnti Tester 6",
+            "playerId": "P006"
           },
           "b": {
             "name": "JahAnti Tester 2",
@@ -1189,12 +1488,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 10",
-            "playerId": null
+            "name": "JahAnti Tester 10",
+            "playerId": "P010"
           },
           "b": {
-            "name": "Private participant 7",
-            "playerId": null
+            "name": "JahAnti Tester 7",
+            "playerId": "P007"
           },
           "winner": null,
           "admin": false,
@@ -1210,12 +1509,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 7",
-            "playerId": null
+            "name": "JahAnti Tester 7",
+            "playerId": "P007"
           },
           "b": {
-            "name": "Private participant 10",
-            "playerId": null
+            "name": "JahAnti Tester 10",
+            "playerId": "P010"
           },
           "winner": null,
           "admin": false,
@@ -1231,8 +1530,8 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 10",
-            "playerId": null
+            "name": "JahAnti Tester 10",
+            "playerId": "P010"
           },
           "b": {
             "name": "JahAnti Tester 1",
@@ -1256,8 +1555,8 @@
             "playerId": "P001"
           },
           "b": {
-            "name": "Private participant 10",
-            "playerId": null
+            "name": "JahAnti Tester 10",
+            "playerId": "P010"
           },
           "winner": null,
           "admin": false,
@@ -1273,12 +1572,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 10",
-            "playerId": null
+            "name": "JahAnti Tester 10",
+            "playerId": "P010"
           },
           "b": {
-            "name": "Private participant 8",
-            "playerId": null
+            "name": "JahAnti Tester 8",
+            "playerId": "P008"
           },
           "winner": null,
           "admin": false,
@@ -1294,12 +1593,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 8",
-            "playerId": null
+            "name": "JahAnti Tester 8",
+            "playerId": "P008"
           },
           "b": {
-            "name": "Private participant 10",
-            "playerId": null
+            "name": "JahAnti Tester 10",
+            "playerId": "P010"
           },
           "winner": null,
           "admin": false,
@@ -1315,12 +1614,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 10",
-            "playerId": null
+            "name": "JahAnti Tester 10",
+            "playerId": "P010"
           },
           "b": {
-            "name": "Private participant 4",
-            "playerId": null
+            "name": "JahAnti Tester 4",
+            "playerId": "P004"
           },
           "winner": null,
           "admin": false,
@@ -1336,12 +1635,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 4",
-            "playerId": null
+            "name": "JahAnti Tester 4",
+            "playerId": "P004"
           },
           "b": {
-            "name": "Private participant 10",
-            "playerId": null
+            "name": "JahAnti Tester 10",
+            "playerId": "P010"
           },
           "winner": null,
           "admin": false,
@@ -1357,8 +1656,8 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 7",
-            "playerId": null
+            "name": "JahAnti Tester 7",
+            "playerId": "P007"
           },
           "b": {
             "name": "JahAnti Tester 1",
@@ -1382,8 +1681,8 @@
             "playerId": "P001"
           },
           "b": {
-            "name": "Private participant 7",
-            "playerId": null
+            "name": "JahAnti Tester 7",
+            "playerId": "P007"
           },
           "winner": null,
           "admin": false,
@@ -1399,12 +1698,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 7",
-            "playerId": null
+            "name": "JahAnti Tester 7",
+            "playerId": "P007"
           },
           "b": {
-            "name": "Private participant 8",
-            "playerId": null
+            "name": "JahAnti Tester 8",
+            "playerId": "P008"
           },
           "winner": null,
           "admin": false,
@@ -1420,12 +1719,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 8",
-            "playerId": null
+            "name": "JahAnti Tester 8",
+            "playerId": "P008"
           },
           "b": {
-            "name": "Private participant 7",
-            "playerId": null
+            "name": "JahAnti Tester 7",
+            "playerId": "P007"
           },
           "winner": null,
           "admin": false,
@@ -1441,12 +1740,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 7",
-            "playerId": null
+            "name": "JahAnti Tester 7",
+            "playerId": "P007"
           },
           "b": {
-            "name": "Private participant 4",
-            "playerId": null
+            "name": "JahAnti Tester 4",
+            "playerId": "P004"
           },
           "winner": null,
           "admin": false,
@@ -1462,12 +1761,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 4",
-            "playerId": null
+            "name": "JahAnti Tester 4",
+            "playerId": "P004"
           },
           "b": {
-            "name": "Private participant 7",
-            "playerId": null
+            "name": "JahAnti Tester 7",
+            "playerId": "P007"
           },
           "winner": null,
           "admin": false,
@@ -1487,8 +1786,8 @@
             "playerId": "P001"
           },
           "b": {
-            "name": "Private participant 8",
-            "playerId": null
+            "name": "JahAnti Tester 8",
+            "playerId": "P008"
           },
           "winner": null,
           "admin": false,
@@ -1504,8 +1803,8 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 8",
-            "playerId": null
+            "name": "JahAnti Tester 8",
+            "playerId": "P008"
           },
           "b": {
             "name": "JahAnti Tester 1",
@@ -1529,8 +1828,8 @@
             "playerId": "P001"
           },
           "b": {
-            "name": "Private participant 4",
-            "playerId": null
+            "name": "JahAnti Tester 4",
+            "playerId": "P004"
           },
           "winner": null,
           "admin": false,
@@ -1546,8 +1845,8 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 4",
-            "playerId": null
+            "name": "JahAnti Tester 4",
+            "playerId": "P004"
           },
           "b": {
             "name": "JahAnti Tester 1",
@@ -1567,12 +1866,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 8",
-            "playerId": null
+            "name": "JahAnti Tester 8",
+            "playerId": "P008"
           },
           "b": {
-            "name": "Private participant 4",
-            "playerId": null
+            "name": "JahAnti Tester 4",
+            "playerId": "P004"
           },
           "winner": null,
           "admin": false,
@@ -1588,12 +1887,12 @@
           "format": "Single match",
           "status": "Ready",
           "a": {
-            "name": "Private participant 4",
-            "playerId": null
+            "name": "JahAnti Tester 4",
+            "playerId": "P004"
           },
           "b": {
-            "name": "Private participant 8",
-            "playerId": null
+            "name": "JahAnti Tester 8",
+            "playerId": "P008"
           },
           "winner": null,
           "admin": false,
