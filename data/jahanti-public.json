@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T01:25:56.724Z",
+  "generatedAt": "2026-11-15T01:56:03.551Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active members with Public Profile = Yes appear. Rankings use confirmed results and reconciled baselines.",
   "players": [
@@ -19,12 +19,21 @@
         "domino": ""
       },
       "games": [
+        "fortnite",
         "domino",
         "fc"
       ],
       "socials": {},
       "showInGallery": true,
       "achievements": [
+        {
+          "id": "ACH-002",
+          "name": "First Victory",
+          "description": "Win your first confirmed Fortnite match.",
+          "icon": "🏅",
+          "iconUrl": "",
+          "earnedAt": "2026-11-14T20:07:42.186Z"
+        },
         {
           "id": "ACH-001",
           "name": "Founding Member",
@@ -35,6 +44,14 @@
         }
       ],
       "featuredAchievements": [
+        {
+          "id": "ACH-002",
+          "name": "First Victory",
+          "description": "Win your first confirmed Fortnite match.",
+          "icon": "🏅",
+          "iconUrl": "",
+          "earnedAt": "2026-11-14T20:07:42.186Z"
+        },
         {
           "id": "ACH-001",
           "name": "Founding Member",
@@ -48,10 +65,40 @@
   ],
   "leaderboards": {
     "allTime": {
-      "fortnite": [],
+      "fortnite": [
+        {
+          "playerId": "P002",
+          "name": "RoyalRegi007",
+          "rank": 1,
+          "wins": 1,
+          "losses": 0,
+          "kills": 5,
+          "assists": 15,
+          "matches": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "draws": 0
+        }
+      ],
       "cod": [],
       "redsec": [],
-      "combinedShooters": [],
+      "combinedShooters": [
+        {
+          "playerId": "P002",
+          "name": "RoyalRegi007",
+          "rank": 1,
+          "wins": 1,
+          "losses": 0,
+          "kills": 5,
+          "assists": 15,
+          "matches": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "draws": 0
+        }
+      ],
       "domino1v1": [
         {
           "playerId": "P002",
@@ -88,10 +135,40 @@
     },
     "monthly": {
       "2026-11": {
-        "fortnite": [],
+        "fortnite": [
+          {
+            "playerId": "P002",
+            "name": "RoyalRegi007",
+            "rank": 1,
+            "wins": 1,
+            "losses": 0,
+            "kills": 5,
+            "assists": 15,
+            "matches": 1,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "goalDifference": 0,
+            "draws": 0
+          }
+        ],
         "cod": [],
         "redsec": [],
-        "combinedShooters": [],
+        "combinedShooters": [
+          {
+            "playerId": "P002",
+            "name": "RoyalRegi007",
+            "rank": 1,
+            "wins": 1,
+            "losses": 0,
+            "kills": 5,
+            "assists": 15,
+            "matches": 1,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "goalDifference": 0,
+            "draws": 0
+          }
+        ],
         "domino1v1": [
           {
             "playerId": "P002",
@@ -129,10 +206,40 @@
     },
     "weekly": {
       "2026-11-09": {
-        "fortnite": [],
+        "fortnite": [
+          {
+            "playerId": "P002",
+            "name": "RoyalRegi007",
+            "rank": 1,
+            "wins": 1,
+            "losses": 0,
+            "kills": 5,
+            "assists": 15,
+            "matches": 1,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "goalDifference": 0,
+            "draws": 0
+          }
+        ],
         "cod": [],
         "redsec": [],
-        "combinedShooters": [],
+        "combinedShooters": [
+          {
+            "playerId": "P002",
+            "name": "RoyalRegi007",
+            "rank": 1,
+            "wins": 1,
+            "losses": 0,
+            "kills": 5,
+            "assists": 15,
+            "matches": 1,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "goalDifference": 0,
+            "draws": 0
+          }
+        ],
         "domino1v1": [
           {
             "playerId": "P002",
