@@ -130,5 +130,177 @@ window.JAHANTI_PLAYERS = [
       }
     ],
     "showInGallery": true
+  },
+  {
+    "id": "P003",
+    "slug": "p003",
+    "name": "JahAnti Tester 3",
+    "avatar": "JA",
+    "avatarUrl": "assets/players/p003.webp",
+    "games": [
+      "fc"
+    ],
+    "bio": "",
+    "socials": {},
+    "handles": {
+      "fortnite": "",
+      "cod": "",
+      "redsec": "",
+      "fc": "",
+      "domino": ""
+    },
+    "achievements": [],
+    "allAchievements": [],
+    "featuredAchievements": [],
+    "showInGallery": true
+  },
+  {
+    "id": "P004",
+    "slug": "p004",
+    "name": "JahAnti Tester 4",
+    "avatar": "JA",
+    "avatarUrl": "assets/players/p004.webp",
+    "games": [],
+    "bio": "",
+    "socials": {},
+    "handles": {
+      "fortnite": "",
+      "cod": "",
+      "redsec": "",
+      "fc": "",
+      "domino": ""
+    },
+    "achievements": [],
+    "allAchievements": [],
+    "featuredAchievements": [],
+    "showInGallery": true
+  },
+  {
+    "id": "P005",
+    "slug": "p005",
+    "name": "JahAnti Tester 5",
+    "avatar": "JA",
+    "avatarUrl": "assets/players/p005.webp",
+    "games": [],
+    "bio": "",
+    "socials": {},
+    "handles": {
+      "fortnite": "",
+      "cod": "",
+      "redsec": "",
+      "fc": "",
+      "domino": ""
+    },
+    "achievements": [],
+    "allAchievements": [],
+    "featuredAchievements": [],
+    "showInGallery": true
+  },
+  {
+    "id": "P006",
+    "slug": "p006",
+    "name": "JahAnti Tester 6",
+    "avatar": "JA",
+    "avatarUrl": "assets/players/p006.webp",
+    "games": [],
+    "bio": "",
+    "socials": {},
+    "handles": {
+      "fortnite": "",
+      "cod": "",
+      "redsec": "",
+      "fc": "",
+      "domino": ""
+    },
+    "achievements": [],
+    "allAchievements": [],
+    "featuredAchievements": [],
+    "showInGallery": true
+  },
+  {
+    "id": "P007",
+    "slug": "p007",
+    "name": "JahAnti Tester 7",
+    "avatar": "JA",
+    "avatarUrl": "assets/players/p007.webp",
+    "games": [],
+    "bio": "",
+    "socials": {},
+    "handles": {
+      "fortnite": "",
+      "cod": "",
+      "redsec": "",
+      "fc": "",
+      "domino": ""
+    },
+    "achievements": [],
+    "allAchievements": [],
+    "featuredAchievements": [],
+    "showInGallery": true
+  },
+  {
+    "id": "P008",
+    "slug": "p008",
+    "name": "JahAnti Tester 8",
+    "avatar": "JA",
+    "avatarUrl": "assets/players/p008.webp",
+    "games": [],
+    "bio": "",
+    "socials": {},
+    "handles": {
+      "fortnite": "",
+      "cod": "",
+      "redsec": "",
+      "fc": "",
+      "domino": ""
+    },
+    "achievements": [],
+    "allAchievements": [],
+    "featuredAchievements": [],
+    "showInGallery": true
+  },
+  {
+    "id": "P009",
+    "slug": "p009",
+    "name": "JahAnti Tester 9",
+    "avatar": "JA",
+    "avatarUrl": "assets/players/p009.webp",
+    "games": [
+      "fc"
+    ],
+    "bio": "",
+    "socials": {},
+    "handles": {
+      "fortnite": "",
+      "cod": "",
+      "redsec": "",
+      "fc": "",
+      "domino": ""
+    },
+    "achievements": [],
+    "allAchievements": [],
+    "featuredAchievements": [],
+    "showInGallery": true
+  },
+  {
+    "id": "P010",
+    "slug": "p010",
+    "name": "JahAnti Tester 10",
+    "avatar": "JA",
+    "avatarUrl": "assets/players/p010.webp",
+    "games": [],
+    "bio": "",
+    "socials": {},
+    "handles": {
+      "fortnite": "",
+      "cod": "",
+      "redsec": "",
+      "fc": "",
+      "domino": ""
+    },
+    "achievements": [],
+    "allAchievements": [],
+    "featuredAchievements": [],
+    "showInGallery": true
   }
 ];
