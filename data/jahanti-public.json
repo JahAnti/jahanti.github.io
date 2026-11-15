@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T04:19:51.223Z",
+  "generatedAt": "2026-11-15T04:41:02.484Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active members with Public Profile = Yes appear. Rankings use confirmed results and reconciled baselines.",
   "players": [
@@ -16,7 +16,7 @@
         "cod": "",
         "redsec": "",
         "fc": "RoyalRegi007",
-        "domino": "RoyalRegi007"
+        "domino": "RoyalRegi"
       },
       "games": [
         "fortnite",
@@ -24,8 +24,8 @@
         "domino"
       ],
       "socials": {
-        "instagram": "https://www.instagram.com/royalregi/",
-        "tiktok": "https://www.instagram.com/royalregi/"
+        "instagram": "https://www.instagram.com/the.cat.007/",
+        "tiktok": "https://www.tiktok.com/@royalcat007"
       },
       "showInGallery": true,
       "achievements": [
