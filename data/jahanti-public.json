@@ -1,9 +1,51 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T04:41:02.484Z",
+  "generatedAt": "2026-11-15T04:54:45.661Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active members with Public Profile = Yes appear. Rankings use confirmed results and reconciled baselines.",
   "players": [
+    {
+      "id": "P001",
+      "slug": "p001",
+      "name": "JahAnti Tester",
+      "avatar": "JA",
+      "avatarUrl": "assets/players/p001.webp",
+      "bio": "I am a Tester Account",
+      "handles": {
+        "fortnite": "tester",
+        "cod": "",
+        "redsec": "",
+        "fc": "",
+        "domino": "Tester"
+      },
+      "games": [
+        "fortnite",
+        "domino",
+        "fc"
+      ],
+      "socials": {},
+      "showInGallery": true,
+      "achievements": [
+        {
+          "id": "ACH-002",
+          "name": "First Victory",
+          "description": "Win your first confirmed Fortnite match.",
+          "icon": "🏅",
+          "iconUrl": "",
+          "earnedAt": "2026-11-14T20:07:42.186Z"
+        }
+      ],
+      "featuredAchievements": [
+        {
+          "id": "ACH-002",
+          "name": "First Victory",
+          "description": "Win your first confirmed Fortnite match.",
+          "icon": "🏅",
+          "iconUrl": "",
+          "earnedAt": "2026-11-14T20:07:42.186Z"
+        }
+      ]
+    },
     {
       "id": "P002",
       "slug": "p002",
@@ -82,6 +124,20 @@
           "goalsAgainst": 0,
           "goalDifference": 0,
           "draws": 0
+        },
+        {
+          "playerId": "P001",
+          "name": "JahAnti Tester",
+          "rank": 2,
+          "wins": 1,
+          "losses": 0,
+          "kills": 2,
+          "assists": 5,
+          "matches": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "draws": 0
         }
       ],
       "cod": [],
@@ -100,13 +156,41 @@
           "goalsAgainst": 0,
           "goalDifference": 0,
           "draws": 0
+        },
+        {
+          "playerId": "P001",
+          "name": "JahAnti Tester",
+          "rank": 2,
+          "wins": 1,
+          "losses": 0,
+          "kills": 2,
+          "assists": 5,
+          "matches": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "draws": 0
         }
       ],
       "domino1v1": [
         {
+          "playerId": "P001",
+          "name": "JahAnti Tester",
+          "rank": 1,
+          "wins": 1,
+          "losses": 0,
+          "kills": 0,
+          "assists": 0,
+          "matches": 1,
+          "goalsFor": 0,
+          "goalsAgainst": 0,
+          "goalDifference": 0,
+          "draws": 0
+        },
+        {
           "playerId": "P002",
           "name": "RoyalRegi007",
-          "rank": 1,
+          "rank": 2,
           "wins": 0,
           "losses": 1,
           "kills": 0,
@@ -133,6 +217,20 @@
           "goalsAgainst": 1,
           "goalDifference": 2,
           "draws": 0
+        },
+        {
+          "playerId": "P001",
+          "name": "JahAnti Tester",
+          "rank": 2,
+          "wins": 0,
+          "losses": 1,
+          "kills": 0,
+          "assists": 0,
+          "matches": 1,
+          "goalsFor": 1,
+          "goalsAgainst": 3,
+          "goalDifference": -2,
+          "draws": 0
         }
       ]
     },
@@ -147,6 +245,20 @@
             "losses": 0,
             "kills": 5,
             "assists": 15,
+            "matches": 1,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "goalDifference": 0,
+            "draws": 0
+          },
+          {
+            "playerId": "P001",
+            "name": "JahAnti Tester",
+            "rank": 2,
+            "wins": 1,
+            "losses": 0,
+            "kills": 2,
+            "assists": 5,
             "matches": 1,
             "goalsFor": 0,
             "goalsAgainst": 0,
@@ -170,13 +282,41 @@
             "goalsAgainst": 0,
             "goalDifference": 0,
             "draws": 0
+          },
+          {
+            "playerId": "P001",
+            "name": "JahAnti Tester",
+            "rank": 2,
+            "wins": 1,
+            "losses": 0,
+            "kills": 2,
+            "assists": 5,
+            "matches": 1,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "goalDifference": 0,
+            "draws": 0
           }
         ],
         "domino1v1": [
           {
+            "playerId": "P001",
+            "name": "JahAnti Tester",
+            "rank": 1,
+            "wins": 1,
+            "losses": 0,
+            "kills": 0,
+            "assists": 0,
+            "matches": 1,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "goalDifference": 0,
+            "draws": 0
+          },
+          {
             "playerId": "P002",
             "name": "RoyalRegi007",
-            "rank": 1,
+            "rank": 2,
             "wins": 0,
             "losses": 1,
             "kills": 0,
@@ -202,6 +342,20 @@
             "goalsFor": 3,
             "goalsAgainst": 1,
             "goalDifference": 2,
+            "draws": 0
+          },
+          {
+            "playerId": "P001",
+            "name": "JahAnti Tester",
+            "rank": 2,
+            "wins": 0,
+            "losses": 1,
+            "kills": 0,
+            "assists": 0,
+            "matches": 1,
+            "goalsFor": 1,
+            "goalsAgainst": 3,
+            "goalDifference": -2,
             "draws": 0
           }
         ]
@@ -223,6 +377,20 @@
             "goalsAgainst": 0,
             "goalDifference": 0,
             "draws": 0
+          },
+          {
+            "playerId": "P001",
+            "name": "JahAnti Tester",
+            "rank": 2,
+            "wins": 1,
+            "losses": 0,
+            "kills": 2,
+            "assists": 5,
+            "matches": 1,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "goalDifference": 0,
+            "draws": 0
           }
         ],
         "cod": [],
@@ -241,13 +409,41 @@
             "goalsAgainst": 0,
             "goalDifference": 0,
             "draws": 0
+          },
+          {
+            "playerId": "P001",
+            "name": "JahAnti Tester",
+            "rank": 2,
+            "wins": 1,
+            "losses": 0,
+            "kills": 2,
+            "assists": 5,
+            "matches": 1,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "goalDifference": 0,
+            "draws": 0
           }
         ],
         "domino1v1": [
           {
+            "playerId": "P001",
+            "name": "JahAnti Tester",
+            "rank": 1,
+            "wins": 1,
+            "losses": 0,
+            "kills": 0,
+            "assists": 0,
+            "matches": 1,
+            "goalsFor": 0,
+            "goalsAgainst": 0,
+            "goalDifference": 0,
+            "draws": 0
+          },
+          {
             "playerId": "P002",
             "name": "RoyalRegi007",
-            "rank": 1,
+            "rank": 2,
             "wins": 0,
             "losses": 1,
             "kills": 0,
@@ -273,6 +469,20 @@
             "goalsFor": 3,
             "goalsAgainst": 1,
             "goalDifference": 2,
+            "draws": 0
+          },
+          {
+            "playerId": "P001",
+            "name": "JahAnti Tester",
+            "rank": 2,
+            "wins": 0,
+            "losses": 1,
+            "kills": 0,
+            "assists": 0,
+            "matches": 1,
+            "goalsFor": 1,
+            "goalsAgainst": 3,
+            "goalDifference": -2,
             "draws": 0
           }
         ]
