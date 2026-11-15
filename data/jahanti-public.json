@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T22:09:35.955Z",
+  "generatedAt": "2026-11-15T22:15:34.297Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active members with Public Profile = Yes appear. Rankings use confirmed results and reconciled baselines.",
   "players": [
@@ -492,5 +492,20 @@
       }
     }
   },
-  "tournaments": []
+  "tournaments": [
+    {
+      "id": "TN-00001",
+      "name": "The JahAnti Weekly",
+      "description": "The Weekly JahAnti CUP",
+      "startDate": "2026-11-22",
+      "registrationStatus": "Open",
+      "status": "Upcoming",
+      "phase": "Setup",
+      "format": "Groups → Single Elimination",
+      "players": 0,
+      "champion": null,
+      "groups": [],
+      "fixtures": []
+    }
+  ]
 }
