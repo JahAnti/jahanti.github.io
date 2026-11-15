@@ -3,7 +3,7 @@ window.JAHANTI_LEADERBOARDS = {
   "fc": [
     {
       "playerId": "P002",
-      "name": "RoyalRegi007",
+      "name": "JahAnti Tester 2",
       "rank": 1,
       "wins": 1,
       "losses": 0,
@@ -18,7 +18,7 @@ window.JAHANTI_LEADERBOARDS = {
     },
     {
       "playerId": "P001",
-      "name": "JahAnti Tester",
+      "name": "JahAnti Tester 1",
       "rank": 2,
       "wins": 0,
       "losses": 1,
@@ -35,7 +35,7 @@ window.JAHANTI_LEADERBOARDS = {
   "fortnite": [
     {
       "playerId": "P002",
-      "name": "RoyalRegi007",
+      "name": "JahAnti Tester 2",
       "rank": 1,
       "wins": 1,
       "losses": 0,
@@ -49,7 +49,7 @@ window.JAHANTI_LEADERBOARDS = {
     },
     {
       "playerId": "P001",
-      "name": "JahAnti Tester",
+      "name": "JahAnti Tester 1",
       "rank": 2,
       "wins": 1,
       "losses": 0,
@@ -67,7 +67,7 @@ window.JAHANTI_LEADERBOARDS = {
   "domino": [
     {
       "playerId": "P001",
-      "name": "JahAnti Tester",
+      "name": "JahAnti Tester 1",
       "rank": 1,
       "wins": 1,
       "losses": 0,
@@ -81,7 +81,7 @@ window.JAHANTI_LEADERBOARDS = {
     },
     {
       "playerId": "P002",
-      "name": "RoyalRegi007",
+      "name": "JahAnti Tester 2",
       "rank": 2,
       "wins": 0,
       "losses": 1,
