@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T23:09:12.620Z",
+  "generatedAt": "2026-11-15T23:54:58.246Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active public members appear. Rankings include confirmed games and eligible baselines; Last 5 shows only actually played confirmed games. Private opponents are anonymized.",
   "players": [
@@ -163,7 +163,9 @@
         "fc": "",
         "domino": ""
       },
-      "games": [],
+      "games": [
+        "fc"
+      ],
       "socials": {},
       "showInGallery": true,
       "achievements": [],
@@ -429,17 +431,39 @@
       ],
       "fifaOfficial": [
         {
-          "playerId": "P009",
-          "name": "JahAnti Tester 9",
+          "playerId": "P005",
+          "name": "JahAnti Tester 5",
           "rank": 1,
           "wins": 1,
           "losses": 0,
           "kills": 0,
           "assists": 0,
           "matches": 1,
-          "goalsFor": 4,
-          "goalsAgainst": 3,
-          "goalDifference": 1,
+          "goalsFor": 6,
+          "goalsAgainst": 2,
+          "goalDifference": 4,
+          "draws": 0,
+          "lastFive": [
+            {
+              "result": "W",
+              "opponent": "JahAnti Tester 9",
+              "score": "6–2",
+              "date": "2026-11-23"
+            }
+          ]
+        },
+        {
+          "playerId": "P009",
+          "name": "JahAnti Tester 9",
+          "rank": 2,
+          "wins": 1,
+          "losses": 1,
+          "kills": 0,
+          "assists": 0,
+          "matches": 2,
+          "goalsFor": 6,
+          "goalsAgainst": 9,
+          "goalDifference": -3,
           "draws": 0,
           "lastFive": [
             {
@@ -447,13 +471,19 @@
               "opponent": "JahAnti Tester 3",
               "score": "4–3",
               "date": "2026-11-23"
+            },
+            {
+              "result": "L",
+              "opponent": "JahAnti Tester 5",
+              "score": "2–6",
+              "date": "2026-11-23"
             }
           ]
         },
         {
           "playerId": "P003",
           "name": "JahAnti Tester 3",
-          "rank": 2,
+          "rank": 3,
           "wins": 0,
           "losses": 1,
           "kills": 0,
@@ -631,17 +661,39 @@
         ],
         "fifaOfficial": [
           {
-            "playerId": "P009",
-            "name": "JahAnti Tester 9",
+            "playerId": "P005",
+            "name": "JahAnti Tester 5",
             "rank": 1,
             "wins": 1,
             "losses": 0,
             "kills": 0,
             "assists": 0,
             "matches": 1,
-            "goalsFor": 4,
-            "goalsAgainst": 3,
-            "goalDifference": 1,
+            "goalsFor": 6,
+            "goalsAgainst": 2,
+            "goalDifference": 4,
+            "draws": 0,
+            "lastFive": [
+              {
+                "result": "W",
+                "opponent": "JahAnti Tester 9",
+                "score": "6–2",
+                "date": "2026-11-23"
+              }
+            ]
+          },
+          {
+            "playerId": "P009",
+            "name": "JahAnti Tester 9",
+            "rank": 2,
+            "wins": 1,
+            "losses": 1,
+            "kills": 0,
+            "assists": 0,
+            "matches": 2,
+            "goalsFor": 6,
+            "goalsAgainst": 9,
+            "goalDifference": -3,
             "draws": 0,
             "lastFive": [
               {
@@ -649,13 +701,19 @@
                 "opponent": "JahAnti Tester 3",
                 "score": "4–3",
                 "date": "2026-11-23"
+              },
+              {
+                "result": "L",
+                "opponent": "JahAnti Tester 5",
+                "score": "2–6",
+                "date": "2026-11-23"
               }
             ]
           },
           {
             "playerId": "P003",
             "name": "JahAnti Tester 3",
-            "rank": 2,
+            "rank": 3,
             "wins": 0,
             "losses": 1,
             "kills": 0,
@@ -854,17 +912,39 @@
         "fifaFriendlies": [],
         "fifaOfficial": [
           {
-            "playerId": "P009",
-            "name": "JahAnti Tester 9",
+            "playerId": "P005",
+            "name": "JahAnti Tester 5",
             "rank": 1,
             "wins": 1,
             "losses": 0,
             "kills": 0,
             "assists": 0,
             "matches": 1,
-            "goalsFor": 4,
-            "goalsAgainst": 3,
-            "goalDifference": 1,
+            "goalsFor": 6,
+            "goalsAgainst": 2,
+            "goalDifference": 4,
+            "draws": 0,
+            "lastFive": [
+              {
+                "result": "W",
+                "opponent": "JahAnti Tester 9",
+                "score": "6–2",
+                "date": "2026-11-23"
+              }
+            ]
+          },
+          {
+            "playerId": "P009",
+            "name": "JahAnti Tester 9",
+            "rank": 2,
+            "wins": 1,
+            "losses": 1,
+            "kills": 0,
+            "assists": 0,
+            "matches": 2,
+            "goalsFor": 6,
+            "goalsAgainst": 9,
+            "goalDifference": -3,
             "draws": 0,
             "lastFive": [
               {
@@ -872,13 +952,19 @@
                 "opponent": "JahAnti Tester 3",
                 "score": "4–3",
                 "date": "2026-11-23"
+              },
+              {
+                "result": "L",
+                "opponent": "JahAnti Tester 5",
+                "score": "2–6",
+                "date": "2026-11-23"
               }
             ]
           },
           {
             "playerId": "P003",
             "name": "JahAnti Tester 3",
-            "rank": 2,
+            "rank": 3,
             "wins": 0,
             "losses": 1,
             "kills": 0,
@@ -918,34 +1004,34 @@
           "group": "A",
           "rows": [
             {
-              "name": "JahAnti Tester 9",
-              "playerId": "P009",
+              "name": "JahAnti Tester 5",
+              "playerId": "P005",
               "position": 1,
               "played": 1,
               "wins": 1,
               "draws": 0,
               "losses": 0,
-              "gf": 4,
-              "ga": 3,
-              "gd": 1,
+              "gf": 6,
+              "ga": 2,
+              "gd": 4,
+              "points": 3
+            },
+            {
+              "name": "JahAnti Tester 9",
+              "playerId": "P009",
+              "position": 2,
+              "played": 2,
+              "wins": 1,
+              "draws": 0,
+              "losses": 1,
+              "gf": 6,
+              "ga": 9,
+              "gd": -3,
               "points": 3
             },
             {
               "name": "JahAnti Tester 2",
               "playerId": "P002",
-              "position": 2,
-              "played": 0,
-              "wins": 0,
-              "draws": 0,
-              "losses": 0,
-              "gf": 0,
-              "ga": 0,
-              "gd": 0,
-              "points": 0
-            },
-            {
-              "name": "JahAnti Tester 5",
-              "playerId": "P005",
               "position": 3,
               "played": 0,
               "wins": 0,
@@ -1118,7 +1204,7 @@
           "round": 1,
           "bracket": "",
           "format": "Single match",
-          "status": "Ready",
+          "status": "Complete",
           "a": {
             "name": "JahAnti Tester 9",
             "playerId": "P009"
@@ -1127,10 +1213,23 @@
             "name": "JahAnti Tester 5",
             "playerId": "P005"
           },
-          "winner": null,
+          "winner": {
+            "name": "JahAnti Tester 5",
+            "playerId": "P005"
+          },
           "admin": false,
-          "games": [],
-          "result": null
+          "games": [
+            {
+              "aGoals": 2,
+              "bGoals": 6,
+              "date": "2026-11-23"
+            }
+          ],
+          "result": {
+            "aGoals": 2,
+            "bGoals": 6,
+            "method": "Played"
+          }
         },
         {
           "id": "TN-00001-FX-00004",
