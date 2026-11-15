@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T22:15:34.297Z",
+  "generatedAt": "2026-11-15T22:29:23.588Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active members with Public Profile = Yes appear. Rankings use confirmed results and reconciled baselines.",
   "players": [
@@ -498,14 +498,996 @@
       "name": "The JahAnti Weekly",
       "description": "The Weekly JahAnti CUP",
       "startDate": "2026-11-22",
-      "registrationStatus": "Open",
-      "status": "Upcoming",
-      "phase": "Setup",
+      "registrationStatus": "Closed",
+      "status": "In Progress",
+      "phase": "League",
       "format": "Groups → Single Elimination",
-      "players": 0,
+      "players": 10,
       "champion": null,
-      "groups": [],
-      "fixtures": []
+      "groups": [
+        {
+          "group": "A",
+          "rows": [
+            {
+              "name": "JahAnti Tester 2",
+              "playerId": "P002",
+              "position": 1,
+              "played": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "name": "Private participant 3",
+              "playerId": null,
+              "position": 2,
+              "played": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "name": "Private participant 5",
+              "playerId": null,
+              "position": 3,
+              "played": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "name": "Private participant 6",
+              "playerId": null,
+              "position": 4,
+              "played": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "name": "Private participant 9",
+              "playerId": null,
+              "position": 5,
+              "played": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
+        },
+        {
+          "group": "B",
+          "rows": [
+            {
+              "name": "JahAnti Tester 1",
+              "playerId": "P001",
+              "position": 1,
+              "played": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "name": "Private participant 4",
+              "playerId": null,
+              "position": 2,
+              "played": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "name": "Private participant 7",
+              "playerId": null,
+              "position": 3,
+              "played": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "name": "Private participant 8",
+              "playerId": null,
+              "position": 4,
+              "played": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            },
+            {
+              "name": "Private participant 10",
+              "playerId": null,
+              "position": 5,
+              "played": 0,
+              "wins": 0,
+              "draws": 0,
+              "losses": 0,
+              "gf": 0,
+              "ga": 0,
+              "gd": 0,
+              "points": 0
+            }
+          ]
+        }
+      ],
+      "fixtures": [
+        {
+          "id": "TN-00001-FX-00001",
+          "phase": "League",
+          "group": "A",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 9",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 3",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00002",
+          "phase": "League",
+          "group": "A",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 3",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 9",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00003",
+          "phase": "League",
+          "group": "A",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 9",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 5",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00004",
+          "phase": "League",
+          "group": "A",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 5",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 9",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00005",
+          "phase": "League",
+          "group": "A",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 9",
+            "playerId": null
+          },
+          "b": {
+            "name": "JahAnti Tester 2",
+            "playerId": "P002"
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00006",
+          "phase": "League",
+          "group": "A",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "JahAnti Tester 2",
+            "playerId": "P002"
+          },
+          "b": {
+            "name": "Private participant 9",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00007",
+          "phase": "League",
+          "group": "A",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 9",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 6",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00008",
+          "phase": "League",
+          "group": "A",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 6",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 9",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00009",
+          "phase": "League",
+          "group": "A",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 3",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 5",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00010",
+          "phase": "League",
+          "group": "A",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 5",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 3",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00011",
+          "phase": "League",
+          "group": "A",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 3",
+            "playerId": null
+          },
+          "b": {
+            "name": "JahAnti Tester 2",
+            "playerId": "P002"
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00012",
+          "phase": "League",
+          "group": "A",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "JahAnti Tester 2",
+            "playerId": "P002"
+          },
+          "b": {
+            "name": "Private participant 3",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00013",
+          "phase": "League",
+          "group": "A",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 3",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 6",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00014",
+          "phase": "League",
+          "group": "A",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 6",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 3",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00015",
+          "phase": "League",
+          "group": "A",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 5",
+            "playerId": null
+          },
+          "b": {
+            "name": "JahAnti Tester 2",
+            "playerId": "P002"
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00016",
+          "phase": "League",
+          "group": "A",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "JahAnti Tester 2",
+            "playerId": "P002"
+          },
+          "b": {
+            "name": "Private participant 5",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00017",
+          "phase": "League",
+          "group": "A",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 5",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 6",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00018",
+          "phase": "League",
+          "group": "A",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 6",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 5",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00019",
+          "phase": "League",
+          "group": "A",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "JahAnti Tester 2",
+            "playerId": "P002"
+          },
+          "b": {
+            "name": "Private participant 6",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00020",
+          "phase": "League",
+          "group": "A",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 6",
+            "playerId": null
+          },
+          "b": {
+            "name": "JahAnti Tester 2",
+            "playerId": "P002"
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00021",
+          "phase": "League",
+          "group": "B",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 10",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 7",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00022",
+          "phase": "League",
+          "group": "B",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 7",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 10",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00023",
+          "phase": "League",
+          "group": "B",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 10",
+            "playerId": null
+          },
+          "b": {
+            "name": "JahAnti Tester 1",
+            "playerId": "P001"
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00024",
+          "phase": "League",
+          "group": "B",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "JahAnti Tester 1",
+            "playerId": "P001"
+          },
+          "b": {
+            "name": "Private participant 10",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00025",
+          "phase": "League",
+          "group": "B",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 10",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 8",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00026",
+          "phase": "League",
+          "group": "B",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 8",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 10",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00027",
+          "phase": "League",
+          "group": "B",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 10",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 4",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00028",
+          "phase": "League",
+          "group": "B",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 4",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 10",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00029",
+          "phase": "League",
+          "group": "B",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 7",
+            "playerId": null
+          },
+          "b": {
+            "name": "JahAnti Tester 1",
+            "playerId": "P001"
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00030",
+          "phase": "League",
+          "group": "B",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "JahAnti Tester 1",
+            "playerId": "P001"
+          },
+          "b": {
+            "name": "Private participant 7",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00031",
+          "phase": "League",
+          "group": "B",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 7",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 8",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00032",
+          "phase": "League",
+          "group": "B",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 8",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 7",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00033",
+          "phase": "League",
+          "group": "B",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 7",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 4",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00034",
+          "phase": "League",
+          "group": "B",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 4",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 7",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00035",
+          "phase": "League",
+          "group": "B",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "JahAnti Tester 1",
+            "playerId": "P001"
+          },
+          "b": {
+            "name": "Private participant 8",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00036",
+          "phase": "League",
+          "group": "B",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 8",
+            "playerId": null
+          },
+          "b": {
+            "name": "JahAnti Tester 1",
+            "playerId": "P001"
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00037",
+          "phase": "League",
+          "group": "B",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "JahAnti Tester 1",
+            "playerId": "P001"
+          },
+          "b": {
+            "name": "Private participant 4",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00038",
+          "phase": "League",
+          "group": "B",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 4",
+            "playerId": null
+          },
+          "b": {
+            "name": "JahAnti Tester 1",
+            "playerId": "P001"
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00039",
+          "phase": "League",
+          "group": "B",
+          "round": 1,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 8",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 4",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        },
+        {
+          "id": "TN-00001-FX-00040",
+          "phase": "League",
+          "group": "B",
+          "round": 2,
+          "bracket": "",
+          "format": "Single match",
+          "status": "Ready",
+          "a": {
+            "name": "Private participant 4",
+            "playerId": null
+          },
+          "b": {
+            "name": "Private participant 8",
+            "playerId": null
+          },
+          "winner": null,
+          "admin": false,
+          "games": [],
+          "result": null
+        }
+      ]
     }
   ]
 }
