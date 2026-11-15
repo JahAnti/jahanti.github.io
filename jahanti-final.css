@@ -279,3 +279,69 @@
   .about-band{padding-block:41px}
 }
 @media(prefers-reduced-motion:reduce){.nav-games-toggle::before{transition:none}}
+
+
+/* ==============================================
+   JahAnti v15 — final accessibility and UI polish
+   Works above existing styles.css and v14.1 styles.
+   ============================================== */
+
+/* Brand icons share a consistent width and white/gold fill. */
+.tiktok-mark{width:21px;height:21px;display:block;fill:currentColor;stroke:none}
+.social-mark.social-tiktok svg{fill:currentColor;stroke:none}
+.social-icon .tiktok-mark,.footer-socials .tiktok-mark{height:21px;width:21px}
+
+/* Visible keyboard focus and improved touch targets across the website. */
+:where(a,button,input,select,[tabindex]):focus-visible{outline:3px solid #bd9140;outline-offset:3px}
+:where(.player-card,.game-card,.games-overview-tile,.rank-card-footer,.profile-stat-link,.achievement-badge,.btn){
+ transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background-color .18s ease;
+}
+@media(hover:hover) and (pointer:fine){
+ .player-card:hover,.game-card:hover,.games-overview-tile:hover,.profile-stat-link:hover{transform:translateY(-3px);box-shadow:0 15px 35px #211e181f}
+ .achievement-badge:hover{transform:translateY(-2px)}
+ .rank-card-footer:hover{background:#fcf4e6;color:#825b1c}
+}
+:where(.nav-games-toggle,.gallery-pause,.directory-pagination button,.mode-button,.achievement-dialog-close){touch-action:manipulation}
+.achievement-dialog-close{min-width:44px;min-height:44px;display:grid;place-items:center;top:4px;right:6px}
+.achievement-badge:focus-visible,.social-handle-row:focus-visible{outline-offset:3px}
+
+/* Compact, purposeful empty ranking areas; don't leave giant blank cards. */
+.rank-card-empty{padding:25px 10px;min-height:66px;display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1.5}
+.rank-detail-empty{padding:22px 16px;line-height:1.5}
+
+/* Keep the desktop Gaming Handles / Social Media columns as already approved. */
+@media(max-width:800px){
+ .profile-info-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .profile-info-box{padding:15px 12px}
+ .profile-info-box h2{font-size:15px;overflow-wrap:anywhere}
+ .profile-handle-row,.social-handle-row{gap:7px}
+}
+@media(max-width:600px){
+ /* Two compact columns, even on narrow phones. Names wrap inside each column. */
+ .profile-info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:stretch}
+ .profile-info-box{min-width:0;padding:12px 9px;border-radius:10px}
+ .profile-info-box h2{font-size:clamp(11px,3.4vw,15px);line-height:1.25;margin:0 0 11px;letter-spacing:-.2px}
+ .profile-handle-row,.social-handle-row{display:flex;gap:6px;padding:8px 0;font-size:11px;min-width:0;align-items:flex-start}
+ .profile-handle-row{justify-content:flex-start}
+ .game-handle-name{flex:none;min-width:18px}
+ .game-handle-name .shared-game-icon{width:18px;height:18px}
+ .game-handle-name-text{display:none}
+ .profile-handle-row strong{font-size:11px;text-align:left;overflow-wrap:anywhere;word-break:normal;min-width:0;flex:1;line-height:1.35}
+ .social-handle-row{justify-content:flex-start}
+ .social-handle-row strong{min-width:0;flex:1;font-size:11px;line-height:1.4;overflow-wrap:anywhere}
+ .social-mark{width:18px;height:18px;font-size:16px}
+ .social-mark svg{width:17px;height:17px}
+ .social-external{display:none}
+ .profile-info-grid .profile-info-box{height:100%}
+ .profile-identity{min-width:0}
+ .profile-header h1{font-size:clamp(38px,10.5vw,62px)}
+}
+@media(max-width:360px){
+ .profile-info-box{padding:10px 7px}
+ .profile-info-grid{gap:6px}
+ .profile-handle-row strong,.social-handle-row strong{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+ .achievement-track.is-moving,.player-gallery-track{animation:none!important}
+}

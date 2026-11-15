@@ -61,9 +61,9 @@
   const handles=Object.entries(p.handles||{}).filter(([k,val])=>names[k]&&String(val||'').trim());
   const socials=Object.entries(p.socials||{}).filter(([k,url])=>String(url).startsWith('https://')&&['instagram','tiktok','facebook','twitch','youtube'].includes(k));
   if(handles.length||socials.length){const row=el('div','profile-info-grid');
-    if(handles.length){const part=el('section','profile-info-box');part.append(el('h2','','Gaming Handles'));handles.forEach(([k,h])=>{const line=el('div','profile-handle-row');const label=el('span','game-handle-name');label.append(gameIcon(k),document.createTextNode(names[k]));line.append(label,el('strong','',h));part.append(line)});row.append(part)}
+    if(handles.length){const part=el('section','profile-info-box');part.append(el('h2','','Gaming Handles'));handles.forEach(([k,h])=>{const line=el('div','profile-handle-row');const label=el('span','game-handle-name');label.setAttribute('aria-label',names[k]);label.append(gameIcon(k),el('span','game-handle-name-text',names[k]));line.append(label,el('strong','',h));part.append(line)});row.append(part)}
     if(socials.length){const part=el('section','profile-info-box');part.append(el('h2','','Social Media'));
-      socials.forEach(([key,url])=>{let username=G?.socialUsername(key,url)||key;const a=el('a','social-handle-row');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.append(G?.socialIcon(key)||el('span','social-mark',key[0]),el('strong','',username));a.append(el('span','social-external','↗'));part.append(a)});row.append(part)}
+      socials.forEach(([key,url])=>{let username=G?.socialUsername(key,url)||key;const a=el('a','social-handle-row');a.setAttribute('aria-label',key+' '+username+' (opens in new tab)');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.append(G?.socialIcon(key)||el('span','social-mark',key[0]),el('strong','',username));a.append(el('span','social-external','↗'));part.append(a)});row.append(part)}
     profile.append(row);
   }
   const awards=p.allAchievements||p.achievements||[];

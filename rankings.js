@@ -128,7 +128,7 @@
       const body=el('div','rank-card-body'),top=el('div','rank-card-columns');
       top.append(el('span','', '#'));top.append(el('span','', 'PLAYER'));top.append(el('span','',statLabel(key)));body.append(top);
       const rows=rowsFor(key).slice(0,5);
-      if(!rows.length)body.append(el('p','rank-card-empty','No public results for '+periodRange()+'.'));
+      if(!rows.length)body.append(el('p','rank-card-empty','No rankings yet for this period.'));
       else rows.forEach(r=>{
         const podium=Number(r.rank)>=1&&Number(r.rank)<=3;
         const row=el('div',podium?'rank-card-row rank-top-three rank-tier-'+r.rank:'rank-card-row');
@@ -161,7 +161,7 @@
     const pageCount=Math.max(1,Math.ceil(total/PAGE_SIZE));
     detailPage=Math.min(Math.max(1,detailPage),pageCount);
     nav.hidden=total<=PAGE_SIZE;
-    summary.textContent=total?'Showing '+((detailPage-1)*PAGE_SIZE+1)+'–'+Math.min(detailPage*PAGE_SIZE,total)+' of '+total+' players':'No public players for this period';
+    summary.textContent=total?'Showing '+((detailPage-1)*PAGE_SIZE+1)+'–'+Math.min(detailPage*PAGE_SIZE,total)+' of '+total+' players':'No rankings yet for this period';
     prev.disabled=detailPage<=1;next.disabled=detailPage>=pageCount;
     numbers.replaceChildren();
     if(total<=PAGE_SIZE)return;
@@ -227,7 +227,7 @@
         tbody.append(tr);
       }
     }
-    if(!rows.length){const item=el('p','rank-detail-empty','No public results for the selected period.');podium.append(item)}
+    if(!rows.length){const item=el('p','rank-detail-empty','No rankings yet for this period.');podium.append(item)}
     podium.hidden=!podium.children.length;
     table.hidden=!tbody.children.length;
     renderPagination(rows.length);
