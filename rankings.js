@@ -1,4 +1,4 @@
-/* JahAnti v10 game rankings: public aggregate data only, no private Sheet API. */
+/* JahAnti v13: public aggregate rankings, global period filters and 20-player pagination. */
 (() => {
   'use strict';
   const CONFIG = {
@@ -15,6 +15,8 @@
   let period = 'allTime';
   let anchor = todayISO();
   let category = 'fortnite';
+  const PAGE_SIZE = 20;
+  let detailPage = 1;
   function todayISO() { const d = new Date(); return [d.getFullYear(), String(d.getMonth() + 1).padStart(2, '0'), String(d.getDate()).padStart(2, '0')].join('-'); }
   function parseDay(iso) { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || '')); const d = m ? new Date(Date.UTC(+m[1], +m[2]-1, +m[3], 12)) : new Date(Date.UTC(2026,10,13,12)); return Number.isNaN(+d) ? new Date(Date.UTC(2026,10,13,12)) : d; }
   function dateISO(d) { return d.toISOString().slice(0,10); }
@@ -83,25 +85,52 @@
   function num(r,k){return String(Number(r[k])||0)}
   function statLabel(key) { if(key.startsWith('domino'))return 'W · L';if(key==='fifaFriendlies')return 'W · GD';return 'W · K · A'; }
   function stats(key,r) {if(key.startsWith('domino'))return num(r,'wins')+' · '+num(r,'losses');if(key==='fifaFriendlies')return num(r,'wins')+' · '+num(r,'goalDifference');return num(r,'wins')+' · '+num(r,'kills')+' · '+num(r,'assists');}
+  function periodTitle(){return period==='allTime'?'ALL-TIME':period==='monthly'?'MONTHLY':'WEEKLY';}
+  function overviewLink(id){
+    const params=new URLSearchParams({game:id});
+    if(id==='domino')params.set('mode',dominoCategory==='domino2v2'?'2v2':'1v1');
+    if(period!=='allTime'){
+      params.set('period',period);
+      params.set('anchor',anchor);
+    }
+    return 'game.html?'+params.toString();
+  }
   function renderOverview() {
     const target=document.getElementById('alltime-overview');if(!target)return;
-    period='allTime';target.replaceChildren();
+    target.replaceChildren();
+    const nav=document.getElementById('overview-period-navigation');
+    nav.hidden=period==='allTime';
+    document.getElementById('overview-period-label').textContent=periodRange();
+    document.getElementById('overview-period-date').value=anchor;
+    document.getElementById('overview-period').value=period;
+    document.getElementById('overview-period-status').textContent=period==='allTime'?'All-Time Top 5 per game':periodTitle()+' Top 5 per game · '+periodRange();
+    document.getElementById('overview-intro-period').textContent=periodTitle()+' RANKINGS';
     for(const id of CARDS){
       const game=CONFIG[id];const key=id==='domino'?dominoCategory:game.category;
       const card=el('article','rank-card'),head=el('div','rank-card-header');
-      head.append(el('span','rank-icon',game.symbol));
+      const topRow=el('div','rank-card-top');
+      topRow.append(el('span','rank-icon',game.symbol));
+      topRow.append(el('small','rank-card-period',periodTitle()));
+      head.append(topRow);
+      head.append(el('h3','',game.title));
+      head.append(el('p','',id==='domino'?(dominoCategory==='domino1v1'?'1v1 individual rankings':'2v2 individual rankings'):game.subtitle));
       if(id==='domino'){
         const switcher=el('div','mode-selector');switcher.setAttribute('role','group');switcher.setAttribute('aria-label','Domino leaderboard mode');
         for(const [k,label] of [['domino1v1','1v1'],['domino2v2','2v2']]){
-          const b=el('button','mode-button'+(k===dominoCategory?' is-selected':''),label);b.type='button';b.dataset.dominoSwitch=k;b.setAttribute('aria-pressed',String(k===dominoCategory));switcher.append(b);
-        }head.append(switcher);
-      }else head.append(el('small','', 'ALL-TIME'));
-      head.append(el('h3','',game.title));head.append(el('p','',id==='domino'?(dominoCategory==='domino1v1'?'1v1 individual rankings':'2v2 individual rankings'):game.subtitle));card.append(head);
-      const body=el('div','rank-card-body'),top=el('div','rank-card-columns');top.append(el('span','', '#'));top.append(el('span','', 'PLAYER'));top.append(el('span','',statLabel(key)));body.append(top);
+          const b=el('button','mode-button'+(k===dominoCategory?' is-selected':''),label);
+          b.type='button';b.dataset.dominoSwitch=k;b.setAttribute('aria-pressed',String(k===dominoCategory));switcher.append(b);
+        }
+        head.append(switcher);
+      }
+      card.append(head);
+      const body=el('div','rank-card-body'),top=el('div','rank-card-columns');
+      top.append(el('span','', '#'));top.append(el('span','', 'PLAYER'));top.append(el('span','',statLabel(key)));body.append(top);
       const rows=rowsFor(key).slice(0,5);
-      if(!rows.length)body.append(el('p','rank-card-empty','No public results yet.'));
+      if(!rows.length)body.append(el('p','rank-card-empty','No public results for '+periodRange()+'.'));
       else rows.forEach(r=>{const row=el('div','rank-card-row');row.append(el('span','rank-number',r.rank));row.append(nameFor(r));row.append(el('span','rank-mini-stats',stats(key,r)));body.append(row)});
-      card.append(body);const footer=el('a','rank-card-footer');footer.href='game.html?game='+encodeURIComponent(id)+(id==='domino'?'&mode='+encodeURIComponent(dominoCategory==='domino2v2'?'2v2':'1v1'):'');footer.append(el('span','','VIEW FULL LEADERBOARD'));footer.append(el('span','','↗'));card.append(footer);target.append(card);
+      card.append(body);
+      const footer=el('a','rank-card-footer');footer.href=overviewLink(id);
+      footer.append(el('span','','VIEW FULL LEADERBOARD'));footer.append(el('span','','↗'));card.append(footer);target.append(card);
     }
   }
   function setColumns(key) {
@@ -117,10 +146,54 @@
     return fields.length;
   }
   function tdNum(r,k,mobile){const td=el('td','numeric '+(mobile||''),num(r,k));return td}
+  function renderPagination(total) {
+    const nav=document.getElementById('ranking-pagination');
+    const summary=document.getElementById('ranking-page-summary');
+    const prev=document.getElementById('ranking-page-prev');
+    const next=document.getElementById('ranking-page-next');
+    const numbers=document.getElementById('ranking-page-numbers');
+    const pageCount=Math.max(1,Math.ceil(total/PAGE_SIZE));
+    detailPage=Math.min(Math.max(1,detailPage),pageCount);
+    nav.hidden=total<=PAGE_SIZE;
+    summary.textContent=total?'Showing '+((detailPage-1)*PAGE_SIZE+1)+'–'+Math.min(detailPage*PAGE_SIZE,total)+' of '+total+' players':'No public players for this period';
+    prev.disabled=detailPage<=1;next.disabled=detailPage>=pageCount;
+    numbers.replaceChildren();
+    if(total<=PAGE_SIZE)return;
+    // Keep mobile navigation compact when many pages are present.
+    const pages=new Set([1,pageCount,detailPage-1,detailPage,detailPage+1]);
+    const visible=[...pages].filter(n=>n>=1&&n<=pageCount).sort((a,b)=>a-b);
+    let last=0;
+    for(const n of visible){
+      if(last&&n>last+1)numbers.append(el('span','ranking-page-ellipsis','…'));
+      const b=el('button','ranking-page-button'+(n===detailPage?' is-selected':''),n);
+      b.type='button';b.dataset.page=String(n);b.setAttribute('aria-label','Page '+n);
+      if(n===detailPage)b.setAttribute('aria-current','page');
+      numbers.append(b);last=n;
+    }
+  }
+  function changeDetailPage(nextPage){
+    const total=rowsFor(category).length;
+    const pages=Math.max(1,Math.ceil(total/PAGE_SIZE));
+    const newPage=Math.max(1,Math.min(pages,nextPage));
+    if(newPage===detailPage)return;
+    detailPage=newPage;
+    renderDetail();
+    const table=document.querySelector('.rank-table-wrap');
+    if(table){
+      const reduce=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+      table.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    }
+  }
   function renderDetail() {
     const game=Object.entries(CONFIG).find(([_,v])=>v.category===category)?.[1]||CONFIG.domino;
     const key=category;
     const label=document.getElementById('ranking-range'),nav=document.getElementById('period-navigation');
+    const backParams=new URLSearchParams();
+    if(period!=='allTime'){backParams.set('period',period);backParams.set('anchor',anchor)}
+    if(key==='domino2v2')backParams.set('mode','2v2');
+    const backUrl='./leaderboards.html'+(backParams.size?'?'+backParams.toString():'');
+    document.querySelector('.arena-back').href=backUrl;
+    document.querySelector('.ranking-under a').href=backUrl;
     label.textContent=periodRange();nav.hidden=period==='allTime';
     document.getElementById('period-label').textContent=periodRange();
     document.getElementById('period-date').value=anchor;
@@ -129,7 +202,7 @@
     const countCols=setColumns(key),tbody=document.getElementById('ranking-table-body');tbody.replaceChildren();
     const rows=rowsFor(key);
     if(!rows.length){const tr=el('tr'),td=el('td','empty-row','No confirmed public results for this period yet.');td.colSpan=countCols;tr.append(td);tbody.append(tr)}
-    else rows.forEach(r=>{
+    else rows.slice((detailPage-1)*PAGE_SIZE,detailPage*PAGE_SIZE).forEach(r=>{
       const tr=el('tr');const rank=el('td',Number(r.rank)===1?'first-rank':'',r.rank);tr.append(rank);const name=el('td','player-cell');name.append(nameFor(r));tr.append(name);
       if(key.startsWith('domino')){
         tr.append(tdNum(r,'wins'),tdNum(r,'losses'),tdNum(r,'matches','hide-mobile'));
@@ -139,30 +212,81 @@
       }else{tr.append(tdNum(r,'wins'),tdNum(r,'kills'),tdNum(r,'assists'),tdNum(r,'matches','hide-mobile'))}
       tbody.append(tr);
     });
+    renderPagination(rows.length);
     const matchMeta=document.getElementById('ranking-meta');if(matchMeta)matchMeta.textContent=rows.length+' publicly ranked player'+(rows.length===1?'':'s')+' · Only confirmed results.';
   }
-  function shiftPeriod(direction){const d=parseDay(anchor);if(period==='weekly')d.setUTCDate(d.getUTCDate()+7*direction);else if(period==='monthly'){const day=d.getUTCDate();d.setUTCDate(1);d.setUTCMonth(d.getUTCMonth()+direction);const last=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,0,12)).getUTCDate();d.setUTCDate(Math.min(day,last))}anchor=dateISO(d);renderDetail()}
+  function shiftPeriod(direction){const d=parseDay(anchor);if(period==='weekly')d.setUTCDate(d.getUTCDate()+7*direction);else if(period==='monthly'){const day=d.getUTCDate();d.setUTCDate(1);d.setUTCMonth(d.getUTCMonth()+direction);const last=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,0,12)).getUTCDate();d.setUTCDate(Math.min(day,last))}anchor=dateISO(d);detailPage=1;renderDetail()}
+  function isDateString(s){
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(s||''))return false;
+    const d=parseDay(s);return dateISO(d)===s;
+  }
   function initGame(){
-    const params=new URLSearchParams(location.search),id=Object.prototype.hasOwnProperty.call(CONFIG,params.get('game'))?params.get('game'):'fortnite',g=CONFIG[id];category=g.category;
+    const params=new URLSearchParams(location.search);
+    const id=Object.prototype.hasOwnProperty.call(CONFIG,params.get('game'))?params.get('game'):'fortnite';
+    const g=CONFIG[id];category=g.category;
     if(id==='domino'&&params.get('mode')==='2v2')category='domino2v2';
+    if(['monthly','weekly','allTime'].includes(params.get('period')))period=params.get('period');
+    if(isDateString(params.get('anchor')))anchor=params.get('anchor');
     document.body.dataset.game=id;document.title=g.title+' Leaderboard — JahAnti';
     document.getElementById('arena-tag').textContent=g.tag;document.getElementById('arena-title').textContent=g.title;
     document.getElementById('arena-desc').textContent=g.description;document.getElementById('ranking-heading').textContent=g.title+' Rankings';
     if(id==='domino')document.getElementById('domino-selector').hidden=false;
-    document.querySelectorAll('[data-period]').forEach(b=>b.addEventListener('click',()=>{period=b.dataset.period;renderDetail()}));
-    document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{category=b.dataset.mode;renderDetail()}));
+    document.querySelectorAll('[data-period]').forEach(b=>b.addEventListener('click',()=>{
+      period=b.dataset.period;detailPage=1;renderDetail();
+    }));
+    document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{
+      category=b.dataset.mode;detailPage=1;renderDetail();
+    }));
     document.getElementById('period-prev').addEventListener('click',()=>shiftPeriod(-1));
     document.getElementById('period-next').addEventListener('click',()=>shiftPeriod(1));
-    document.getElementById('period-date').addEventListener('change',e=>{if(e.target.value){anchor=e.target.value;renderDetail()}});
+    document.getElementById('period-date').addEventListener('change',e=>{
+      if(isDateString(e.target.value)){anchor=e.target.value;detailPage=1;renderDetail()}
+    });
+    document.getElementById('ranking-page-prev').addEventListener('click',()=>changeDetailPage(detailPage-1));
+    document.getElementById('ranking-page-next').addEventListener('click',()=>changeDetailPage(detailPage+1));
+    document.getElementById('ranking-page-numbers').addEventListener('click',e=>{
+      const b=e.target.closest('button[data-page]');if(b)changeDetailPage(Number(b.dataset.page));
+    });
     renderDetail();
+  }
+  function initOverview(){
+    const params=new URLSearchParams(location.search);
+    if(['monthly','weekly','allTime'].includes(params.get('period')))period=params.get('period');
+    if(isDateString(params.get('anchor')))anchor=params.get('anchor');
+    if(params.get('mode')==='2v2')dominoCategory='domino2v2';
+    const overview=document.getElementById('alltime-overview');
+    overview.addEventListener('click',ev=>{
+      const button=ev.target.closest('button[data-domino-switch]');
+      if(!button)return;dominoCategory=button.dataset.dominoSwitch;renderOverview();
+    });
+    document.getElementById('overview-period').addEventListener('change',event=>{
+      period=event.target.value;renderOverview();
+    });
+    document.getElementById('overview-period-prev').addEventListener('click',()=>{
+      shiftOverview(-1);
+    });
+    document.getElementById('overview-period-next').addEventListener('click',()=>{
+      shiftOverview(1);
+    });
+    document.getElementById('overview-period-date').addEventListener('change',event=>{
+      if(isDateString(event.target.value)){anchor=event.target.value;renderOverview()}
+    });
+    renderOverview();
+  }
+  function shiftOverview(direction){
+    const d=parseDay(anchor);
+    if(period==='weekly')d.setUTCDate(d.getUTCDate()+7*direction);
+    else if(period==='monthly'){
+      const day=d.getUTCDate();d.setUTCDate(1);d.setUTCMonth(d.getUTCMonth()+direction);
+      const last=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,0,12)).getUTCDate();
+      d.setUTCDate(Math.min(day,last));
+    }
+    anchor=dateISO(d);renderOverview();
   }
   document.addEventListener('DOMContentLoaded',async()=>{
     if(!['rankings-overview','ranking-game'].includes(document.body.dataset.page))return;
     publicData=await load();
-    if(document.body.dataset.page==='rankings-overview'){
-      const overview=document.getElementById('alltime-overview');
-      overview.addEventListener('click',ev=>{const button=ev.target.closest('button[data-domino-switch]');if(!button)return;dominoCategory=button.dataset.dominoSwitch;renderOverview()});
-      renderOverview();
-    }else initGame();
+    if(document.body.dataset.page==='rankings-overview')initOverview();
+    else initGame();
   });
 })();
