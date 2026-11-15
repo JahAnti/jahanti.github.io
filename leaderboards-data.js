@@ -14,6 +14,14 @@ window.JAHANTI_LEADERBOARDS = {
       "goalsAgainst": 1,
       "goalDifference": 2,
       "draws": 0,
+      "lastFive": [
+        {
+          "result": "W",
+          "opponent": "JahAnti Tester 1",
+          "score": "3–1",
+          "date": "2026-11-13"
+        }
+      ],
       "points": 1
     },
     {
@@ -29,6 +37,14 @@ window.JAHANTI_LEADERBOARDS = {
       "goalsAgainst": 3,
       "goalDifference": -2,
       "draws": 0,
+      "lastFive": [
+        {
+          "result": "L",
+          "opponent": "JahAnti Tester 2",
+          "score": "1–3",
+          "date": "2026-11-13"
+        }
+      ],
       "points": 0
     }
   ],
@@ -77,7 +93,14 @@ window.JAHANTI_LEADERBOARDS = {
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "draws": 0
+      "draws": 0,
+      "lastFive": [
+        {
+          "result": "W",
+          "opponent": "JahAnti Tester 2",
+          "date": "2026-11-13"
+        }
+      ]
     },
     {
       "playerId": "P002",
@@ -91,7 +114,14 @@ window.JAHANTI_LEADERBOARDS = {
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "draws": 0
+      "draws": 0,
+      "lastFive": [
+        {
+          "result": "L",
+          "opponent": "JahAnti Tester 1",
+          "date": "2026-11-13"
+        }
+      ]
     }
   ]
 };
