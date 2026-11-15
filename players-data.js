@@ -13,15 +13,15 @@ window.JAHANTI_PLAYERS = [
     ],
     "bio": "JahAnti Member",
     "socials": {
-      "instagram": "https://www.instagram.com/royalregi/",
-      "tiktok": "https://www.instagram.com/royalregi/"
+      "instagram": "https://www.instagram.com/the.cat.007/",
+      "tiktok": "https://www.tiktok.com/@royalcat007"
     },
     "handles": {
       "fortnite": "RoyalRegi007",
       "cod": "",
       "redsec": "",
       "fc": "RoyalRegi007",
-      "domino": "RoyalRegi007"
+      "domino": "RoyalRegi"
     },
     "achievements": [
       {
