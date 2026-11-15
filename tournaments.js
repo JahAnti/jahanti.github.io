@@ -90,62 +90,110 @@ function results(t){
  // Latest Results is intentionally limited to five actual games/administrative awards.
  return holder;
 }
-/** Vertical, five-visible-fixture ticker. All remaining fixtures are in the DOM
- * and can be explored manually. Pauses for hover, keyboard interaction, touch,
- * reduced-motion preference, and background tabs. Stops itself when removed. */
-function fixtureTicker(list, rows, summary, button){
- if(rows.length<=5)return;
- const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
- let paused=!!reduced, hovering=false, touching=false, focusing=false;
- const step=()=>rows.length>1?rows[1].offsetTop-rows[0].offsetTop:rows[0].offsetHeight;
- const index=()=>Math.min(rows.length-5,Math.max(0,Math.round(list.scrollTop/Math.max(1,step()))));
- const update=()=>{const first=index()+1;summary.textContent=first+'–'+Math.min(first+4,rows.length)+' of '+rows.length+' matches';};
- const toggle=()=>{
-   paused=!paused;button.textContent=paused?'Resume scroll':'Pause scroll';
-   button.setAttribute('aria-pressed',String(paused));
+/** Homepage-style continuous horizontal carousel for upcoming league matches.
+ * Displays all fixtures in compact side-by-side cards. Moves only if they do
+ * not all fit in the viewport. Clones are decorative, never separately counted.
+ * Hover, focus, touch, explicit pause, and reduced-motion settings are honored.
+ */
+function fixtureCarousel(viewport, track, first, toggle){
+ const reduced=!!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+ const hoverCapable=!!window.matchMedia?.('(hover: hover)').matches;
+ const duplicate=first.cloneNode(true);
+ duplicate.setAttribute('aria-hidden','true');
+ duplicate.inert=true;
+ let active=false, paused=reduced, hovering=false, touching=false, focusing=false;
+ let groupWidth=0, frame=0, lastTime=0, fractionalAdvance=0;
+ const syncButton=()=>{
+   toggle.textContent=paused?'Resume scrolling':'Pause scrolling';
+   toggle.setAttribute('aria-pressed',String(paused));
  };
- button.addEventListener('click',toggle);
- list.addEventListener('scroll',update,{passive:true});
- list.addEventListener('mouseenter',()=>hovering=true);
- list.addEventListener('mouseleave',()=>hovering=false);
- list.addEventListener('focusin',()=>focusing=true);
- list.addEventListener('focusout',()=>focusing=list.contains(document.activeElement));
- list.addEventListener('touchstart',()=>touching=true,{passive:true});
- list.addEventListener('touchend',()=>touching=false,{passive:true});
- list.addEventListener('touchcancel',()=>touching=false,{passive:true});
- if(reduced){button.textContent='Resume scroll';button.setAttribute('aria-pressed','true');}
- const timer=window.setInterval(()=>{
-   if(!list.isConnected){window.clearInterval(timer);return;}
-   if(paused||hovering||touching||focusing||document.hidden)return;
-   const next=index()>=rows.length-5?0:index()+1;
-   list.scrollTo({top:next===0?0:rows[next].offsetTop-rows[0].offsetTop,behavior:'smooth'});
- },4300);
- update();
+ const normalize=()=>{
+   if(!active||!groupWidth)return;
+   // The clone repeats the original exactly, so this wrap is visually seamless.
+   if(viewport.scrollLeft>=groupWidth)viewport.scrollLeft-=groupWidth;
+ };
+ const measure=()=>{
+   if(!viewport.isConnected)return;
+   groupWidth=first.getBoundingClientRect().width;
+   const needed=groupWidth>viewport.clientWidth+1;
+   if(needed&&!duplicate.isConnected)track.append(duplicate);
+   if(!needed&&duplicate.isConnected)duplicate.remove();
+   active=needed;
+   toggle.hidden=!needed;
+   viewport.classList.toggle('is-scrollable',needed);
+   if(!needed)viewport.scrollLeft=0;
+   else normalize();
+   lastTime=0;
+ };
+ toggle.addEventListener('click',()=>{paused=!paused;syncButton();});
+ viewport.addEventListener('mouseenter',()=>{if(hoverCapable)hovering=true;});
+ viewport.addEventListener('mouseleave',()=>{hovering=false;});
+ viewport.addEventListener('focusin',()=>{focusing=true;});
+ viewport.addEventListener('focusout',()=>{focusing=viewport.contains(document.activeElement);});
+ viewport.addEventListener('touchstart',()=>{touching=true;},{passive:true});
+ viewport.addEventListener('touchend',()=>{touching=false;normalize();},{passive:true});
+ viewport.addEventListener('touchcancel',()=>{touching=false;normalize();},{passive:true});
+ // Users may swipe or use a mouse/trackpad while the animation is paused.
+ viewport.addEventListener('scroll',()=>{if(!touching)normalize();},{passive:true});
+ syncButton();measure();
+ if(typeof ResizeObserver!=='undefined'){
+   const observer=new ResizeObserver(measure);
+   observer.observe(viewport);observer.observe(first);
+   const onFrame=time=>{
+     if(!viewport.isConnected){observer.disconnect();return;}
+     frame=requestAnimationFrame(onFrame);
+     if(!lastTime){lastTime=time;return;}
+     const dt=Math.min(50,time-lastTime);lastTime=time;
+     if(!active||paused||hovering||touching||focusing||document.hidden)return;
+     fractionalAdvance+=dt*0.028; // ~28 pixels/second, accumulate subpixels
+     const pixels=Math.floor(fractionalAdvance);
+     if(pixels){viewport.scrollLeft+=pixels;fractionalAdvance-=pixels;normalize();}
+   };
+   frame=requestAnimationFrame(onFrame);
+ }else{
+   const onFrame=time=>{
+     if(!viewport.isConnected)return;
+     frame=requestAnimationFrame(onFrame);
+     if(!lastTime){lastTime=time;return;}
+     const dt=Math.min(50,time-lastTime);lastTime=time;
+     if(!active||paused||hovering||touching||focusing||document.hidden)return;
+     fractionalAdvance+=dt*0.028;
+     const pixels=Math.floor(fractionalAdvance);
+     if(pixels){viewport.scrollLeft+=pixels;fractionalAdvance-=pixels;normalize();}
+   };
+   window.addEventListener('resize',measure,{passive:true});
+   frame=requestAnimationFrame(onFrame);
+ }
+ document.fonts?.ready.then(()=>{if(viewport.isConnected)measure();});
 }
 function available(t){
- // No scheduled clock times are inferred: 'upcoming' means unplayed fixtures.
+ // 'Upcoming' refers to unfinished league fixtures, not invented clock times.
  const fs=(t.fixtures||[]).filter(f=>f.phase==='League'&&['Ready','Waiting'].includes(f.status));
  if(!fs.length)return null;
  const wrap=h('section','ja-t-available');
  const header=h('div','ja-t-fixtures-head');header.append(h('h4','','Upcoming Matches'));
  const controls=h('div','ja-t-fixtures-controls');
- const summary=h('span','ja-t-fixtures-summary','');
- const pause=h('button','ja-t-fixtures-toggle','Pause scroll');pause.type='button';
- pause.setAttribute('aria-pressed','false');
- controls.append(summary);if(fs.length>5)controls.append(pause);
- header.append(controls);wrap.append(header);
- const list=h('div','ja-t-available-list');list.setAttribute('role','region');
- list.setAttribute('aria-label','Upcoming league matches, scroll for more');list.tabIndex=0;
- const rows=fs.map(f=>{
-   const item=h('div','ja-t-upcoming-fixture');
-   const group=h('span','ja-t-fixture-group','Group '+(f.group||'—'));
-   const matchup=h('span','ja-t-fixture-players',name(f.a)+' vs '+name(f.b));
-   matchup.title=matchup.textContent;
-   item.append(group,matchup);list.append(item);return item;
+ const summary=h('span','ja-t-fixtures-summary',fs.length+' upcoming '+(fs.length===1?'match':'matches'));
+ const pause=h('button','ja-t-fixtures-toggle','Pause scrolling');pause.type='button';
+ pause.setAttribute('aria-pressed','false');pause.hidden=true;
+ controls.append(summary,pause);header.append(controls);wrap.append(header);
+ const viewport=h('div','ja-t-available-viewport');viewport.setAttribute('role','region');
+ viewport.setAttribute('aria-label','Upcoming league match cards; swipe or scroll horizontally to browse');
+ viewport.tabIndex=0;
+ const track=h('div','ja-t-available-track'),group=h('div','ja-t-fixture-group-set');
+ fs.forEach(f=>{
+   const card=h('article','ja-t-upcoming-fixture');
+   const label=h('span','ja-t-fixture-group','GROUP '+(f.group||'—'));
+   const players=h('div','ja-t-fixture-players');
+   const a=h('span','ja-t-fixture-player',name(f.a));a.title=name(f.a);
+   const versus=h('span','ja-t-fixture-vs','VS');
+   const b=h('span','ja-t-fixture-player',name(f.b));b.title=name(f.b);
+   players.append(a,versus,b);card.append(label,players);
+   card.setAttribute('aria-label','Group '+(f.group||'—')+': '+name(f.a)+' versus '+name(f.b));
+   group.append(card);
  });
- wrap.append(list);
- if(fs.length>5)fixtureTicker(list,rows,summary,pause);
- else summary.textContent=fs.length+' upcoming '+(fs.length===1?'match':'matches');
+ track.append(group);viewport.append(track);wrap.append(viewport);
+ fixtureCarousel(viewport,track,group,pause);
  return wrap;
 }
 function featured(t){const out=h('article','ja-t-featured'),top=tournamentTop(t);out.append(top);

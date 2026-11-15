@@ -58,28 +58,38 @@ body[data-game="domino"] .rank-detail-top-three .ja-form-podium{overscroll-behav
 .ja-t-results{max-height:none;overflow:visible}
 .ja-t-result-line:last-child{border-bottom:0}
 
-/* Five-row vertical upcoming-fixture ticker. Its height NEVER expands to all
-   remaining matches, including on mobile or when there are many fixtures. */
-.ja-t-fixtures-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 9px}
+/* Upcoming match cards: continuous side-by-side horizontal carousel.
+   Auto-motion is enabled ONLY if the full set is wider than the viewport.
+   The original set remains visible and stationary when all cards fit. */
+.ja-t-fixtures-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 12px}
 .ja-t-fixtures-head h4{font-size:15px;font-weight:800;margin:0}
 .ja-t-fixtures-controls{display:flex;align-items:center;gap:12px;margin-left:auto}
 .ja-t-fixtures-summary{font-size:11px;color:#7c6b56;font-weight:700;font-variant-numeric:tabular-nums}
 .ja-t-fixtures-toggle{font:inherit;font-size:11px;font-weight:700;background:#f9f4ea;color:#634d27;border:1px solid #d9c9a9;border-radius:7px;padding:7px 9px;cursor:pointer}
 .ja-t-fixtures-toggle:hover{background:#eddfc5}
 .ja-t-fixtures-toggle:focus-visible{outline:3px solid #a78038;outline-offset:2px}
-.ja-t-available-list{
-  display:flex;flex-direction:column;gap:8px;
-  max-height:calc(5 * 58px + 4 * 8px);overflow-y:auto;
-  overscroll-behavior-y:contain;scroll-snap-type:y proximity;scrollbar-width:thin;
-  padding-right:3px;
+.ja-t-fixtures-toggle[hidden]{display:none!important}
+.ja-t-available-viewport{
+  overflow-x:auto;overflow-y:hidden;max-width:100%;
+  overscroll-behavior-x:contain;scroll-behavior:auto;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;
+  padding:3px 0 7px;outline-offset:2px;
 }
+.ja-t-available-viewport::-webkit-scrollbar{display:none}
+.ja-t-available-viewport:focus-visible{outline:3px solid #a78038}
+.ja-t-available-track{display:flex;width:max-content;align-items:stretch}
+.ja-t-fixture-group-set{display:flex;gap:12px;padding-right:12px;align-items:stretch}
 .ja-t-upcoming-fixture{
-  box-sizing:border-box;display:flex;align-items:center;gap:14px;flex:0 0 58px;
-  height:58px;padding:9px 13px;background:#f6f1e7;border:1px solid #eee3d0;
-  border-radius:8px;scroll-snap-align:start;min-width:0;
+  box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:11px;
+  flex:0 0 264px;width:264px;min-height:92px;
+  padding:13px 14px;background:#f7f1e7;border:1px solid #e7d8be;
+  border-radius:11px;box-shadow:0 2px 5px #00000005;
 }
-.ja-t-fixture-group{font-size:11px;font-weight:800;color:#9a7130;flex:0 0 90px;white-space:nowrap}
-.ja-t-fixture-players{font-size:13px;font-weight:650;color:#292622;min-width:0;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.35}
+.ja-t-fixture-group{font-size:10px;font-weight:800;letter-spacing:.09em;color:#a07831;white-space:nowrap}
+.ja-t-fixture-players{display:flex;align-items:center;justify-content:space-between;gap:6px;min-width:0;width:100%}
+.ja-t-fixture-player{font-size:12px;line-height:1.35;font-weight:800;color:#262320;min-width:0;flex:1 1 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ja-t-fixture-player:last-child{text-align:right}
+.ja-t-fixture-vs{font-size:10px;line-height:1;font-weight:900;color:#997232;background:#fffaf1;padding:6px 5px;border-radius:6px;flex-shrink:0}
 @media(max-width:850px){
   body[data-game="fc"] .rank-detail-top-three{grid-template-columns:26px minmax(110px,1fr) minmax(0,57%);gap:9px}
   body[data-game="domino"] .rank-detail-top-three{grid-template-columns:26px minmax(110px,1fr) minmax(0,50%);gap:9px}
@@ -90,11 +100,10 @@ body[data-game="domino"] .rank-detail-top-three .ja-form-podium{overscroll-behav
   body[data-game="fc"] .rank-detail-top-three,
   body[data-game="domino"] .rank-detail-top-three{grid-template-columns:22px minmax(90px,1fr) minmax(0,47%);gap:7px}
   .ja-podium-stat-value{font-size:17px}
-  .ja-t-upcoming-fixture{gap:10px;padding:9px 10px}
-  .ja-t-fixture-group{flex-basis:68px;font-size:10px}
-  .ja-t-fixture-players{font-size:12px}
+  .ja-t-upcoming-fixture{flex-basis:242px;width:242px;min-height:88px;padding:11px 12px;gap:9px}
+  .ja-t-fixture-player{font-size:12px}
   .ja-t-fixtures-controls{gap:7px}
 }
 @media(prefers-reduced-motion:reduce){
-  .ja-t-available-list{scroll-behavior:auto;scroll-snap-type:none}
+  .ja-t-available-viewport{scroll-behavior:auto}
 }
