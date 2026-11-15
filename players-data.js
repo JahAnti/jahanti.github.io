@@ -8,17 +8,20 @@ window.JAHANTI_PLAYERS = [
     "avatarUrl": "assets/players/p002.webp",
     "games": [
       "fortnite",
-      "domino",
-      "fc"
+      "fc",
+      "domino"
     ],
     "bio": "JahAnti Member",
-    "socials": {},
+    "socials": {
+      "instagram": "https://www.instagram.com/royalregi/",
+      "tiktok": "https://www.instagram.com/royalregi/"
+    },
     "handles": {
-      "fortnite": "",
+      "fortnite": "RoyalRegi007",
       "cod": "",
       "redsec": "",
-      "fc": "",
-      "domino": ""
+      "fc": "RoyalRegi007",
+      "domino": "RoyalRegi007"
     },
     "achievements": [
       {
