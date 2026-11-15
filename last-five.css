@@ -1,0 +1,29 @@
+/* JahAnti Last 5 — scoped appearance, works on desktop and narrow screens. */
+.ja-form{display:inline-flex;align-items:center;justify-content:flex-end;gap:5px;white-space:nowrap;vertical-align:middle;min-width:max-content}
+.ja-form-pip{font-family:inherit;font-size:12px;font-weight:800;line-height:1;display:inline-grid;place-items:center;border:1px solid transparent;border-radius:50%;width:25px;height:25px;min-width:25px;padding:0;cursor:pointer;box-shadow:inset 0 -1px 0 #0002;color:#fff;transition:transform .15s ease,box-shadow .15s ease}
+.ja-form-pip.ja-form-W{background:#258551;color:#fff}.ja-form-pip.ja-form-D{background:#818890;color:#fff}.ja-form-pip.ja-form-L{background:#cb4545;color:#fff}
+.ja-form-pip.is-admin{outline:2px solid #c59a38;outline-offset:1px}
+.ja-form-pip:hover{transform:translateY(-2px);box-shadow:0 2px 8px #0003}.ja-form-pip:focus-visible{outline:3px solid #bd9b55;outline-offset:3px}
+.ja-form-empty{color:#8f928e;font-size:13px}
+.ja-form-compact .ja-form-pip{width:21px;height:21px;min-width:21px;font-size:11px}
+body[data-game="fc"] .rankings-table{min-width:950px}
+body[data-game="domino"] .rankings-table{min-width:690px}
+.rank-table-wrap{overflow-x:auto;overscroll-behavior-x:contain}
+.rankings-table td.ja-form-cell,.rankings-table th.ja-form-heading{text-align:right;white-space:nowrap}
+.rank-detail-top-three .ja-form-podium{display:flex;flex-direction:column;gap:6px;align-items:flex-end;min-width:0}
+.rank-detail-top-three .ja-form-podium-stats{font-size:11px;opacity:.8;white-space:normal;text-align:right}
+.rank-detail-top-three .ja-form{justify-content:flex-end}
+.ja-t-standings-scroll{width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+.ja-t-table.ja-t-form-table{min-width:720px}
+.ja-t-table .ja-form{justify-content:flex-end}.ja-t-table td.ja-form-t-cell{padding-right:13px}
+.ja-t-form-help{font-size:10px;color:#877862;line-height:1.4;margin:7px 12px 11px}
+.ja-form-dialog{border:1px solid #d9c6a6;border-radius:13px;width:min(420px,calc(100% - 28px));max-height:calc(100dvh - 40px);color:#2f291f;background:#fffaf0;padding:20px;box-shadow:0 16px 56px #0005}
+.ja-form-dialog::backdrop{background:rgba(12,12,12,.68)}
+.ja-form-dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #e6dcc7;padding-bottom:10px;margin-bottom:12px}
+.ja-form-dialog-heading h3{font-size:18px;margin:0;color:#2f291f}.ja-form-dialog-heading button{border:1px solid #b99b67;background:#2d2820;color:#fff;border-radius:7px;padding:7px 12px;cursor:pointer}
+.ja-form-dialog-body{display:grid;gap:8px}.ja-form-dialog-body p{margin:0;font-size:13px;line-height:1.45;color:#302b22}
+.ja-form-dialog-body .ja-form-detail-outcome{font-size:17px;font-weight:800}.ja-form-detail-outcome.ja-form-W{color:#1a7a49}.ja-form-detail-outcome.ja-form-L{color:#b83d3d}.ja-form-detail-outcome.ja-form-D{color:#656c73}
+.ja-form-dialog-body .ja-form-detail-score{font-size:20px;font-weight:800}.ja-form-dialog-body .ja-form-detail-date{color:#7a6f5f}
+.ja-form-dialog-body .ja-form-detail-note{font-size:12px;color:#7e5f28;background:#f6e9d0;border-radius:6px;padding:9px}
+@media(max-width:720px){.rank-detail-top-three .ja-form-podium{align-items:flex-start}.ja-form-pip{width:23px;height:23px;min-width:23px}.ja-t-table.ja-t-form-table{min-width:700px}}
+@media(prefers-reduced-motion:reduce){.ja-form-pip{transition:none}}

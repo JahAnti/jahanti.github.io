@@ -20,9 +20,54 @@ function tournamentTop(t){const x=h('div','ja-t-intro'),head=h('div','ja-t-intro
  if(t.champion){const champion=h('p','ja-t-champion');champion.append(h('span','','🏆 CHAMPION  '),h('strong','',name(t.champion)));x.append(champion);}
  return x;
 }
-function standings(t){const wrapper=h('div','ja-t-boards');(t.groups||[]).forEach(g=>{const panel=h('section','ja-t-group'),hd=h('h4','','Group '+g.group);panel.append(hd);
- const table=h('table','ja-t-table'),thead=h('thead'),th=h('tr');['#','PLAYER','P','W','GD','PTS'].forEach(l=>th.append(h('th','',l)));thead.append(th);table.append(thead);
- const body=h('tbody');(g.rows||[]).forEach(r=>{const tr=h('tr');[r.position,r.name,r.played,r.wins,(r.gd>0?'+':'')+r.gd,r.points].forEach(v=>tr.append(h('td','',v)));body.append(tr);});table.append(body);panel.append(table);wrapper.append(panel);});return wrapper;}
+/** League form uses the last five completed tournament LEAGUE fixtures only.
+ * A walkover/simulation is visibly marked as an admin result and never enters
+ * the main Official or Friendlies form stream. One fixture = one standing result.
+ */
+function leagueForm(t){
+ const history={};
+ (t.fixtures||[]).filter(f=>f.phase==='League'&&f.status==='Complete').forEach(f=>{
+   if(!f.a?.playerId&&!f.b?.playerId)return;
+   const admin=!!f.admin&&!!f.result,game=(f.games||[])[0];
+   const score=admin?f.result:game;
+   if(!score||!Number.isFinite(Number(score.aGoals))||!Number.isFinite(Number(score.bGoals)))return;
+   const a=Number(score.aGoals),b=Number(score.bGoals);
+   const at=admin?f.result.date||'':game.date||'',sort=String(at)+'|'+String(f.id||'');
+   const add=(person,other,own,against)=>{
+     if(!person?.playerId)return;
+     const arr=history[person.playerId]||(history[person.playerId]=[]);
+     arr.push({result:own>against?'W':own<against?'L':'D',opponent:name(other),score:own+'–'+against,
+       date:at,admin,sort});
+   };
+   add(f.a,f.b,a,b);add(f.b,f.a,b,a);
+ });
+ Object.values(history).forEach(rows=>rows.sort((a,b)=>a.sort.localeCompare(b.sort)));
+ return history;
+}
+function standings(t){
+ const wrapper=h('div','ja-t-boards'),history=leagueForm(t);
+ (t.groups||[]).forEach(g=>{
+   const panel=h('section','ja-t-group'),hd=h('h4','','Group '+g.group);panel.append(hd);
+   const scroll=h('div','ja-t-standings-scroll');
+   const table=h('table','ja-t-table ja-t-form-table'),thead=h('thead'),th=h('tr');
+   ['#','PLAYER','P','W','D','L','GF','GA','GD','PTS','LAST 5'].forEach(l=>th.append(h('th','',l)));
+   thead.append(th);table.append(thead);
+   const body=h('tbody');
+   (g.rows||[]).forEach(r=>{
+     const tr=h('tr');
+     [r.position,r.name,r.played,r.wins,r.draws,r.losses,r.gf,r.ga,(r.gd>0?'+':'')+r.gd,r.points]
+       .forEach(v=>tr.append(h('td','',v)));
+     const td=h('td','ja-form-t-cell');
+     const form=history[r.playerId]||[];
+     td.append(window.JAHANTI_LAST5?.render(form,{player:r.name,compact:true})||h('span','ja-form-empty','—'));
+     tr.append(td);body.append(tr);
+   });
+   table.append(body);scroll.append(table);panel.append(scroll);
+   const note=h('p','ja-t-form-help','Last 5 league fixtures · gold outline = administrative 3–0 result · tap a circle for details');
+   panel.append(note);wrapper.append(panel);
+ });
+ return wrapper;
+}
 function bracket(t){const fs=(t.fixtures||[]).filter(f=>f.phase==='Knockout'),wrap=h('div','ja-t-bracket');if(!fs.length){wrap.append(h('p','ja-t-note','The bracket will appear after the League Phase has been finalized.'));return wrap;}
  const rounds=new Map();fs.forEach(f=>{const k=(f.bracket||'Knockout')+' · '+(f.round==='Grand Final'?'Grand Final':'Round '+f.round);if(!rounds.has(k))rounds.set(k,[]);rounds.get(k).push(f);});
  rounds.forEach((fixtures,label)=>{const col=h('div','ja-t-round'),hd=h('h4','',label);col.append(hd);fixtures.forEach(f=>{const match=h('article','ja-t-match'),row=h('div','ja-t-match-players');row.append(h('span','',name(f.a)),h('strong','',winnerLine(f)),h('span','',name(f.b)));match.append(row);

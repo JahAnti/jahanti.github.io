@@ -88,6 +88,12 @@
   function statLabel(key) { if(key.startsWith('domino'))return 'W · L';if(key.startsWith('fifa'))return 'W · GD';return 'W · K · A'; }
   function stats(key,r) {if(key.startsWith('domino'))return num(r,'wins')+' · '+num(r,'losses');if(key.startsWith('fifa'))return num(r,'wins')+' · '+num(r,'goalDifference');return num(r,'wins')+' · '+num(r,'kills')+' · '+num(r,'assists');}
   function detailedStats(key,r){if(key.startsWith('domino'))return num(r,'wins')+' W · '+num(r,'losses')+' L';if(key.startsWith('fifa'))return num(r,'wins')+' W · '+num(r,'goalDifference')+' GD';return num(r,'wins')+' W · '+num(r,'kills')+' K · '+num(r,'assists')+' A'}
+  function hasForm(key){return key.startsWith('fifa')||key.startsWith('domino');}
+  function formForRow(key,r,compact=false){
+    if(!hasForm(key))return null;
+    if(window.JAHANTI_LAST5)return window.JAHANTI_LAST5.render(r.lastFive,{player:r.name,compact});
+    return el('span','ja-form-empty','—');
+  }
   function periodTitle(){return period==='allTime'?'ALL-TIME':period==='monthly'?'MONTHLY':'WEEKLY';}
   function overviewLink(id){
     const params=new URLSearchParams({game:id});
@@ -143,9 +149,9 @@
   function setColumns(key) {
     const head=document.getElementById('ranking-table-head');head.replaceChildren();const line=el('tr');
     const fields=key.startsWith('domino') ? [
-      ['#',false],['PLAYER',false],['WINS',true],['LOSSES',true],['MATCHES',true,'hide-mobile'],['WIN %',true,'hide-mobile']
+      ['#',false],['PLAYER',false],['WINS',true],['LOSSES',true],['MATCHES',true,'hide-mobile'],['WIN %',true,'hide-mobile'],['LAST 5',true,'ja-form-heading']
     ] : key.startsWith('fifa') ? [
-      ['#',false],['PLAYER',false],['WINS',true],['GD',true],['GOALS FOR',true],['LOSSES',true,'hide-mobile'],['DRAWS',true,'hide-mobile'],['MATCHES',true,'hide-mobile']
+      ['#',false],['PLAYER',false],['WINS',true],['GF',true],['GA',true],['GD',true],['LOSSES',true,'hide-mobile'],['DRAWS',true,'hide-mobile'],['MATCHES',true,'hide-mobile'],['LAST 5',true,'ja-form-heading']
     ] : [
       ['#',false],['PLAYER',false],['WINS',true],['KILLS',true],['ASSISTS',true],['MATCHES',true,'hide-mobile']
     ];
@@ -215,7 +221,15 @@
     for(const r of windowRows){
       if(Number(r.rank)>=1&&Number(r.rank)<=3){
         const item=el('div','rank-detail-top-three rank-tier-'+r.rank);
-        item.append(el('span','rank-number',r.rank),nameFor(r),el('span','rank-mini-stats',detailedStats(key,r)));
+        item.append(el('span','rank-number',r.rank),nameFor(r));
+        if(hasForm(key)){
+          const formBox=el('span','ja-form-podium');
+          const summary=key.startsWith('fifa')
+            ? num(r,'wins')+' W  ·  '+num(r,'goalsFor')+' GF  ·  '+num(r,'goalsAgainst')+' GA  ·  '+num(r,'goalDifference')+' GD'
+            : num(r,'wins')+' W  ·  '+num(r,'losses')+' L';
+          formBox.append(el('span','ja-form-podium-stats',summary));
+          formBox.append(formForRow(key,r,true));item.append(formBox);
+        }else item.append(el('span','rank-mini-stats',detailedStats(key,r)));
         podium.append(item);
       }else{
         const tr=el('tr');tr.append(el('td','',r.rank));const name=el('td','player-cell');name.append(nameFor(r));tr.append(name);
@@ -224,8 +238,11 @@
           const m=Number(r.matches)||Number(r.wins)+Number(r.losses)||0;
           tr.append(el('td','numeric hide-mobile',m?((Number(r.wins)||0)/m*100).toFixed(1)+'%':'—'));
         }else if(key.startsWith('fifa')){
-          tr.append(tdNum(r,'wins'),tdNum(r,'goalDifference'),tdNum(r,'goalsFor'),tdNum(r,'losses','hide-mobile'),tdNum(r,'draws','hide-mobile'),tdNum(r,'matches','hide-mobile'));
+          tr.append(tdNum(r,'wins'),tdNum(r,'goalsFor'),tdNum(r,'goalsAgainst'),tdNum(r,'goalDifference'),tdNum(r,'losses','hide-mobile'),tdNum(r,'draws','hide-mobile'),tdNum(r,'matches','hide-mobile'));
         }else tr.append(tdNum(r,'wins'),tdNum(r,'kills'),tdNum(r,'assists'),tdNum(r,'matches','hide-mobile'));
+        if(hasForm(key)){
+          const td=el('td','ja-form-cell');td.append(formForRow(key,r));tr.append(td);
+        }
         tbody.append(tr);
       }
     }
