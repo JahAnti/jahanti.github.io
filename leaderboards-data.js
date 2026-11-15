@@ -15,6 +15,21 @@ window.JAHANTI_LEADERBOARDS = {
       "goalDifference": 2,
       "draws": 0,
       "points": 1
+    },
+    {
+      "playerId": "P001",
+      "name": "JahAnti Tester",
+      "rank": 2,
+      "wins": 0,
+      "losses": 1,
+      "kills": 0,
+      "assists": 0,
+      "matches": 1,
+      "goalsFor": 1,
+      "goalsAgainst": 3,
+      "goalDifference": -2,
+      "draws": 0,
+      "points": 0
     }
   ],
   "fortnite": [
@@ -31,15 +46,43 @@ window.JAHANTI_LEADERBOARDS = {
       "goalsAgainst": 0,
       "goalDifference": 0,
       "draws": 0
+    },
+    {
+      "playerId": "P001",
+      "name": "JahAnti Tester",
+      "rank": 2,
+      "wins": 1,
+      "losses": 0,
+      "kills": 2,
+      "assists": 5,
+      "matches": 1,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "draws": 0
     }
   ],
   "cod": [],
   "redsec": [],
   "domino": [
     {
+      "playerId": "P001",
+      "name": "JahAnti Tester",
+      "rank": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 0,
+      "assists": 0,
+      "matches": 1,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "draws": 0
+    },
+    {
       "playerId": "P002",
       "name": "RoyalRegi007",
-      "rank": 1,
+      "rank": 2,
       "wins": 0,
       "losses": 1,
       "kills": 0,
