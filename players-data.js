@@ -181,7 +181,9 @@ window.JAHANTI_PLAYERS = [
     "name": "JahAnti Tester 5",
     "avatar": "JA",
     "avatarUrl": "assets/players/p005.webp",
-    "games": [],
+    "games": [
+      "fc"
+    ],
     "bio": "",
     "socials": {},
     "handles": {
