@@ -3,7 +3,7 @@ window.JAHANTI_PLAYERS = [
   {
     "id": "P001",
     "slug": "p001",
-    "name": "JahAnti Tester",
+    "name": "JahAnti Tester 1",
     "avatar": "JA",
     "avatarUrl": "assets/players/p001.webp",
     "games": [
@@ -55,8 +55,8 @@ window.JAHANTI_PLAYERS = [
   {
     "id": "P002",
     "slug": "p002",
-    "name": "RoyalRegi007",
-    "avatar": "RO",
+    "name": "JahAnti Tester 2",
+    "avatar": "JA",
     "avatarUrl": "assets/players/p002.webp",
     "games": [
       "fortnite",
