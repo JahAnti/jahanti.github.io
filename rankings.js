@@ -10,6 +10,7 @@
     shooters: { title: 'COMBINED SHOOTERS', tag: 'JAHANTI / THREE BATTLEFIELDS', description: 'Fortnite. Call of Duty. REDSEC. One combined record.', category: 'combinedShooters', subtitle: 'All shooter games combined', symbol: '◎' }
   };
   const CARDS = ['fortnite', 'cod', 'redsec', 'domino', 'fc', 'shooters'];
+  const gameIcon = k => window.JAHANTI_GAME_UI?.icon(k) || el('span','rank-icon','◆');
   let publicData = null;
   let dominoCategory = 'domino1v1';
   let period = 'allTime';
@@ -85,6 +86,7 @@
   function num(r,k){return String(Number(r[k])||0)}
   function statLabel(key) { if(key.startsWith('domino'))return 'W · L';if(key==='fifaFriendlies')return 'W · GD';return 'W · K · A'; }
   function stats(key,r) {if(key.startsWith('domino'))return num(r,'wins')+' · '+num(r,'losses');if(key==='fifaFriendlies')return num(r,'wins')+' · '+num(r,'goalDifference');return num(r,'wins')+' · '+num(r,'kills')+' · '+num(r,'assists');}
+  function detailedStats(key,r){if(key.startsWith('domino'))return num(r,'wins')+' W · '+num(r,'losses')+' L';if(key==='fifaFriendlies')return num(r,'wins')+' W · '+num(r,'goalDifference')+' GD';return num(r,'wins')+' W · '+num(r,'kills')+' K · '+num(r,'assists')+' A'}
   function periodTitle(){return period==='allTime'?'ALL-TIME':period==='monthly'?'MONTHLY':'WEEKLY';}
   function overviewLink(id){
     const params=new URLSearchParams({game:id});
@@ -104,12 +106,12 @@
     document.getElementById('overview-period-date').value=anchor;
     document.getElementById('overview-period').value=period;
     document.getElementById('overview-period-status').textContent=period==='allTime'?'All-Time Top 5 per game':periodTitle()+' Top 5 per game · '+periodRange();
-    document.getElementById('overview-intro-period').textContent=periodTitle()+' RANKINGS';
+    // The hero is intentionally free of redundant period badges.
     for(const id of CARDS){
       const game=CONFIG[id];const key=id==='domino'?dominoCategory:game.category;
       const card=el('article','rank-card'),head=el('div','rank-card-header');
       const topRow=el('div','rank-card-top');
-      topRow.append(el('span','rank-icon',game.symbol));
+      const iconWrap=el('span','rank-icon');iconWrap.append(gameIcon(id));topRow.append(iconWrap);
       topRow.append(el('small','rank-card-period',periodTitle()));
       head.append(topRow);
       head.append(el('h3','',game.title));
@@ -127,7 +129,11 @@
       top.append(el('span','', '#'));top.append(el('span','', 'PLAYER'));top.append(el('span','',statLabel(key)));body.append(top);
       const rows=rowsFor(key).slice(0,5);
       if(!rows.length)body.append(el('p','rank-card-empty','No public results for '+periodRange()+'.'));
-      else rows.forEach(r=>{const row=el('div','rank-card-row');row.append(el('span','rank-number',r.rank));row.append(nameFor(r));row.append(el('span','rank-mini-stats',stats(key,r)));body.append(row)});
+      else rows.forEach(r=>{
+        const podium=Number(r.rank)>=1&&Number(r.rank)<=3;
+        const row=el('div',podium?'rank-card-row rank-top-three rank-tier-'+r.rank:'rank-card-row');
+        row.append(el('span','rank-number',r.rank));row.append(nameFor(r));row.append(el('span','rank-mini-stats',stats(key,r)));body.append(row);
+      });
       card.append(body);
       const footer=el('a','rank-card-footer');footer.href=overviewLink(id);
       footer.append(el('span','','VIEW FULL LEADERBOARD'));footer.append(el('span','','↗'));card.append(footer);target.append(card);
@@ -200,20 +206,31 @@
     document.querySelectorAll('[data-period]').forEach(b=>{const active=b.dataset.period===period;b.classList.toggle('is-selected',active);b.setAttribute('aria-pressed',String(active))});
     document.querySelectorAll('[data-mode]').forEach(b=>{const active=b.dataset.mode===category;b.classList.toggle('is-selected',active);b.setAttribute('aria-pressed',String(active))});
     const countCols=setColumns(key),tbody=document.getElementById('ranking-table-body');tbody.replaceChildren();
+    const podium=document.getElementById('ranking-podium');podium.replaceChildren();
+    const table=document.querySelector('.rank-table-wrap');
     const rows=rowsFor(key);
-    if(!rows.length){const tr=el('tr'),td=el('td','empty-row','No confirmed public results for this period yet.');td.colSpan=countCols;tr.append(td);tbody.append(tr)}
-    else rows.slice((detailPage-1)*PAGE_SIZE,detailPage*PAGE_SIZE).forEach(r=>{
-      const tr=el('tr');const rank=el('td',Number(r.rank)===1?'first-rank':'',r.rank);tr.append(rank);const name=el('td','player-cell');name.append(nameFor(r));tr.append(name);
-      if(key.startsWith('domino')){
-        tr.append(tdNum(r,'wins'),tdNum(r,'losses'),tdNum(r,'matches','hide-mobile'));
-        const m=Number(r.matches)||Number(r.wins)+Number(r.losses)||0;tr.append(el('td','numeric hide-mobile',m?((Number(r.wins)||0)/m*100).toFixed(1)+'%':'—'));
-      }else if(key==='fifaFriendlies'){
-        tr.append(tdNum(r,'wins'),tdNum(r,'goalDifference'),tdNum(r,'goalsFor'),tdNum(r,'losses','hide-mobile'),tdNum(r,'draws','hide-mobile'),tdNum(r,'matches','hide-mobile'));
-      }else{tr.append(tdNum(r,'wins'),tdNum(r,'kills'),tdNum(r,'assists'),tdNum(r,'matches','hide-mobile'))}
-      tbody.append(tr);
-    });
+    const windowRows=rows.slice((detailPage-1)*PAGE_SIZE,detailPage*PAGE_SIZE);
+    for(const r of windowRows){
+      if(Number(r.rank)>=1&&Number(r.rank)<=3){
+        const item=el('div','rank-detail-top-three rank-tier-'+r.rank);
+        item.append(el('span','rank-number',r.rank),nameFor(r),el('span','rank-mini-stats',detailedStats(key,r)));
+        podium.append(item);
+      }else{
+        const tr=el('tr');tr.append(el('td','',r.rank));const name=el('td','player-cell');name.append(nameFor(r));tr.append(name);
+        if(key.startsWith('domino')){
+          tr.append(tdNum(r,'wins'),tdNum(r,'losses'),tdNum(r,'matches','hide-mobile'));
+          const m=Number(r.matches)||Number(r.wins)+Number(r.losses)||0;
+          tr.append(el('td','numeric hide-mobile',m?((Number(r.wins)||0)/m*100).toFixed(1)+'%':'—'));
+        }else if(key==='fifaFriendlies'){
+          tr.append(tdNum(r,'wins'),tdNum(r,'goalDifference'),tdNum(r,'goalsFor'),tdNum(r,'losses','hide-mobile'),tdNum(r,'draws','hide-mobile'),tdNum(r,'matches','hide-mobile'));
+        }else tr.append(tdNum(r,'wins'),tdNum(r,'kills'),tdNum(r,'assists'),tdNum(r,'matches','hide-mobile'));
+        tbody.append(tr);
+      }
+    }
+    if(!rows.length){const item=el('p','rank-detail-empty','No public results for the selected period.');podium.append(item)}
+    podium.hidden=!podium.children.length;
+    table.hidden=!tbody.children.length;
     renderPagination(rows.length);
-    const matchMeta=document.getElementById('ranking-meta');if(matchMeta)matchMeta.textContent=rows.length+' publicly ranked player'+(rows.length===1?'':'s')+' · Only confirmed results.';
   }
   function shiftPeriod(direction){const d=parseDay(anchor);if(period==='weekly')d.setUTCDate(d.getUTCDate()+7*direction);else if(period==='monthly'){const day=d.getUTCDate();d.setUTCDate(1);d.setUTCMonth(d.getUTCMonth()+direction);const last=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,0,12)).getUTCDate();d.setUTCDate(Math.min(day,last))}anchor=dateISO(d);detailPage=1;renderDetail()}
   function isDateString(s){
@@ -229,7 +246,10 @@
     if(isDateString(params.get('anchor')))anchor=params.get('anchor');
     document.body.dataset.game=id;document.title=g.title+' Leaderboard — JahAnti';
     document.getElementById('arena-tag').textContent=g.tag;document.getElementById('arena-title').textContent=g.title;
-    document.getElementById('arena-desc').textContent=g.description;document.getElementById('ranking-heading').textContent=g.title+' Rankings';
+    document.getElementById('arena-desc').textContent=g.description;
+    document.getElementById('ranking-heading').textContent=g.title+' Rankings';
+    const title=document.getElementById('game-rankings-title');title.replaceChildren(document.createTextNode(g.title+' '));
+    title.append(el('em','', 'RANKINGS.'));
     if(id==='domino')document.getElementById('domino-selector').hidden=false;
     document.querySelectorAll('[data-period]').forEach(b=>b.addEventListener('click',()=>{
       period=b.dataset.period;detailPage=1;renderDetail();
