@@ -191,3 +191,91 @@
 @media(max-width:600px){.rankings-intro h1{font-size:clamp(37px,10.5vw,63px);overflow-wrap:anywhere;word-break:break-word;line-height:.94;max-width:100%}}
 
 .footer-social-pending{opacity:.45;color:#d6ae57;font-size:21px;font-weight:900;display:inline-grid;place-items:center;min-width:29px;min-height:31px}
+
+
+/* ===============================================
+   JahAnti v14.1 — Final bundled visual refinements
+   Builds on v14. Keeps rankings, public sync, and
+   existing styles.css untouched.
+   =============================================== */
+
+/* Games navigation: steady, centered arrow and no shifting on open. */
+.nav-games-wrap{display:inline-flex;align-items:center;flex-wrap:nowrap;gap:3px;white-space:nowrap;flex-shrink:0}
+.nav-games-wrap>a{display:inline-flex;align-items:center;white-space:nowrap;padding-right:0;line-height:1.35}
+.nav-games-toggle{display:inline-flex;align-items:center;justify-content:center;flex:0 0 28px;width:28px;min-width:28px;height:40px;min-height:40px;padding:0;font-size:0;line-height:0;transform:none!important}
+.nav-games-toggle::before{content:"";display:block;width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transform-origin:50% 50%;transition:transform .18s ease;pointer-events:none}
+.nav-games-toggle[aria-expanded="true"]::before{transform:rotate(-135deg)}
+.nav-games-toggle[aria-expanded="true"]{transform:none!important}
+
+/* Consistent, slightly tighter vertical rhythm; keep cards roomy and aligned. */
+.hero-grid{padding-block:43px 30px}
+.hero .eyebrow{margin-bottom:18px}
+.hero-caption{margin-top:17px}
+.top-players-section,.games-section,.community-section{padding-block:44px}
+.top-players-section{padding-top:41px}
+.section-heading{margin-bottom:24px}
+.section-heading h2{margin-top:0}
+.top-players-section .section-heading{margin-bottom:20px}
+.games-section .section-heading{margin-bottom:22px}
+.community-section .section-heading{margin-bottom:22px}
+.gallery-shell{margin-top:12px}
+.gallery-footer{margin-top:15px}
+.about-band{padding-block:49px}
+.rankings-intro{padding-block:50px 37px}
+.rankings-section{padding-block:34px 61px}
+.rank-detail-section{padding-block:30px 59px}
+.rankings-section-head{margin-bottom:16px}
+.games-overview-section{padding-block:29px 62px}
+.directory-hero{padding-block:40px 27px}
+.directory-section{padding-block:29px 62px}
+.profile-content{padding:30px}
+.profile-content h2{margin:19px 0 12px}
+
+/* Homepage game cards are now miniature game heroes, using the game's own imagery. */
+.game-card.fc{--ja-game-image:url('assets/game-heroes/fc.webp')}
+.game-card.fortnite{--ja-game-image:url('assets/game-heroes/fortnite.webp')}
+.game-card.cod{--ja-game-image:url('assets/game-heroes/cod.webp')}
+.game-card.redsec{--ja-game-image:url('assets/game-heroes/redsec.webp')}
+.game-card.domino{--ja-game-image:url('assets/game-heroes/domino.webp')}
+.game-card,.game-card:nth-child(4),.game-card:nth-child(5){
+  justify-content:flex-end;
+  background-image:linear-gradient(0deg,rgba(7,10,13,.90) 0%,rgba(7,10,13,.45) 49%,rgba(7,10,13,.20) 100%),var(--ja-game-image)!important;
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+.game-card::before,.game-card::after{display:none}
+.game-card .game-bottom{margin-top:auto}
+.game-card .game-bottom h3{text-shadow:0 2px 12px #0009}
+.game-card .game-bottom p{color:#f3eee9;text-shadow:0 1px 8px #000c}
+.game-card .game-arrow{background:#15181838}
+
+/* Tablet and mobile: reclaim space while keeping readable touch targets. */
+@media(max-width:1000px){
+  .hero-grid{padding-block:37px 28px}
+  .top-players-section,.games-section,.community-section{padding-block:37px}
+  .rankings-section,.rank-detail-section{padding-bottom:52px}
+}
+@media(max-width:800px){
+  .nav-games-wrap{width:100%;display:grid;grid-template-columns:minmax(0,1fr) 44px;gap:0;white-space:normal}
+  .nav-games-toggle{width:44px;min-width:44px;min-height:48px;height:48px;justify-self:end}
+  .nav-game-links{grid-column:1/-1}
+  .top-players-section,.games-section,.community-section{padding-block:34px}
+  .directory-hero{padding-block:34px 24px}
+  .profile-content{padding:25px}
+}
+@media(max-width:600px){
+  .hero-grid{padding-block:28px 25px}
+  .hero-caption{margin-top:15px}
+  .section-heading{margin-bottom:17px}
+  .top-players-section,.games-section,.community-section{padding-block:29px}
+  .top-players-section{padding-top:30px}
+  .games-section .section-heading{margin-bottom:18px}
+  .rankings-intro{padding-block:39px 30px}
+  .rankings-section,.rank-detail-section{padding-block:27px 44px}
+  .games-overview-section{padding-block:26px 46px}
+  .directory-section{padding-block:25px 45px}
+  .profile-content{padding:20px}
+  .about-band{padding-block:41px}
+}
+@media(prefers-reduced-motion:reduce){.nav-games-toggle::before{transition:none}}
