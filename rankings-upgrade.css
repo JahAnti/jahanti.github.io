@@ -53,3 +53,90 @@
   .ranking-page-actions{width:100%;justify-content:center;gap:5px}
   .ranking-page-nav{padding:8px 7px}
 }
+
+
+/* JahAnti compact overview headers (v13.1).
+   All six leaderboard cards have an equal-height, two-row header.
+   The icon, complete game title and global period occupy the first row;
+   the subtitle and optional Domino mode selector share the second. */
+.rank-card-header {
+  display: grid;
+  grid-template-columns: 25px minmax(0, 1fr) auto;
+  grid-template-rows: 47px 32px;
+  column-gap: 10px;
+  row-gap: 6px;
+  align-content: center;
+  align-items: center;
+  height: 120px;
+  min-height: 120px;
+  padding: 12px 19px;
+}
+/* The v13 top wrapper is presentation-only: flatten it into the grid. */
+.rank-card-header .rank-card-top { display: contents; }
+.rank-card-header .rank-icon {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  font-size: 24px;
+}
+.rank-card-header h3 {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  min-width: 0;
+  font-size: clamp(20px, 2.05vw, 29px);
+  line-height: 1.04;
+  overflow-wrap: normal;
+}
+.rank-card-header .rank-card-period {
+  grid-column: 3;
+  grid-row: 1;
+  float: none;
+  white-space: nowrap;
+  text-align: right;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+.rank-card-header p {
+  grid-column: 1 / 3;
+  grid-row: 2;
+  min-width: 0;
+  align-self: center;
+  font-size: 11px;
+  line-height: 1.35;
+}
+.rank-card-header .mode-selector {
+  grid-column: 3;
+  grid-row: 2;
+  float: none;
+  justify-self: end;
+  align-self: center;
+  margin: 0;
+  padding: 2px;
+}
+.rank-card-header .mode-button {
+  min-height: 27px;
+  padding: 5px 10px;
+}
+/* Keep long game titles on a single line at desktop, tablet and phone widths. */
+.rank-card:nth-child(3) .rank-card-header h3,
+.rank-card:nth-child(4) .rank-card-header h3,
+.rank-card:nth-child(6) .rank-card-header h3 {
+  white-space: nowrap;
+  font-size: clamp(14px, 4.45vw, 25px);
+}
+@media (max-width: 680px) {
+  .rank-card-header {
+    grid-template-columns: 23px minmax(0, 1fr) auto;
+    grid-template-rows: 47px 32px;
+    column-gap: 8px;
+    row-gap: 6px;
+    padding: 12px 15px;
+    height: 120px;
+    min-height: 120px;
+  }
+  .rank-card-header h3 { font-size: clamp(19px, 5.8vw, 28px); }
+  .rank-card-header .rank-card-period { font-size: 9px; letter-spacing: .7px; }
+  .rank-card-header .mode-button { padding: 5px 9px; }
+}
