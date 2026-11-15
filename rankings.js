@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const CONFIG = {
-    fc:       { title: 'EA SPORTS FC', tag: 'JAHANTI / FOOTBALL ARENA', description: 'From the first whistle to the final goal. Every friendly counts.', category: 'fifaFriendlies', subtitle: 'Friendly matches', symbol: '⚽' },
+    fc:       { title: 'EA SPORTS FC', tag: 'JAHANTI / FOOTBALL ARENA', description: 'From the first whistle to the final goal. Tournaments and friendlies.', category: 'fifaOfficial', subtitle: 'Official tournament rankings', symbol: '⚽' },
     fortnite: { title: 'FORTNITE', tag: 'JAHANTI / BATTLE ROYALE', description: 'Squad up. Drop in. Fight your way to the top.', category: 'fortnite', subtitle: 'Individual rankings', symbol: '✦' },
     cod:      { title: 'CALL OF DUTY', tag: 'JAHANTI / TACTICAL ARENA', description: 'Precision, teamwork and the wins that separate the crew.', category: 'cod', subtitle: 'Individual rankings', symbol: '⌖' },
     redsec:   { title: 'BATTLEFIELD REDSEC', tag: 'JAHANTI / THE BATTLEFIELD', description: 'Every squad has a story. Every victory leaves a mark.', category: 'redsec', subtitle: 'Individual rankings', symbol: '✕' },
@@ -13,6 +13,7 @@
   const gameIcon = k => window.JAHANTI_GAME_UI?.icon(k) || el('span','rank-icon','◆');
   let publicData = null;
   let dominoCategory = 'domino1v1';
+  let fcCategory = 'fifaOfficial';
   let period = 'allTime';
   let anchor = todayISO();
   let category = 'fortnite';
@@ -35,7 +36,7 @@
     const old=window.JAHANTI_LEADERBOARDS||{};
     const allTime={
       fortnite:old.fortnite||[],cod:old.cod||[],redsec:old.redsec||[],fifaFriendlies:old.fc||[],
-      domino1v1:old.domino||[],domino2v2:[],combinedShooters:[]
+      domino1v1:old.domino||[],domino2v2:[],combinedShooters:[],fifaOfficial:[]
     };
     return {players:(window.JAHANTI_PLAYERS||[]).filter(p=>!p.demo),leaderboards:{allTime,monthly:{},weekly:{}}};
   }
@@ -55,7 +56,7 @@
     const number=(r,f)=>Number(r[f])||0;
     sorted.sort((a,b)=>number(b,'wins')-number(a,'wins') ||
       (key.startsWith('domino') ? number(a,'losses')-number(b,'losses') :
-       key==='fifaFriendlies' ? number(b,'goalDifference')-number(a,'goalDifference') :
+       key.startsWith('fifa') ? number(b,'goalDifference')-number(a,'goalDifference') :
        number(b,'kills')-number(a,'kills') || number(b,'assists')-number(a,'assists')) ||
        String(a.name||'').localeCompare(String(b.name||'')));
     let lastRank=0;
@@ -63,7 +64,7 @@
       const p=sorted[i-1];
       const tie=p && number(p,'wins')===number(r,'wins') &&
         (key.startsWith('domino') ? number(p,'losses')===number(r,'losses') :
-         key==='fifaFriendlies' ? number(p,'goalDifference')===number(r,'goalDifference') :
+         key.startsWith('fifa') ? number(p,'goalDifference')===number(r,'goalDifference') :
          number(p,'kills')===number(r,'kills') && number(p,'assists')===number(r,'assists'));
       lastRank=tie?lastRank:i+1;
       return {...r,rank:lastRank};
@@ -84,9 +85,9 @@
     return item;
   }
   function num(r,k){return String(Number(r[k])||0)}
-  function statLabel(key) { if(key.startsWith('domino'))return 'W · L';if(key==='fifaFriendlies')return 'W · GD';return 'W · K · A'; }
-  function stats(key,r) {if(key.startsWith('domino'))return num(r,'wins')+' · '+num(r,'losses');if(key==='fifaFriendlies')return num(r,'wins')+' · '+num(r,'goalDifference');return num(r,'wins')+' · '+num(r,'kills')+' · '+num(r,'assists');}
-  function detailedStats(key,r){if(key.startsWith('domino'))return num(r,'wins')+' W · '+num(r,'losses')+' L';if(key==='fifaFriendlies')return num(r,'wins')+' W · '+num(r,'goalDifference')+' GD';return num(r,'wins')+' W · '+num(r,'kills')+' K · '+num(r,'assists')+' A'}
+  function statLabel(key) { if(key.startsWith('domino'))return 'W · L';if(key.startsWith('fifa'))return 'W · GD';return 'W · K · A'; }
+  function stats(key,r) {if(key.startsWith('domino'))return num(r,'wins')+' · '+num(r,'losses');if(key.startsWith('fifa'))return num(r,'wins')+' · '+num(r,'goalDifference');return num(r,'wins')+' · '+num(r,'kills')+' · '+num(r,'assists');}
+  function detailedStats(key,r){if(key.startsWith('domino'))return num(r,'wins')+' W · '+num(r,'losses')+' L';if(key.startsWith('fifa'))return num(r,'wins')+' W · '+num(r,'goalDifference')+' GD';return num(r,'wins')+' W · '+num(r,'kills')+' K · '+num(r,'assists')+' A'}
   function periodTitle(){return period==='allTime'?'ALL-TIME':period==='monthly'?'MONTHLY':'WEEKLY';}
   function overviewLink(id){
     const params=new URLSearchParams({game:id});
@@ -108,7 +109,7 @@
     document.getElementById('overview-period-status').textContent=period==='allTime'?'All-Time Top 5 per game':periodTitle()+' Top 5 per game · '+periodRange();
     // The hero is intentionally free of redundant period badges.
     for(const id of CARDS){
-      const game=CONFIG[id];const key=id==='domino'?dominoCategory:game.category;
+      const game=CONFIG[id];const key=id==='domino'?dominoCategory:id==='fc'?fcCategory:game.category;
       const card=el('article','rank-card'),head=el('div','rank-card-header');
       const topRow=el('div','rank-card-top');
       const iconWrap=el('span','rank-icon');iconWrap.append(gameIcon(id));topRow.append(iconWrap);
@@ -143,7 +144,7 @@
     const head=document.getElementById('ranking-table-head');head.replaceChildren();const line=el('tr');
     const fields=key.startsWith('domino') ? [
       ['#',false],['PLAYER',false],['WINS',true],['LOSSES',true],['MATCHES',true,'hide-mobile'],['WIN %',true,'hide-mobile']
-    ] : key==='fifaFriendlies' ? [
+    ] : key.startsWith('fifa') ? [
       ['#',false],['PLAYER',false],['WINS',true],['GD',true],['GOALS FOR',true],['LOSSES',true,'hide-mobile'],['DRAWS',true,'hide-mobile'],['MATCHES',true,'hide-mobile']
     ] : [
       ['#',false],['PLAYER',false],['WINS',true],['KILLS',true],['ASSISTS',true],['MATCHES',true,'hide-mobile']
@@ -191,7 +192,7 @@
     }
   }
   function renderDetail() {
-    const game=Object.entries(CONFIG).find(([_,v])=>v.category===category)?.[1]||CONFIG.domino;
+    const game=category.startsWith('fifa')?CONFIG.fc:(Object.entries(CONFIG).find(([_,v])=>v.category===category)?.[1]||CONFIG.domino);
     const key=category;
     const label=document.getElementById('ranking-range'),nav=document.getElementById('period-navigation');
     const backParams=new URLSearchParams();
@@ -205,6 +206,7 @@
     document.getElementById('period-date').value=anchor;
     document.querySelectorAll('[data-period]').forEach(b=>{const active=b.dataset.period===period;b.classList.toggle('is-selected',active);b.setAttribute('aria-pressed',String(active))});
     document.querySelectorAll('[data-mode]').forEach(b=>{const active=b.dataset.mode===category;b.classList.toggle('is-selected',active);b.setAttribute('aria-pressed',String(active))});
+    document.querySelectorAll('[data-fc-category]').forEach(b=>{const active=b.dataset.fcCategory===category;b.classList.toggle('is-selected',active);b.setAttribute('aria-pressed',String(active))});
     const countCols=setColumns(key),tbody=document.getElementById('ranking-table-body');tbody.replaceChildren();
     const podium=document.getElementById('ranking-podium');podium.replaceChildren();
     const table=document.querySelector('.rank-table-wrap');
@@ -221,7 +223,7 @@
           tr.append(tdNum(r,'wins'),tdNum(r,'losses'),tdNum(r,'matches','hide-mobile'));
           const m=Number(r.matches)||Number(r.wins)+Number(r.losses)||0;
           tr.append(el('td','numeric hide-mobile',m?((Number(r.wins)||0)/m*100).toFixed(1)+'%':'—'));
-        }else if(key==='fifaFriendlies'){
+        }else if(key.startsWith('fifa')){
           tr.append(tdNum(r,'wins'),tdNum(r,'goalDifference'),tdNum(r,'goalsFor'),tdNum(r,'losses','hide-mobile'),tdNum(r,'draws','hide-mobile'),tdNum(r,'matches','hide-mobile'));
         }else tr.append(tdNum(r,'wins'),tdNum(r,'kills'),tdNum(r,'assists'),tdNum(r,'matches','hide-mobile'));
         tbody.append(tr);
@@ -241,6 +243,7 @@
     const params=new URLSearchParams(location.search);
     const id=Object.prototype.hasOwnProperty.call(CONFIG,params.get('game'))?params.get('game'):'fortnite';
     const g=CONFIG[id];category=g.category;
+    if(id==='fc'&&params.get('mode')==='friendlies')category='fifaFriendlies';
     if(id==='domino'&&params.get('mode')==='2v2')category='domino2v2';
     if(['monthly','weekly','allTime'].includes(params.get('period')))period=params.get('period');
     if(isDateString(params.get('anchor')))anchor=params.get('anchor');
@@ -251,6 +254,8 @@
     const title=document.getElementById('game-rankings-title');title.replaceChildren(document.createTextNode(g.title+' '));
     title.append(el('em','', 'RANKINGS.'));
     if(id==='domino')document.getElementById('domino-selector').hidden=false;
+    if(id==='fc')document.getElementById('fc-selector').hidden=false;
+    document.querySelectorAll('[data-fc-category]').forEach(b=>b.addEventListener('click',()=>{category=b.dataset.fcCategory;detailPage=1;renderDetail();}));
     document.querySelectorAll('[data-period]').forEach(b=>b.addEventListener('click',()=>{
       period=b.dataset.period;detailPage=1;renderDetail();
     }));

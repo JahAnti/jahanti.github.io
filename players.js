@@ -92,12 +92,12 @@
   }
   profile.append(el('h2','profile-stat-heading','All-Time game statistics'));
   const stats=el('div','profile-statistics');stats.append(el('p','directory-empty','Loading public rankings…'));profile.append(stats);
-  const cats=[['fortnite','Fortnite','fortnite'],['cod','Call of Duty','cod'],['redsec','Battlefield REDSEC','redsec'],['combinedShooters','Combined Shooters','shooters'],['domino1v1','Domino 1v1','domino&mode=1v1'],['domino2v2','Domino 2v2','domino&mode=2v2'],['fifaFriendlies','EA Sports FC · Friendlies','fc']];
+  const cats=[['fortnite','Fortnite','fortnite'],['cod','Call of Duty','cod'],['redsec','Battlefield REDSEC','redsec'],['combinedShooters','Combined Shooters','shooters'],['domino1v1','Domino 1v1','domino&mode=1v1'],['domino2v2','Domino 2v2','domino&mode=2v2'],['fifaOfficial','EA Sports FC · Official','fc&mode=official'],['fifaFriendlies','EA Sports FC · Friendlies','fc&mode=friendlies']];
   Promise.resolve(window.JAHANTI_PUBLIC_DATA).then(data=>{
     stats.replaceChildren();let found=0;
     for(const [key,label,route] of cats){const r=(data?.leaderboards?.allTime?.[key]||[]).find(x=>x.playerId===p.id);if(!r)continue;found++;
       const link=el('a','profile-stat-link');link.href='game.html?game='+route;const art=el('div','stat-mini-hero');art.dataset.hero=route.split('&')[0];art.append(el('strong','',label));
-      const metric=key.startsWith('domino')?`${r.wins||0} wins · ${r.losses||0} losses`:key==='fifaFriendlies'?`${r.wins||0} wins · ${r.goalDifference||0} goal difference`:`${r.wins||0} wins · ${r.kills||0} kills · ${r.assists||0} assists`;
+      const metric=key.startsWith('domino')?`${r.wins||0} wins · ${r.losses||0} losses`:key.startsWith('fifa')?`${r.wins||0} wins · ${r.goalDifference||0} goal difference`:`${r.wins||0} wins · ${r.kills||0} kills · ${r.assists||0} assists`;
       const body=el('div','stat-mini-body');body.append(el('span','',metric),el('span','stat-link-arrow','↗'));link.append(art,body);stats.append(link);
     }if(!found)stats.append(el('p','directory-empty','No published results yet.'));
   }).catch(()=>stats.replaceChildren(el('p','directory-empty','Game statistics will appear once public rankings are published.')));
