@@ -17,7 +17,22 @@ window.JAHANTI_LEADERBOARDS = {
       "points": 1
     }
   ],
-  "fortnite": [],
+  "fortnite": [
+    {
+      "playerId": "P002",
+      "name": "RoyalRegi007",
+      "rank": 1,
+      "wins": 1,
+      "losses": 0,
+      "kills": 5,
+      "assists": 15,
+      "matches": 1,
+      "goalsFor": 0,
+      "goalsAgainst": 0,
+      "goalDifference": 0,
+      "draws": 0
+    }
+  ],
   "cod": [],
   "redsec": [],
   "domino": [
