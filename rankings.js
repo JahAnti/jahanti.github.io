@@ -117,6 +117,7 @@
     for(const id of CARDS){
       const game=CONFIG[id];const key=id==='domino'?dominoCategory:id==='fc'?fcCategory:game.category;
       const card=el('article','rank-card'),head=el('div','rank-card-header');
+      card.dataset.jaHero=id;
       const topRow=el('div','rank-card-top');
       const iconWrap=el('span','rank-icon');iconWrap.append(gameIcon(id));topRow.append(iconWrap);
       topRow.append(el('small','rank-card-period',periodTitle()));
