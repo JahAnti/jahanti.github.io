@@ -1,0 +1,114 @@
+/* JahAnti consolidated v1.2.0 — responsive, game heroes, form, climbers & legal */
+.ja-form-pip.ja-form-placeholder{background:#e7e7e7;border:1px solid #bdc0c6;box-shadow:none;pointer-events:none}
+.ja-form-pip.ja-form-placeholder::after{content:""}
+.ja-form{gap:5px}.ja-form-compact{gap:4px}
+/* Website profile hero images: game of highest verified participation. */
+.player-card-banner,.profile-header{--ja-profile-art:url("assets/players/jahanti-default-hero.webp");background-image:linear-gradient(90deg,#080d1599,#111b2699),var(--ja-profile-art)!important;background-size:cover!important;background-position:center!important}
+.player-card-banner[data-hero="fc"],.profile-header[data-hero="fc"]{--ja-profile-art:url("assets/game-heroes/fc.webp")}
+.player-card-banner[data-hero="fortnite"],.profile-header[data-hero="fortnite"]{--ja-profile-art:url("assets/game-heroes/fortnite.webp")}
+.player-card-banner[data-hero="cod"],.profile-header[data-hero="cod"]{--ja-profile-art:url("assets/game-heroes/cod.webp")}
+.player-card-banner[data-hero="redsec"],.profile-header[data-hero="redsec"]{--ja-profile-art:url("assets/game-heroes/redsec.webp")}
+.player-card-banner[data-hero="domino"],.profile-header[data-hero="domino"]{--ja-profile-art:url("assets/game-heroes/domino.webp")}
+.profile-header{min-height:195px;display:flex;align-items:flex-end;border-radius:14px;padding:28px 25px;color:#fff;gap:20px}
+.profile-header .profile-identity h1{color:#fff;text-shadow:0 2px 8px #0009;overflow-wrap:anywhere}
+.profile-header .profile-avatar{box-shadow:0 4px 20px #0009;flex-shrink:0}
+.player-card-banner{background-color:#202a2f}
+.player-card-content h3,.directory-grid .player-card h3{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}
+/* Modern mobile two-column arrangement for compact, mostly visual cards. */
+@media (min-width:420px) and (max-width:800px){
+ .top-player-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .games-grid,.game-grid,.games-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .directory-grid .player-card,.top-player-grid .top-player-card{min-width:0}
+}
+@media(min-width:360px) and (max-width:419px){
+ .games-grid,.game-grid,.games-list{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .directory-grid .player-card{min-width:0}
+}
+@media(max-width:359px){
+ .directory-grid,.top-player-grid,.games-grid,.game-grid,.games-list{grid-template-columns:minmax(0,1fr)!important}
+}
+/* Small screens: player, statistics and recent form get separate full-width rows. */
+@media(max-width:720px){
+ body[data-game="fc"] .rank-detail-top-three,body[data-game="domino"] .rank-detail-top-three{
+  display:grid!important;grid-template-columns:30px minmax(0,1fr)!important;
+  align-items:center;gap:10px!important;padding:14px 12px!important;min-width:0;
+ }
+ body[data-game="fc"] .rank-detail-top-three>.rank-number,body[data-game="domino"] .rank-detail-top-three>.rank-number{grid-column:1;grid-row:1;align-self:center}
+ body[data-game="fc"] .rank-detail-top-three>.rank-mini-player,body[data-game="domino"] .rank-detail-top-three>.rank-mini-player{grid-column:2;grid-row:1;min-width:0;max-width:100%;display:flex;align-items:center}
+ body[data-game="fc"] .rank-detail-top-three .name,body[data-game="domino"] .rank-detail-top-three .name{white-space:normal!important;overflow-wrap:anywhere!important;text-overflow:clip!important}
+ body[data-game="fc"] .rank-detail-top-three>.ja-form-podium,body[data-game="domino"] .rank-detail-top-three>.ja-form-podium{
+  grid-column:1/-1;display:contents!important
+ }
+ body[data-game="fc"] .rank-detail-top-three .ja-form-podium-stats,body[data-game="domino"] .rank-detail-top-three .ja-form-podium-stats{
+  grid-column:1/-1;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr));gap:2px;width:100%;overflow:visible;
+ }
+ body[data-game="domino"] .rank-detail-top-three .ja-form-podium-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ body[data-game="fc"] .rank-detail-top-three .ja-podium-recent,body[data-game="domino"] .rank-detail-top-three .ja-podium-recent{
+  grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:9px;border-top:1px solid #d6c6aa;border-left:0;padding:10px 0 0;white-space:normal
+ }
+ .ja-podium-stat{min-width:0!important;width:100%;padding:2px!important}
+ .ja-podium-stat-value{font-size:clamp(15px,4vw,21px)!important}
+ .ja-podium-recent-label{flex:0 0 auto}
+ .ja-podium-recent .ja-form{margin-left:auto;gap:4px}
+ .ja-form-compact .ja-form-pip{width:22px;height:22px;min-width:22px}
+ /* Table entries below podium also become three-row player cards. */
+ body[data-game="fc"] .rank-table-wrap,body[data-game="domino"] .rank-table-wrap{overflow:visible}
+ body[data-game="fc"] .rankings-table,body[data-game="domino"] .rankings-table{display:block;min-width:0!important;width:100%}
+ body[data-game="fc"] .rankings-table thead,body[data-game="domino"] .rankings-table thead{display:none}
+ body[data-game="fc"] .rankings-table tbody,body[data-game="domino"] .rankings-table tbody{display:grid;gap:10px}
+ body[data-game="fc"] .rankings-table tbody tr,body[data-game="domino"] .rankings-table tbody tr{
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px 3px;align-items:center;padding:12px 10px;
+  background:#fffaf1;border:1px solid #e9dcc6;border-radius:12px
+ }
+ body[data-game="fc"] .rankings-table tbody td,body[data-game="domino"] .rankings-table tbody td{
+  display:flex!important;flex-direction:column;align-items:center;justify-content:center;
+  min-width:0;padding:0!important;background:transparent!important;border:none!important;white-space:normal;text-align:center;font-variant-numeric:tabular-nums
+ }
+ body[data-game="fc"] .rankings-table tbody td:first-child,body[data-game="domino"] .rankings-table tbody td:first-child{grid-column:1;grid-row:1;font-weight:900}
+ body[data-game="fc"] .rankings-table tbody td.player-cell,body[data-game="domino"] .rankings-table tbody td.player-cell{grid-column:2/-1;grid-row:1;align-items:flex-start;text-align:left}
+ body[data-game="fc"] .rankings-table tbody td.player-cell .name,body[data-game="domino"] .rankings-table tbody td.player-cell .name{white-space:normal!important;overflow-wrap:anywhere!important}
+ body[data-game="fc"] .rankings-table tbody td.numeric::before,body[data-game="domino"] .rankings-table tbody td.numeric::before{content:attr(data-stat);font-size:10px;color:#887b68;font-weight:800;margin-bottom:3px}
+ body[data-game="fc"] .rankings-table tbody td.ja-form-cell,body[data-game="domino"] .rankings-table tbody td.ja-form-cell{grid-column:1/-1;flex-direction:row;justify-content:space-between;gap:8px;padding-top:8px!important;border-top:1px solid #dfd3be!important}
+ body[data-game="fc"] .rankings-table tbody td.ja-form-cell::before,body[data-game="domino"] .rankings-table tbody td.ja-form-cell::before{content:"LAST 5";font-size:10px;color:#887b68;font-weight:800}
+ body[data-game="fc"] .rankings-table tbody td.ja-form-cell .ja-form,body[data-game="domino"] .rankings-table tbody td.ja-form-cell .ja-form{justify-content:flex-end}
+ body[data-game="fc"] .rankings-table tbody td.ja-form-cell .ja-form-pip,body[data-game="domino"] .rankings-table tbody td.ja-form-cell .ja-form-pip{width:22px;height:22px;min-width:22px}
+ .ja-t-standings-scroll{overflow-x:auto}
+ .profile-header{min-height:155px;padding:19px 15px}
+}
+/* Biggest Climbers — independent of game leaderboard period filter. */
+.ja-climbers-section{padding-top:40px;padding-bottom:65px}
+.ja-climbers-wrap{background:#fbf7ee;border:1px solid #e7dac3;border-radius:16px;padding:clamp(15px,3vw,28px)}
+.ja-climbers-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:19px}
+.ja-climbers-heading h2{font-size:clamp(26px,4vw,44px);line-height:1.0;margin:7px 0}
+.ja-climbers-heading h2 em{font-style:normal;color:#b8924f}
+.ja-climbers-heading p{color:#766f62;font-size:12px;margin:5px 0}
+.ja-climbers-controls{display:flex;align-items:center;gap:12px}
+.ja-climbers-controls label{font-size:12px;font-weight:700}
+.ja-climbers-controls select{display:block;margin-top:5px;border-radius:7px;padding:9px;border:1px solid #d5c3a5;background:white;max-width:210px}
+.ja-climbers-live{background:#267852;color:#fff;font-size:10px;font-weight:800;border-radius:50px;padding:7px 10px}
+.ja-climbers-live[hidden]{display:none!important}
+.ja-climbers-list{display:grid;gap:10px}
+.ja-climber-card{display:flex;align-items:center;gap:12px;min-width:0;background:#fff;border:1px solid #eee6d8;padding:13px;border-radius:12px}
+.ja-climber-identity{display:flex;align-items:center;gap:11px;min-width:0;flex:1}
+.ja-climber-avatar{height:39px;width:39px;min-width:39px;display:grid;place-items:center;background:#222626;color:#e2bf7f;border-radius:50%;font-size:10px;font-weight:800}
+.ja-climber-details{min-width:0}.ja-climber-name{display:block;overflow-wrap:anywhere;font-size:14px}.ja-climber-meta{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:6px}
+.ja-climber-category{display:inline-block;background:#f4e6c8;border-radius:40px;font-size:10px;font-weight:800;padding:3px 9px;color:#624b2c}
+.ja-climber-ranks{font-size:11px;color:#736f6b}
+.ja-climber-delta{display:flex;align-items:center;flex-direction:column;min-width:60px;color:#1b8a57;font-weight:900;font-variant-numeric:tabular-nums}
+.ja-climber-delta strong{font-size:25px;line-height:1}.ja-climber-delta small{font-size:10px}.ja-climber-new{font-size:16px!important}
+.ja-climbers-empty{padding:15px 5px;color:#716b62}
+/* Legal navigation and information pages */
+.ja-legal-links{display:flex;gap:10px 20px;flex-wrap:wrap;justify-content:center;padding:10px 0 13px;margin-right:10px}
+.ja-legal-links a{color:inherit;text-decoration:underline;text-underline-offset:3px;font-size:12px}
+.ja-legal-page{max-width:850px;margin:0 auto;padding:55px 22px 80px}
+.ja-legal-page h1{font-size:clamp(37px,5vw,65px);line-height:1.0;margin:0 0 30px}
+.ja-legal-page h2{font-size:22px;margin:28px 0 12px}.ja-legal-page p,.ja-legal-page li{line-height:1.65}
+.ja-legal-page a{color:#876529;text-decoration:underline}.ja-legal-page .legal-notice{padding:12px 16px;border-left:3px solid #b78f47;background:#fff8e8}
+@media (min-width:360px) and (max-width:800px){
+ .games-overview-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+ .games-overview-grid>*{min-width:0}
+ .games-overview-grid h2,.games-overview-grid h3{overflow-wrap:anywhere}
+}
+@media(max-width:359px){.games-overview-grid{grid-template-columns:minmax(0,1fr)!important}}

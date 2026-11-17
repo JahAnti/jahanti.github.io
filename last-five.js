@@ -54,7 +54,13 @@
     const wrap=el('span','ja-form'+(options.compact?' ja-form-compact':''));
     wrap.setAttribute('aria-label','Last five completed results, oldest to newest');
     const games=Array.isArray(entries)?entries.filter(x=>x && valid.has(x.result)).slice(-5):[];
-    if(!games.length){wrap.append(el('span','ja-form-empty','—'));return wrap;}
+    // Reserve five positions even if this player has played fewer matches.
+    // Oldest on the left; blank placeholders align at the beginning.
+    for(let i=games.length;i<5;i++){
+      const blank=el('span','ja-form-pip ja-form-placeholder');
+      blank.setAttribute('aria-label','No recorded match');blank.title='No recorded match';
+      wrap.append(blank);
+    }
     games.forEach((game,i)=>{
       const title=labels[game.result]+(game.admin?' (administrative award)':'')+' · '+dateText(game.date)+
         (game.opponent?' · vs '+game.opponent:'')+(game.score?' · '+game.score:'');

@@ -17,7 +17,7 @@
   function tag(k){const t=el('span','player-game-tag');t.append(gameIcon(k),document.createTextNode(' '+(names[k]||k)));return t}
   function card(p){
     const link=el('a','player-card');link.href='player.html?p='+encodeURIComponent(p.slug);link.setAttribute('aria-label','View '+p.name+' profile');
-    const banner=el('div','player-card-banner');banner.append(avatar(p,'player-avatar'));
+    const banner=el('div','player-card-banner');banner.dataset.hero=window.JA_HERO_GAME?.(p)||p.mostPlayedGame||'default';banner.append(avatar(p,'player-avatar'));
     const content=el('div','player-card-content');content.append(el('h3','',p.name));
     const tags=el('div','player-game-tags');(p.games||[]).forEach(k=>tags.append(tag(k)));content.append(tags);
     if(p.bio)content.append(el('p','player-bio',p.bio));content.append(el('span','achievement-label','✦ ACHIEVEMENTS'));
@@ -56,7 +56,7 @@
   const slug=new URLSearchParams(location.search).get('p'),p=players.find(x=>x.slug===slug);
   if(!p){profile.append(el('h1','','Player not found'),el('p','','Explore JahAnti Community to find an active public player profile.'));return}
   document.title=p.name+' — JahAnti';
-  const header=el('div','profile-header');header.append(avatar(p,'profile-avatar'));const details=el('div','profile-identity');details.append(el('h1','',p.name));header.append(details);profile.append(header);
+  const header=el('div','profile-header');header.dataset.hero=window.JA_HERO_GAME?.(p)||p.mostPlayedGame||'default';header.append(avatar(p,'profile-avatar'));const details=el('div','profile-identity');details.append(el('h1','',p.name));header.append(details);profile.append(header);
   const bio=el('section','profile-bio-section');bio.append(el('h2','','Bio'),el('p','',p.bio||'No bio added yet.'));profile.append(bio);
   const handles=Object.entries(p.handles||{}).filter(([k,val])=>names[k]&&String(val||'').trim());
   const socials=Object.entries(p.socials||{}).filter(([k,url])=>String(url).startsWith('https://')&&['instagram','tiktok','facebook','twitch','youtube'].includes(k));
@@ -92,7 +92,7 @@
   }
   profile.append(el('h2','profile-stat-heading','All-Time game statistics'));
   const stats=el('div','profile-statistics');stats.append(el('p','directory-empty','Loading public rankings…'));profile.append(stats);
-  const cats=[['fortnite','Fortnite','fortnite'],['cod','Call of Duty','cod'],['redsec','Battlefield REDSEC','redsec'],['combinedShooters','Combined Shooters','shooters'],['domino1v1','Domino 1v1','domino&mode=1v1'],['domino2v2','Domino 2v2','domino&mode=2v2'],['fifaOfficial','EA Sports FC · Official','fc&mode=official'],['fifaFriendlies','EA Sports FC · Friendlies','fc&mode=friendlies']];
+  const cats=[['fortnite','Fortnite','fortnite'],['cod','Call of Duty','cod'],['redsec','Battlefield REDSEC','redsec'],['combinedShooters','Combined Shooters','shooters'],['domino1v1','Domino 1v1','domino&mode=1v1'],['domino2v2','Domino 2v2','domino&mode=2v2'],['fifaOfficial','EA Sports FC · Official','fc'],['fifaFriendlies','EA Sports FC · Friendlies','fc&mode=friendlies']];
   Promise.resolve(window.JAHANTI_PUBLIC_DATA).then(data=>{
     stats.replaceChildren();let found=0;
     for(const [key,label,route] of cats){const r=(data?.leaderboards?.allTime?.[key]||[]).find(x=>x.playerId===p.id);if(!r)continue;found++;

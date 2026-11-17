@@ -150,7 +150,7 @@
   function setColumns(key) {
     const head=document.getElementById('ranking-table-head');head.replaceChildren();const line=el('tr');
     const fields=key.startsWith('domino') ? [
-      ['#',false],['PLAYER',false],['WINS',true],['LOSSES',true],['MATCHES',true,'hide-mobile'],['WIN %',true,'hide-mobile'],['LAST 5',true,'ja-form-heading']
+      ['#',false],['PLAYER',false],['WINS',true],['LOSSES',true],['LAST 5',true,'ja-form-heading']
     ] : key.startsWith('fifa') ? [
       ['#',false],['PLAYER',false],['WINS',true],['GF',true],['GA',true],['GD',true],['LOSSES',true,'hide-mobile'],['DRAWS',true,'hide-mobile'],['MATCHES',true,'hide-mobile'],['LAST 5',true,'ja-form-heading']
     ] : [
@@ -159,7 +159,7 @@
     fields.forEach(([label,numeric,mobile])=>{const th=el('th',(numeric?'numeric ':'')+(mobile||''),label);th.scope='col';line.append(th)});head.append(line);
     return fields.length;
   }
-  function tdNum(r,k,mobile){const td=el('td','numeric '+(mobile||''),num(r,k));return td}
+  function tdNum(r,k,mobile){const td=el('td','numeric '+(mobile||''),num(r,k));td.dataset.stat=({wins:'W',losses:'L',draws:'D',goalsFor:'GF',goalsAgainst:'GA',goalDifference:'GD',matches:'P',kills:'K',assists:'A'})[k]||k;return td}
   function renderPagination(total) {
     const nav=document.getElementById('ranking-pagination');
     const summary=document.getElementById('ranking-page-summary');
@@ -231,7 +231,7 @@
           const metrics=el('div','ja-form-podium-stats');
           const columns=key.startsWith('fifa')
             ? [['wins','W'],['draws','D'],['losses','L'],['goalsFor','GF'],['goalsAgainst','GA'],['goalDifference','GD']]
-            : [['wins','W'],['losses','L'],['matches','P']];
+            : [['wins','W'],['losses','L']];
           columns.forEach(([field,label])=>{
             const stat=el('span','ja-podium-stat');
             const raw=Number(r[field])||0;
@@ -247,14 +247,12 @@
       }else{
         const tr=el('tr');tr.append(el('td','',r.rank));const name=el('td','player-cell');name.append(nameFor(r));tr.append(name);
         if(key.startsWith('domino')){
-          tr.append(tdNum(r,'wins'),tdNum(r,'losses'),tdNum(r,'matches','hide-mobile'));
-          const m=Number(r.matches)||Number(r.wins)+Number(r.losses)||0;
-          tr.append(el('td','numeric hide-mobile',m?((Number(r.wins)||0)/m*100).toFixed(1)+'%':'—'));
+          tr.append(tdNum(r,'wins'),tdNum(r,'losses'));
         }else if(key.startsWith('fifa')){
           tr.append(tdNum(r,'wins'),tdNum(r,'goalsFor'),tdNum(r,'goalsAgainst'),tdNum(r,'goalDifference'),tdNum(r,'losses','hide-mobile'),tdNum(r,'draws','hide-mobile'),tdNum(r,'matches','hide-mobile'));
         }else tr.append(tdNum(r,'wins'),tdNum(r,'kills'),tdNum(r,'assists'),tdNum(r,'matches','hide-mobile'));
         if(hasForm(key)){
-          const td=el('td','ja-form-cell');td.append(formForRow(key,r));tr.append(td);
+          const td=el('td','ja-form-cell');td.dataset.stat='LAST 5';td.append(formForRow(key,r));tr.append(td);
         }
         tbody.append(tr);
       }
