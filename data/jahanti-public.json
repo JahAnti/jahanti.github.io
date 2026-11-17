@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T07:15:09.281Z",
+  "generatedAt": "2026-11-17T12:39:24.245Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active public members appear. Rankings include confirmed games and eligible baselines; Last 5 shows only actually played confirmed games. Private opponents are anonymized.",
   "players": [
@@ -44,7 +44,13 @@
           "iconUrl": "",
           "earnedAt": "2026-11-14T20:07:42.186Z"
         }
-      ]
+      ],
+      "mostPlayedGame": "fc",
+      "matchCounts": {
+        "fortnite": 1,
+        "domino": 1,
+        "fc": 1
+      }
     },
     {
       "id": "P002",
@@ -105,7 +111,13 @@
           "iconUrl": "",
           "earnedAt": "2026-11-14T18:36:39.794Z"
         }
-      ]
+      ],
+      "mostPlayedGame": "fc",
+      "matchCounts": {
+        "fortnite": 1,
+        "domino": 1,
+        "fc": 1
+      }
     },
     {
       "id": "P003",
@@ -127,7 +139,11 @@
       "socials": {},
       "showInGallery": true,
       "achievements": [],
-      "featuredAchievements": []
+      "featuredAchievements": [],
+      "mostPlayedGame": "fc",
+      "matchCounts": {
+        "fc": 1
+      }
     },
     {
       "id": "P004",
@@ -147,7 +163,9 @@
       "socials": {},
       "showInGallery": true,
       "achievements": [],
-      "featuredAchievements": []
+      "featuredAchievements": [],
+      "mostPlayedGame": "default",
+      "matchCounts": {}
     },
     {
       "id": "P005",
@@ -169,7 +187,11 @@
       "socials": {},
       "showInGallery": true,
       "achievements": [],
-      "featuredAchievements": []
+      "featuredAchievements": [],
+      "mostPlayedGame": "fc",
+      "matchCounts": {
+        "fc": 1
+      }
     },
     {
       "id": "P006",
@@ -189,7 +211,9 @@
       "socials": {},
       "showInGallery": true,
       "achievements": [],
-      "featuredAchievements": []
+      "featuredAchievements": [],
+      "mostPlayedGame": "default",
+      "matchCounts": {}
     },
     {
       "id": "P007",
@@ -209,7 +233,9 @@
       "socials": {},
       "showInGallery": true,
       "achievements": [],
-      "featuredAchievements": []
+      "featuredAchievements": [],
+      "mostPlayedGame": "default",
+      "matchCounts": {}
     },
     {
       "id": "P008",
@@ -229,7 +255,9 @@
       "socials": {},
       "showInGallery": true,
       "achievements": [],
-      "featuredAchievements": []
+      "featuredAchievements": [],
+      "mostPlayedGame": "default",
+      "matchCounts": {}
     },
     {
       "id": "P009",
@@ -251,7 +279,11 @@
       "socials": {},
       "showInGallery": true,
       "achievements": [],
-      "featuredAchievements": []
+      "featuredAchievements": [],
+      "mostPlayedGame": "fc",
+      "matchCounts": {
+        "fc": 2
+      }
     },
     {
       "id": "P010",
@@ -271,7 +303,9 @@
       "socials": {},
       "showInGallery": true,
       "achievements": [],
-      "featuredAchievements": []
+      "featuredAchievements": [],
+      "mostPlayedGame": "default",
+      "matchCounts": {}
     }
   ],
   "leaderboards": {
@@ -984,6 +1018,107 @@
             ]
           }
         ]
+      }
+    }
+  },
+  "biggestClimbers": {
+    "currentWeek": "2026-11-16",
+    "availableWeeks": [
+      "2026-11-09",
+      "2026-11-16"
+    ],
+    "byWeek": {
+      "2026-11-09": {
+        "domino": [
+          {
+            "playerId": "P001",
+            "name": "JahAnti Tester 1",
+            "category": "domino1v1",
+            "from": null,
+            "to": 1,
+            "change": null,
+            "newPlayer": true
+          },
+          {
+            "playerId": "P002",
+            "name": "JahAnti Tester 2",
+            "category": "domino1v1",
+            "from": null,
+            "to": 2,
+            "change": null,
+            "newPlayer": true
+          }
+        ],
+        "fc": [
+          {
+            "playerId": "P001",
+            "name": "JahAnti Tester 1",
+            "category": "fifaFriendlies",
+            "from": null,
+            "to": 2,
+            "change": null,
+            "newPlayer": true
+          },
+          {
+            "playerId": "P002",
+            "name": "JahAnti Tester 2",
+            "category": "fifaFriendlies",
+            "from": null,
+            "to": 1,
+            "change": null,
+            "newPlayer": true
+          }
+        ],
+        "fortnite": [
+          {
+            "playerId": "P001",
+            "name": "JahAnti Tester 1",
+            "category": "fortnite",
+            "from": null,
+            "to": 2,
+            "change": null,
+            "newPlayer": true
+          },
+          {
+            "playerId": "P002",
+            "name": "JahAnti Tester 2",
+            "category": "fortnite",
+            "from": null,
+            "to": 1,
+            "change": null,
+            "newPlayer": true
+          }
+        ],
+        "cod": [],
+        "redsec": [],
+        "shooters": [
+          {
+            "playerId": "P001",
+            "name": "JahAnti Tester 1",
+            "category": "combinedShooters",
+            "from": null,
+            "to": 2,
+            "change": null,
+            "newPlayer": true
+          },
+          {
+            "playerId": "P002",
+            "name": "JahAnti Tester 2",
+            "category": "combinedShooters",
+            "from": null,
+            "to": 1,
+            "change": null,
+            "newPlayer": true
+          }
+        ]
+      },
+      "2026-11-16": {
+        "domino": [],
+        "fc": [],
+        "fortnite": [],
+        "cod": [],
+        "redsec": [],
+        "shooters": []
       }
     }
   },
