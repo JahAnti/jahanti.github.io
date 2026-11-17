@@ -20,6 +20,12 @@ window.JAHANTI_PLAYERS = [
       "fc": "",
       "domino": "Tester"
     },
+    "mostPlayedGame": "fc",
+    "matchCounts": {
+      "fortnite": 1,
+      "domino": 1,
+      "fc": 1
+    },
     "achievements": [
       {
         "id": "ACH-002",
@@ -74,6 +80,12 @@ window.JAHANTI_PLAYERS = [
       "redsec": "",
       "fc": "RoyalRegi007",
       "domino": "RoyalRegi"
+    },
+    "mostPlayedGame": "fc",
+    "matchCounts": {
+      "fortnite": 1,
+      "domino": 1,
+      "fc": 1
     },
     "achievements": [
       {
@@ -149,6 +161,10 @@ window.JAHANTI_PLAYERS = [
       "fc": "",
       "domino": ""
     },
+    "mostPlayedGame": "fc",
+    "matchCounts": {
+      "fc": 1
+    },
     "achievements": [],
     "allAchievements": [],
     "featuredAchievements": [],
@@ -170,6 +186,8 @@ window.JAHANTI_PLAYERS = [
       "fc": "",
       "domino": ""
     },
+    "mostPlayedGame": "default",
+    "matchCounts": {},
     "achievements": [],
     "allAchievements": [],
     "featuredAchievements": [],
@@ -193,6 +211,10 @@ window.JAHANTI_PLAYERS = [
       "fc": "",
       "domino": ""
     },
+    "mostPlayedGame": "fc",
+    "matchCounts": {
+      "fc": 1
+    },
     "achievements": [],
     "allAchievements": [],
     "featuredAchievements": [],
@@ -214,6 +236,8 @@ window.JAHANTI_PLAYERS = [
       "fc": "",
       "domino": ""
     },
+    "mostPlayedGame": "default",
+    "matchCounts": {},
     "achievements": [],
     "allAchievements": [],
     "featuredAchievements": [],
@@ -235,6 +259,8 @@ window.JAHANTI_PLAYERS = [
       "fc": "",
       "domino": ""
     },
+    "mostPlayedGame": "default",
+    "matchCounts": {},
     "achievements": [],
     "allAchievements": [],
     "featuredAchievements": [],
@@ -256,6 +282,8 @@ window.JAHANTI_PLAYERS = [
       "fc": "",
       "domino": ""
     },
+    "mostPlayedGame": "default",
+    "matchCounts": {},
     "achievements": [],
     "allAchievements": [],
     "featuredAchievements": [],
@@ -279,6 +307,10 @@ window.JAHANTI_PLAYERS = [
       "fc": "",
       "domino": ""
     },
+    "mostPlayedGame": "fc",
+    "matchCounts": {
+      "fc": 2
+    },
     "achievements": [],
     "allAchievements": [],
     "featuredAchievements": [],
@@ -300,6 +332,8 @@ window.JAHANTI_PLAYERS = [
       "fc": "",
       "domino": ""
     },
+    "mostPlayedGame": "default",
+    "matchCounts": {},
     "achievements": [],
     "allAchievements": [],
     "featuredAchievements": [],
