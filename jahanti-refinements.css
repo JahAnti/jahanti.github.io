@@ -112,3 +112,42 @@
  .games-overview-grid h2,.games-overview-grid h3{overflow-wrap:anywhere}
 }
 @media(max-width:359px){.games-overview-grid{grid-template-columns:minmax(0,1fr)!important}}
+
+
+/* JahAnti v1.2.2 — unified central leaderboard hero heights.
+   Keep the Domino 1v1 / 2v2 control INSIDE the artwork; its placement must
+   not change the height of that hero when a mode is switched. */
+.rankings-card-grid .rank-card .rank-card-header,
+.rankings-card-grid .rank-card[data-ja-hero="domino"] .rank-card-header{
+  position:relative;
+  box-sizing:border-box;
+  height:165px;
+  min-height:165px;
+  max-height:165px;
+}
+.rankings-card-grid .rank-card[data-ja-hero="domino"] .rank-card-header .mode-selector{
+  position:absolute;
+  right:17px;
+  bottom:14px;
+  z-index:2;
+  margin:0;
+}
+.rankings-card-grid .rank-card[data-ja-hero="domino"] .rank-card-header p{
+  max-width:calc(100% - 112px);
+  margin-bottom:0;
+}
+@media(max-width:600px){
+  .rankings-card-grid .rank-card .rank-card-header,
+  .rankings-card-grid .rank-card[data-ja-hero="domino"] .rank-card-header{
+    height:152px;
+    min-height:152px;
+    max-height:152px;
+  }
+  .rankings-card-grid .rank-card[data-ja-hero="domino"] .rank-card-header .mode-selector{
+    right:15px;
+    bottom:11px;
+  }
+  .rankings-card-grid .rank-card[data-ja-hero="domino"] .rank-card-header p{
+    max-width:calc(100% - 108px);
+  }
+}
