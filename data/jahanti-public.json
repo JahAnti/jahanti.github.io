@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-20T15:12:13.845Z",
+  "generatedAt": "2026-11-20T15:24:28.588Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active public members appear. Rankings include confirmed games and eligible baselines; Last 5 shows only actually played confirmed games. Private opponents are anonymized.",
   "players": [
@@ -84,14 +84,6 @@
           "icon": "🏅",
           "iconUrl": "",
           "earnedAt": "2026-11-14T20:07:42.186Z"
-        },
-        {
-          "id": "ACH-001",
-          "name": "Founding Member",
-          "description": "One of the original JahAnti community members.",
-          "icon": "🏅",
-          "iconUrl": "",
-          "earnedAt": "2026-11-14T18:36:39.794Z"
         }
       ],
       "featuredAchievements": [
@@ -102,14 +94,6 @@
           "icon": "🏅",
           "iconUrl": "",
           "earnedAt": "2026-11-14T20:07:42.186Z"
-        },
-        {
-          "id": "ACH-001",
-          "name": "Founding Member",
-          "description": "One of the original JahAnti community members.",
-          "icon": "🏅",
-          "iconUrl": "",
-          "earnedAt": "2026-11-14T18:36:39.794Z"
         }
       ],
       "mostPlayedGame": "fc",
@@ -138,8 +122,26 @@
       ],
       "socials": {},
       "showInGallery": true,
-      "achievements": [],
-      "featuredAchievements": [],
+      "achievements": [
+        {
+          "id": "ACH-001",
+          "name": "Founding Member",
+          "description": "One of the original JahAnti community members.",
+          "icon": "🏅",
+          "iconUrl": "",
+          "earnedAt": "2026-11-20T15:19:03.895Z"
+        }
+      ],
+      "featuredAchievements": [
+        {
+          "id": "ACH-001",
+          "name": "Founding Member",
+          "description": "One of the original JahAnti community members.",
+          "icon": "🏅",
+          "iconUrl": "",
+          "earnedAt": "2026-11-20T15:19:03.895Z"
+        }
+      ],
       "mostPlayedGame": "fc",
       "matchCounts": {
         "fc": 1
