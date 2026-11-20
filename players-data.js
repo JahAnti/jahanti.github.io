@@ -95,14 +95,6 @@ window.JAHANTI_PLAYERS = [
         "icon": "🏅",
         "iconUrl": "",
         "earnedAt": "2026-11-14T20:07:42.186Z"
-      },
-      {
-        "id": "ACH-001",
-        "name": "Founding Member",
-        "description": "One of the original JahAnti community members.",
-        "icon": "🏅",
-        "iconUrl": "",
-        "earnedAt": "2026-11-14T18:36:39.794Z"
       }
     ],
     "allAchievements": [
@@ -113,14 +105,6 @@ window.JAHANTI_PLAYERS = [
         "icon": "🏅",
         "iconUrl": "",
         "earnedAt": "2026-11-14T20:07:42.186Z"
-      },
-      {
-        "id": "ACH-001",
-        "name": "Founding Member",
-        "description": "One of the original JahAnti community members.",
-        "icon": "🏅",
-        "iconUrl": "",
-        "earnedAt": "2026-11-14T18:36:39.794Z"
       }
     ],
     "featuredAchievements": [
@@ -131,14 +115,6 @@ window.JAHANTI_PLAYERS = [
         "icon": "🏅",
         "iconUrl": "",
         "earnedAt": "2026-11-14T20:07:42.186Z"
-      },
-      {
-        "id": "ACH-001",
-        "name": "Founding Member",
-        "description": "One of the original JahAnti community members.",
-        "icon": "🏅",
-        "iconUrl": "",
-        "earnedAt": "2026-11-14T18:36:39.794Z"
       }
     ],
     "showInGallery": true
@@ -165,9 +141,36 @@ window.JAHANTI_PLAYERS = [
     "matchCounts": {
       "fc": 1
     },
-    "achievements": [],
-    "allAchievements": [],
-    "featuredAchievements": [],
+    "achievements": [
+      {
+        "id": "ACH-001",
+        "name": "Founding Member",
+        "description": "One of the original JahAnti community members.",
+        "icon": "🏅",
+        "iconUrl": "",
+        "earnedAt": "2026-11-20T15:19:03.895Z"
+      }
+    ],
+    "allAchievements": [
+      {
+        "id": "ACH-001",
+        "name": "Founding Member",
+        "description": "One of the original JahAnti community members.",
+        "icon": "🏅",
+        "iconUrl": "",
+        "earnedAt": "2026-11-20T15:19:03.895Z"
+      }
+    ],
+    "featuredAchievements": [
+      {
+        "id": "ACH-001",
+        "name": "Founding Member",
+        "description": "One of the original JahAnti community members.",
+        "icon": "🏅",
+        "iconUrl": "",
+        "earnedAt": "2026-11-20T15:19:03.895Z"
+      }
+    ],
     "showInGallery": true
   },
   {
