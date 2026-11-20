@@ -2,7 +2,7 @@
 window.JAHANTI_PLAYERS = [
   {
     "id": "P001",
-    "slug": "p001",
+    "slug": "jahanti-tester-1",
     "name": "JahAnti Tester 1",
     "avatar": "JA",
     "avatarUrl": "assets/players/p001.webp",
@@ -60,7 +60,7 @@ window.JAHANTI_PLAYERS = [
   },
   {
     "id": "P002",
-    "slug": "p002",
+    "slug": "jahanti-tester-2",
     "name": "JahAnti Tester 2",
     "avatar": "JA",
     "avatarUrl": "assets/players/p002.webp",
@@ -145,7 +145,7 @@ window.JAHANTI_PLAYERS = [
   },
   {
     "id": "P003",
-    "slug": "p003",
+    "slug": "jahanti-tester-3",
     "name": "JahAnti Tester 3",
     "avatar": "JA",
     "avatarUrl": "assets/players/p003.webp",
@@ -172,7 +172,7 @@ window.JAHANTI_PLAYERS = [
   },
   {
     "id": "P004",
-    "slug": "p004",
+    "slug": "jahanti-tester-4",
     "name": "JahAnti Tester 4",
     "avatar": "JA",
     "avatarUrl": "assets/players/p004.webp",
@@ -195,7 +195,7 @@ window.JAHANTI_PLAYERS = [
   },
   {
     "id": "P005",
-    "slug": "p005",
+    "slug": "jahanti-tester-5",
     "name": "JahAnti Tester 5",
     "avatar": "JA",
     "avatarUrl": "assets/players/p005.webp",
@@ -222,7 +222,7 @@ window.JAHANTI_PLAYERS = [
   },
   {
     "id": "P006",
-    "slug": "p006",
+    "slug": "jahanti-tester-6",
     "name": "JahAnti Tester 6",
     "avatar": "JA",
     "avatarUrl": "assets/players/p006.webp",
@@ -245,7 +245,7 @@ window.JAHANTI_PLAYERS = [
   },
   {
     "id": "P007",
-    "slug": "p007",
+    "slug": "jahanti-tester-7",
     "name": "JahAnti Tester 7",
     "avatar": "JA",
     "avatarUrl": "assets/players/p007.webp",
@@ -268,7 +268,7 @@ window.JAHANTI_PLAYERS = [
   },
   {
     "id": "P008",
-    "slug": "p008",
+    "slug": "jahanti-tester-8",
     "name": "JahAnti Tester 8",
     "avatar": "JA",
     "avatarUrl": "assets/players/p008.webp",
@@ -291,7 +291,7 @@ window.JAHANTI_PLAYERS = [
   },
   {
     "id": "P009",
-    "slug": "p009",
+    "slug": "jahanti-tester-9",
     "name": "JahAnti Tester 9",
     "avatar": "JA",
     "avatarUrl": "assets/players/p009.webp",
@@ -318,7 +318,7 @@ window.JAHANTI_PLAYERS = [
   },
   {
     "id": "P010",
-    "slug": "p010",
+    "slug": "jahanti-tester-10",
     "name": "JahAnti Tester 10",
     "avatar": "JA",
     "avatarUrl": "assets/players/p010.webp",
