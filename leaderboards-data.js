@@ -40,7 +40,7 @@ window.JAHANTI_LEADERBOARDS = {
       "lastFive": [
         {
           "result": "W",
-          "opponent": "JahAnti Tester 3",
+          "opponent": "BroerJah",
           "score": "4–3",
           "date": "2026-11-23"
         },
@@ -55,7 +55,7 @@ window.JAHANTI_LEADERBOARDS = {
     },
     {
       "playerId": "P003",
-      "name": "JahAnti Tester 3",
+      "name": "BroerJah",
       "rank": 3,
       "wins": 0,
       "losses": 1,
@@ -80,7 +80,7 @@ window.JAHANTI_LEADERBOARDS = {
   "fortnite": [
     {
       "playerId": "P002",
-      "name": "JahAnti Tester 2",
+      "name": "RoyalRegi007",
       "rank": 1,
       "wins": 1,
       "losses": 0,
@@ -126,14 +126,14 @@ window.JAHANTI_LEADERBOARDS = {
       "lastFive": [
         {
           "result": "W",
-          "opponent": "JahAnti Tester 2",
+          "opponent": "RoyalRegi007",
           "date": "2026-11-13"
         }
       ]
     },
     {
       "playerId": "P002",
-      "name": "JahAnti Tester 2",
+      "name": "RoyalRegi007",
       "rank": 2,
       "wins": 0,
       "losses": 1,
