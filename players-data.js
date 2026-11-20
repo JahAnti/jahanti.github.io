@@ -69,17 +69,17 @@ window.JAHANTI_PLAYERS = [
       "fc",
       "domino"
     ],
-    "bio": "JahAnti Member",
+    "bio": "RoyalRegi007",
     "socials": {
       "instagram": "https://www.instagram.com/the.cat.007/",
       "tiktok": "https://www.tiktok.com/@royalcat007"
     },
     "handles": {
-      "fortnite": "RoyalRegi007",
+      "fortnite": "RoyalCat007",
       "cod": "",
       "redsec": "",
-      "fc": "RoyalRegi007",
-      "domino": "RoyalRegi"
+      "fc": "RoyalCat007",
+      "domino": "RoyalCat007"
     },
     "mostPlayedGame": "fc",
     "matchCounts": {
@@ -152,7 +152,7 @@ window.JAHANTI_PLAYERS = [
     "games": [
       "fc"
     ],
-    "bio": "",
+    "bio": "BroerJah",
     "socials": {},
     "handles": {
       "fortnite": "",
