@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-20T14:35:35.093Z",
+  "generatedAt": "2026-11-20T15:06:31.426Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active public members appear. Rankings include confirmed games and eligible baselines; Last 5 shows only actually played confirmed games. Private opponents are anonymized.",
   "players": [
@@ -58,13 +58,13 @@
       "name": "JahAnti Tester 2",
       "avatar": "JA",
       "avatarUrl": "assets/players/p002.webp",
-      "bio": "JahAnti Member",
+      "bio": "RoyalRegi007",
       "handles": {
-        "fortnite": "RoyalRegi007",
+        "fortnite": "RoyalCat007",
         "cod": "",
         "redsec": "",
-        "fc": "RoyalRegi007",
-        "domino": "RoyalRegi"
+        "fc": "RoyalCat007",
+        "domino": "RoyalCat007"
       },
       "games": [
         "fortnite",
@@ -125,7 +125,7 @@
       "name": "JahAnti Tester 3",
       "avatar": "JA",
       "avatarUrl": "assets/players/p003.webp",
-      "bio": "",
+      "bio": "BroerJah",
       "handles": {
         "fortnite": "",
         "cod": "",
