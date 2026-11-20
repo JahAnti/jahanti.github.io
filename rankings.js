@@ -80,7 +80,7 @@
   function nameFor(r) {
     const item=el('span','rank-mini-player');item.append(avatarFor(r));
     const p=playerFor(r),text=el('span','name',r.name||'JahAnti Player');
-    if(p?.slug){const a=el('a','');a.href='player.html?p='+encodeURIComponent(p.slug);a.append(text);item.append(a)}
+    if(p?.slug){const a=el('a','');a.href='/players/'+encodeURIComponent(p.slug)+'/';a.append(text);item.append(a)}
     else item.append(text);
     return item;
   }
@@ -96,13 +96,13 @@
   }
   function periodTitle(){return period==='allTime'?'ALL-TIME':period==='monthly'?'MONTHLY':'WEEKLY';}
   function overviewLink(id){
-    const params=new URLSearchParams({game:id});
+    const params=new URLSearchParams();
     if(id==='domino')params.set('mode',dominoCategory==='domino2v2'?'2v2':'1v1');
     if(period!=='allTime'){
       params.set('period',period);
       params.set('anchor',anchor);
     }
-    return 'game.html?'+params.toString();
+    return '/games/'+id+'/'+(params.size?'?'+params.toString():'');
   }
   function renderOverview() {
     const target=document.getElementById('alltime-overview');if(!target)return;
@@ -205,7 +205,7 @@
     const backParams=new URLSearchParams();
     if(period!=='allTime'){backParams.set('period',period);backParams.set('anchor',anchor)}
     if(key==='domino2v2')backParams.set('mode','2v2');
-    const backUrl='./leaderboards.html'+(backParams.size?'?'+backParams.toString():'');
+    const backUrl='/leaderboards/'+(backParams.size?'?'+backParams.toString():'');
     document.querySelector('.arena-back').href=backUrl;
     document.querySelector('.ranking-under a').href=backUrl;
     label.textContent=periodRange();nav.hidden=period==='allTime';
@@ -269,7 +269,9 @@
   }
   function initGame(){
     const params=new URLSearchParams(location.search);
-    const id=Object.prototype.hasOwnProperty.call(CONFIG,params.get('game'))?params.get('game'):'fortnite';
+    const pathGame=location.pathname.match(/^\/games\/([a-z0-9-]+)\/?$/i)?.[1];
+    const requested=pathGame||params.get('game');
+    const id=Object.prototype.hasOwnProperty.call(CONFIG,requested)?requested:'fortnite';
     const g=CONFIG[id];category=g.category;
     if(id==='fc'&&params.get('mode')==='friendlies')category='fifaFriendlies';
     if(id==='domino'&&params.get('mode')==='2v2')category='domino2v2';

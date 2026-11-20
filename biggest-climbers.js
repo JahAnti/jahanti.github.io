@@ -3,7 +3,7 @@
   'use strict';
   const root=document.getElementById('jahanti-climbers');
   if(!root)return;
-  const params=new URLSearchParams(location.search),game=params.get('game');
+  const params=new URLSearchParams(location.search),game=location.pathname.match(/^\/games\/([a-z0-9-]+)\/?$/i)?.[1]||params.get('game');
   const gameKey=['fc','domino','fortnite','cod','redsec','shooters'].includes(game)?game:null;
   if(!gameKey)return;
   const select=document.getElementById('ja-climbers-week'),list=document.getElementById('ja-climbers-list');

@@ -16,7 +16,7 @@
   }
   function tag(k){const t=el('span','player-game-tag');t.append(gameIcon(k),document.createTextNode(' '+(names[k]||k)));return t}
   function card(p){
-    const link=el('a','player-card');link.href='player.html?p='+encodeURIComponent(p.slug);link.setAttribute('aria-label','View '+p.name+' profile');
+    const link=el('a','player-card');link.href='/players/'+encodeURIComponent(p.slug)+'/';link.setAttribute('aria-label','View '+p.name+' profile');
     const banner=el('div','player-card-banner');banner.dataset.hero=window.JA_HERO_GAME?.(p)||p.mostPlayedGame||'default';banner.append(avatar(p,'player-avatar'));
     const content=el('div','player-card-content');content.append(el('h3','',p.name));
     const tags=el('div','player-game-tags');(p.games||[]).forEach(k=>tags.append(tag(k)));content.append(tags);
@@ -53,7 +53,10 @@
   }
   const profile=document.getElementById('player-profile');
   if(!profile)return;
-  const slug=new URLSearchParams(location.search).get('p'),p=players.find(x=>x.slug===slug);
+  const legacy=new URLSearchParams(location.search).get('p');
+  const fromPath=location.pathname.match(/^\/players\/([^/]+)\/?$/i);
+  const slug=fromPath?decodeURIComponent(fromPath[1]):legacy;
+  const p=players.find(x=>x.slug===slug||String(x.id||'').toLowerCase()===String(slug||'').toLowerCase());
   if(!p){profile.append(el('h1','','Player not found'),el('p','','Explore JahAnti Community to find an active public player profile.'));return}
   document.title=p.name+' — JahAnti';
   const header=el('div','profile-header');header.dataset.hero=window.JA_HERO_GAME?.(p)||p.mostPlayedGame||'default';header.append(avatar(p,'profile-avatar'));const details=el('div','profile-identity');details.append(el('h1','',p.name));header.append(details);profile.append(header);
@@ -96,7 +99,7 @@
   Promise.resolve(window.JAHANTI_PUBLIC_DATA).then(data=>{
     stats.replaceChildren();let found=0;
     for(const [key,label,route] of cats){const r=(data?.leaderboards?.allTime?.[key]||[]).find(x=>x.playerId===p.id);if(!r)continue;found++;
-      const link=el('a','profile-stat-link');link.href='game.html?game='+route;const art=el('div','stat-mini-hero');art.dataset.hero=route.split('&')[0];art.append(el('strong','',label));
+      const link=el('a','profile-stat-link');link.href='/games/'+route.split('&')[0]+'/'+(route.includes('&')?'?'+route.split('&').slice(1).join('&'):'');const art=el('div','stat-mini-hero');art.dataset.hero=route.split('&')[0];art.append(el('strong','',label));
       const metric=key.startsWith('domino')?`${r.wins||0} wins · ${r.losses||0} losses`:key.startsWith('fifa')?`${r.wins||0} wins · ${r.goalDifference||0} goal difference`:`${r.wins||0} wins · ${r.kills||0} kills · ${r.assists||0} assists`;
       const body=el('div','stat-mini-body');body.append(el('span','',metric),el('span','stat-link-arrow','↗'));link.append(art,body);stats.append(link);
     }if(!found)stats.append(el('p','directory-empty','No published results yet.'));

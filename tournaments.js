@@ -212,7 +212,7 @@ function openArchive(completed){const dialog=$('ja-t-archive-dialog'),select=$('
  completed.forEach(t=>{const opt=h('option','',t.name+' · '+titleDate(t.startDate));opt.value=t.id;select.append(opt);});
  const show=()=>{empty(detail);const t=completed.find(t=>t.id===select.value)||completed[0];detail.append(featured(t));};
  select.onchange=show;show();if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');}
-async function init(){if(new URLSearchParams(location.search).get('game')!=='fc')return;
+async function init(){if((location.pathname.match(/^\/games\/([a-z0-9-]+)\/?$/i)?.[1]||new URLSearchParams(location.search).get('game'))!=='fc')return;
  const section=$('fc-tournaments');if(!section)return;section.hidden=false;
  let data={};try{data=await (window.JAHANTI_PUBLIC_READY||Promise.resolve({tournaments:[]}));}catch(e){data={tournaments:[]};}
  const tournaments=Array.isArray(data?.tournaments)?data.tournaments:[],active=tournaments.filter(t=>t.status==='In Progress'),completed=tournaments.filter(t=>t.status==='Completed').sort((a,b)=>(b.startDate||'').localeCompare(a.startDate||'')),upcoming=tournaments.filter(t=>t.status==='Upcoming').sort((a,b)=>(a.startDate||'').localeCompare(b.startDate||''));
