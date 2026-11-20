@@ -61,15 +61,15 @@ window.JAHANTI_PLAYERS = [
   {
     "id": "P002",
     "slug": "jahanti-tester-2",
-    "name": "JahAnti Tester 2",
-    "avatar": "JA",
+    "name": "RoyalRegi007",
+    "avatar": "RO",
     "avatarUrl": "assets/players/p002.webp",
     "games": [
       "fortnite",
       "fc",
       "domino"
     ],
-    "bio": "RoyalRegi007",
+    "bio": "I am a proud JahAnti Member",
     "socials": {
       "instagram": "https://www.instagram.com/the.cat.007/",
       "tiktok": "https://www.tiktok.com/@royalcat007"
@@ -146,13 +146,13 @@ window.JAHANTI_PLAYERS = [
   {
     "id": "P003",
     "slug": "jahanti-tester-3",
-    "name": "JahAnti Tester 3",
-    "avatar": "JA",
+    "name": "BroerJah",
+    "avatar": "BR",
     "avatarUrl": "assets/players/p003.webp",
     "games": [
       "fc"
     ],
-    "bio": "BroerJah",
+    "bio": "I am a proud JahAnti Member",
     "socials": {},
     "handles": {
       "fortnite": "",
