@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-20T15:24:28.588Z",
+  "generatedAt": "2026-11-22T23:09:04.669Z",
   "timezone": "Europe/Amsterdam",
   "note": "Only Active public members appear. Rankings include confirmed games and eligible baselines; Last 5 shows only actually played confirmed games. Private opponents are anonymized.",
   "players": [
@@ -928,16 +928,6 @@
         ],
         "fifaOfficial": []
       },
-      "2026-11-16": {
-        "fortnite": [],
-        "cod": [],
-        "redsec": [],
-        "combinedShooters": [],
-        "domino1v1": [],
-        "domino2v2": [],
-        "fifaFriendlies": [],
-        "fifaOfficial": []
-      },
       "2026-11-23": {
         "fortnite": [],
         "cod": [],
@@ -1024,10 +1014,10 @@
     }
   },
   "biggestClimbers": {
-    "currentWeek": "2026-11-16",
+    "currentWeek": "2026-11-23",
     "availableWeeks": [
       "2026-11-09",
-      "2026-11-16"
+      "2026-11-23"
     ],
     "byWeek": {
       "2026-11-09": {
@@ -1114,9 +1104,37 @@
           }
         ]
       },
-      "2026-11-16": {
+      "2026-11-23": {
         "domino": [],
-        "fc": [],
+        "fc": [
+          {
+            "playerId": "P003",
+            "name": "BroerJah",
+            "category": "fifaOfficial",
+            "from": null,
+            "to": 3,
+            "change": null,
+            "newPlayer": true
+          },
+          {
+            "playerId": "P005",
+            "name": "JahAnti Tester 5",
+            "category": "fifaOfficial",
+            "from": null,
+            "to": 1,
+            "change": null,
+            "newPlayer": true
+          },
+          {
+            "playerId": "P009",
+            "name": "JahAnti Tester 9",
+            "category": "fifaOfficial",
+            "from": null,
+            "to": 2,
+            "change": null,
+            "newPlayer": true
+          }
+        ],
         "fortnite": [],
         "cod": [],
         "redsec": [],
